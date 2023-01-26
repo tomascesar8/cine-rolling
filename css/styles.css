@@ -1,0 +1,82 @@
+:root{
+    --color-blue: #2b75a0;
+    --color-greyBlue: #364852;
+    --color-lightBlue: #5EBBF0;
+    --color-verde-aguila: #1f929a;
+    --color-azul-cuevana: #141F4A;
+
+
+
+
+    /* --color-granate: #212738; */
+    /* no es granate sino cadete del espacio */
+    /* --color-verde-aguila: #0F5257;
+    --color-lavanda: #6D6875;
+    --color-gris-topo: #7A7682;
+    --color-gris-claro: #C8D0CD;
+    --color-gainsboro: #DCE2E5;
+    --color-siena-oscuro: #2c0f14;
+    --color-rojo-toscano: gold;
+    --color-malva-topo: #926269;
+    --color-siena-oscuro2: #21090d;
+    --color-footer: #1B1B1E; */
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    
+}
+
+#container-landing{
+    background-image: url(./../assets/img/fondo-login.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: right;
+}
+
+#titulo-landing{
+    margin-top: 15vh;
+    margin-left: 5vw;
+    
+}
+#input-search{
+    height: 35px !important;
+}
+.register-button{
+    background-color: rgb(141, 8, 8);
+}
+
+.register-button-navbar{
+    color: #364852 !important;
+    font-weight: bold;
+}
+.register-button-navbar:hover{
+    background-color: #6C757D;
+    color: white !important;
+}
+
+
+
+.landing-ingreso-btn{
+    background-color: var(--color-lightBlue);
+    /* color: #364852 !important; */
+}
+.login-nav-button:hover{
+    color: orange !important;
+}
+
+@media screen and (min-width: 768px) {
+    #titulo-landing{
+        /* background-color: rgba(0, 0, 0, .1) !important; */
+        margin-top: 17vh;
+        margin-left: 28vw;
+    }
+}
+
+@media screen and (max-width: 364px) {
+    .navbar-element{
+        font-size: 13.5px;
+    }
+}
+animate__backInDown
