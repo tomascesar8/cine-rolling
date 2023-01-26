@@ -1,16 +1,16 @@
-:root{
-    --color-blue: #2b75a0;
-    --color-greyBlue: #364852;
-    --color-lightBlue: #5EBBF0;
-    --color-verde-aguila: #1f929a;
-    --color-azul-cuevana: #141F4A;
+:root {
+  --color-blue: #2b75a0;
+  --color-greyBlue: #364852;
+  --color-lightBlue: #5ebbf0;
+  --color-verde-aguila: #1f929a;
+  --color-azul-cuevana: #141f4a;
+  --color-siena-transparent: #5f01115b;
+  /* --color-siena-oscuro: #19079b; */
 
 
-
-
-    /* --color-granate: #212738; */
-    /* no es granate sino cadete del espacio */
-    /* --color-verde-aguila: #0F5257;
+  /* --color-granate: #212738; */
+  /* no es granate sino cadete del espacio */
+  /* --color-verde-aguila: #0F5257;
     --color-lavanda: #6D6875;
     --color-gris-topo: #7A7682;
     --color-gris-claro: #C8D0CD;
@@ -22,61 +22,201 @@
     --color-footer: #1B1B1E; */
 }
 
-body{
-    margin: 0;
-    padding: 0;
-    
+body {
+  margin: 0;
+  padding: 0;
 }
 
-#container-landing{
-    background-image: url(./../assets/img/fondo-login.jpg);
-    height: 100vh;
-    background-size: cover;
-    background-position: right;
+#container-landing, #recuperarPass, #exampleModalToggle2 {
+  background-image: url(./../assets/img/fondo-login.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: right;
 }
 
-#titulo-landing{
-    margin-top: 15vh;
-    margin-left: 5vw;
-    
+#titulo-landing {
+  margin-top: 15vh;
+  margin-left: 5vw;
 }
-#input-search{
-    height: 35px !important;
+#input-search {
+  height: 35px !important;
 }
-.register-button{
-    background-color: rgb(141, 8, 8);
-}
-
-.register-button-navbar{
-    color: #364852 !important;
-    font-weight: bold;
-}
-.register-button-navbar:hover{
-    background-color: #6C757D;
-    color: white !important;
+.register-button {
+  background-color: rgb(141, 8, 8);
 }
 
-
-
-.landing-ingreso-btn{
-    background-color: var(--color-lightBlue);
-    /* color: #364852 !important; */
+.register-button-navbar {
+  color: #364852 !important;
+  font-weight: bold;
 }
-.login-nav-button:hover{
-    color: orange !important;
+.register-button-navbar:hover {
+  background-color: #6c757d;
+  color: white !important;
+}
+
+.landing-ingreso-btn {
+  background-color: var(--color-lightBlue);
+  /* color: #364852 !important; */
+}
+.login-nav-button:hover {
+  color: #9ba1a7 !important;
 }
 
 @media screen and (min-width: 768px) {
-    #titulo-landing{
-        /* background-color: rgba(0, 0, 0, .1) !important; */
-        margin-top: 17vh;
-        margin-left: 28vw;
-    }
+  #titulo-landing {
+    /* background-color: rgba(0, 0, 0, .1) !important; */
+    margin-top: 17vh;
+    margin-left: 28vw;
+  }
 }
 
 @media screen and (max-width: 364px) {
-    .navbar-element{
-        font-size: 13.5px;
-    }
+  .navbar-element, #container-landing, .input-group-text, .register-inputs {
+    font-size: 13.5px;
+  }
 }
-animate__backInDown
+
+/** Efecto modal de registro */
+.bounce-in-top {
+  -webkit-animation: bounce-in-top 1.1s both;
+  animation: bounce-in-top 1.1s both;
+}
+
+@-webkit-keyframes bounce-in-top {
+  0% {
+    -webkit-transform: translateY(-500px);
+    transform: translateY(-500px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    -webkit-transform: translateY(-65px);
+    transform: translateY(-65px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  72% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  81% {
+    -webkit-transform: translateY(-28px);
+    transform: translateY(-28px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  90% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  95% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes bounce-in-top {
+  0% {
+    -webkit-transform: translateY(-500px);
+    transform: translateY(-500px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    -webkit-transform: translateY(-65px);
+    transform: translateY(-65px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  72% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  81% {
+    -webkit-transform: translateY(-28px);
+    transform: translateY(-28px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  90% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  95% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+/** Fin efecto modal de registro */
+
+
+.background-modal {
+  margin: 0;
+  padding: 0;
+  background-image: url(./../assets/img/fondo-registro.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+}
+
+.offcanvas{
+  margin: 0;
+  padding: 0;
+  background-image: url(./../assets/img/login-modal.png);
+  height: 100vh;
+  background-size: cover;
+  background-position:top;
+  background-repeat: no-repeat; 
+}
+
+
+
+.modal-recuperar-pass{
+  background-color: var(--color-siena-transparent);
+}
+
+.modal-register-content{
+  background-color: var(--color-siena-transparent);
+  color: antiquewhite;
+}
