@@ -18,78 +18,20 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-dark fixed-top">
-        <div class="container ms-lg-0 ps-lg-5 ps-sm-0">
-          <a class="navbar-element navbar-brand fw-bold ms-xl-5" href="#"
-            >CineRolling+</a
-          >
-          <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-          <div class="buttons-landing-nav">
-            <button
-              class="navbar-element register-button-navbar fw-bold btn btn-warning border border-0"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop"
-            >
-              Registro
-            </button>
-            <button
-              class="login-nav-button navbar-element btn text-white border border-0"
-              type="button"
-              data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
-            >
-              <!-- data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" -->
-              Iniciar sesion
-            </button>
-          </div>
-        </div>
-      </nav>
+    <header id="header-landing">
     </header>
     <main>
-      <div class="container-fluid text-light" id="container-landing">
-        <div class="row">
-          <div class="col col-md-6" id="titulo-landing">
-            <h1 class="animate__animated animate__fadeInDown">
-              HISTORIAS ÚNICAS. <br />
-              ESTRELLAS ICÓNICAS. <br />
-              UNA MONTAÑA DE <br />
-              <span class="text-warning"> ENTRETENIMIENTO.</span>
-            </h1>
-            <h3>Películas y series ilimitadas</h3>
-            <!-- <p>CineRolling es un sitio web que ofrece películas y series de televisión en línea de forma gratuita. Puedes acceder al contenido desde cualquier dispositivo con conexión a internet, como una computadora, un celular o una tableta. El sitio tiene una interfaz fácil de usar y una amplia variedad de contenido disponible, incluyendo películas y series subtituladas en diferentes idiomas.</p> -->
-            <p class="me-5 col col-sm-8 col-md-10">
-              No pierdas más tiempo buscando por internet o esperando a que se
-              transmitan tus series y películas favoritas en la televisión.
-              ¡Disfruta de ellas en CineRolling y aprovecha al máximo tu tiempo
-              libre!
-            </p>
-            <div class="buttons-landing-main col-10">
-              <button
-                class="register-button btn btn-secondary mb-2 animate__animated animate__rubberBand"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
-              >
-                <h6 class="d-flex">SUSCRÍBETE A CINEROLLING+</h6>
-              </button>
-              <button
-                class="landing-ingreso-btn btn btn-secondary text-light mb-2"
-                data-bs-toggle="offcanvas" 
-                data-bs-target="#offcanvasDarkNavbar" 
-                aria-controls="offcanvasDarkNavbar"
-              >
-                <h6>YA TENGO CINEROLLING+</h6>
-              </button>
-            </div>
-          </div>
+      
+    </main>
+    <footer>
+      <div class="footer-landing sticky-bottom bg-dark opacity-75">
+        <div class="container-fluid">
+          <a class="navbar-brand text-light" href="#">Sticky bottom</a>
+          <br><br>
         </div>
       </div>
-      <!-- <div class="bg-dark" height="500px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim aspernatur doloribus, <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><<br><br><br><br><br><br>br><br><br><br><br><br><br><br><br> quia, quam ullam quae ratione a obcaecati fugiat modi dolor quo deleniti accusamus unde ducimus quis quasi et nemo.</div> -->
-    </main>
-    <footer></footer>
+
+    </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
@@ -109,212 +51,193 @@
   aria-labelledby="staticBackdropLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog modal-dialog-scrollable">
-    <div class="modal-content modal-register-content">
-      <div class="modal-header d-flex justify-content-beetwen">
-        <div></div>
-        <div>
-          <h5 class="modal-title" id="staticBackdropLabel">Crear Cuenta</h5>
-        </div>
-        <div>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
+<div class="modal-dialog modal-dialog-scrollable">
+  <div class="modal-content modal-register-content">
+    <div class="modal-header d-flex justify-content-beetwen">
+      <div></div>
+      <div>
+        <h5 class="modal-title" id="staticBackdropLabel">Crear Cuenta</h5>
       </div>
-      <div class="modal-body">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col">
-              <form class=" ">
-                <div class="input-group mb-3">
-                  <label class="input-group-text" for="name">
-                    <span id="basic-addon1">Nombre</span>
-                  </label>
-                  <input
-                    type="text"
-                    class="form-control register-inputs"
-                    id="name"
-                    placeholder="Nombre"
-                    aria-label="Nombre"
-                    minlength="3"
-                    maxlength="25"
-                    aria-describedby="basic-addon1"
-                    required
-                  />
-                </div>
-
-                <div class="input-group mb-3">
-                  <label class="input-group-text" for="tel">
-                    <span id="basic-addon2">Teléfono</span>
-                  </label>
-                  <input
-                    type="tel"
-                    class="form-control register-inputs"
-                    id="tel"
-                    placeholder="(012)345-6789"
-                    aria-label="(012)345-6789"
-                    minlength="10"
-                    maxlength="12"
-                    title="Máximo de 12 caracteres (1-9, espaciado y paréntesis)."
-                    pattern="[0-9 ()-]{10,12}"
-                    aria-describedby="basic-addon2"
-                    required
-                  />
-                </div>
-
-                <div class="input-group mb-3">
-                  <label class="input-group-text" for="email">
-                    <span id="basic-addon3">Email</span>
-                  </label>
-                  <input
-                    type="email"
-                    class="form-control register-inputs"
-                    id="email"
-                    placeholder="nombre@ejemplo.com"
-                    aria-label="nombre@ejemplo.com"
-                    aria-describedby="basic-addon3"
-                    required
-                  />
-                </div>
-                <select
-                  id="city"
-                  class="form-select form-select-lg mb-3 input-group-text"
-                  aria-label="form-select-lg example"
+      <div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <form  onsubmit="register()" class="">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="name">
+                  <span id="basic-addon1">Nombre</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control register-inputs"
+                  id="register-name"
+                  placeholder="Nombre y apellido"
+                  aria-label="register-name"
+                  minlength="3"
+                  maxlength="25"
+                  aria-describedby="basic-addon1"
                   required
+                />
+              </div>
+
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="email">
+                  <span id="basic-addon2">Email</span>
+                </label>
+                <input
+                  type="email"
+                  class="form-control register-inputs"
+                  id="register-email"
+                  placeholder="nombre@ejemplo.com"
+                  aria-label="register-email"
+                  aria-describedby="basic-addon2"
+                  required
+                />
+              </div>
+
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="tel">
+                  <span id="basic-addon3">Teléfono</span>
+                </label>
+                <input
+                  type="tel"
+                  class="form-control register-inputs"
+                  id="register-phone"
+                  placeholder="(012)345-6789"
+                  aria-label="register-phone"
+                  minlength="10"
+                  maxlength="12"
+                  title="Máximo de 12 caracteres (1-9, espaciado y paréntesis)."
+                  pattern="[0-9 ()-]{10,12}"
+                  aria-describedby="basic-addon3"
+                  required
+                />
+              </div>
+
+              <select
+                id="register-gender"
+                class="form-select form-select-lg mb-3 input-group-text"
+                aria-label="register-gender form-select-lg example"
+                required
+              >
+                <option selected disabled value="">
+                  Género
+                </option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otro">Otro</option>
+              </select>
+
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="basic-addon5">
+                  <span id="basic-addon5">Contraseña</span>
+                </label>
+                <input
+                  type="password"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  title="Mínimo 8 caracteres (al menos un número, una mayúscula y minúscula)."
+                  placeholder="********"
+                  class="form-control register-inputs"
+                  id="register-pass"
+                  aria-describedby="basic-addon5"
+                  required
+                />
+              </div>
+
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="basic-addon6">
+                  <span id="basic-addon6">Repetir contraseña</span>
+                </label>
+                <input
+                  type="password"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  title="Mínimo 8 caracteres (al menos un número, una mayúscula y minúscula)."
+                  placeholder="********"
+                  class="form-control register-inputs"
+                  id="pass-repeat"
+                  aria-describedby="basic-addon6"
+                  required
+                />
+              </div>
+
+              <div id="basic-addon7" class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                  required
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Acepto recibir notificaciones por email.
+                </label>
+              </div>
+              <br />
+              <div class="d-flex justify-content-center">
+                <button class="btn btn-success me-1" type="submit">
+                  Suscribirme
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary ms-1"
+                  data-bs-dismiss="modal"
                 >
-                  <option selected disabled value="">
-                    Ciudad de residencia
-                  </option>
-                  <option value="Buenos Aires">Buenos Aires</option>
-                  <option value="Catamarca">Catamarca</option>
-                  <option value="Chaco">Chaco</option>
-                  <option value="Chubut">Chubut</option>
-                  <option value="Cordoba">Cordoba</option>
-                  <option value="Corrientes">Corrientes</option>
-                  <option value="Entre Rios">Entre Rios</option>
-                  <option value="Formosa">Formosa</option>
-                  <option value="Jujuy">Jujuy</option>
-                  <option value="La Pampa">La Pampa</option>
-                  <option value="La Rioja">La Rioja</option>
-                  <option value="Mendoza">Mendoza</option>
-                  <option value="Misiones">Misiones</option>
-                  <option value="Neuquen">Neuquen</option>
-                  <option value="Rio Negro">Rio Negro</option>
-                  <option value="Salta">Salta</option>
-                  <option value="San Juan">San Juan</option>
-                  <option value="San Luis">San Luis</option>
-                  <option value="Santa Cruz">Santa Cruz</option>
-                  <option value="Santa Fe">Santa Fe</option>
-                  <option value="Sgo. del Estero">Sgo. del Estero</option>
-                  <option value="Tierra del Fuego">Tierra del Fuego</option>
-                  <option value="Tucuman">Tucuman</option>
-                </select>
-
-                <div class="input-group mb-3">
-                  <label class="input-group-text" for="basic-addon5">
-                    <span id="basic-addon5">Contraseña</span>
-                  </label>
-                  <input
-                    type="password"
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                    title="Mínimo 8 caracteres (al menos un número, una mayúscula y minúscula)."
-                    placeholder="********"
-                    class="form-control register-inputs"
-                    id="pass"
-                    aria-describedby="basic-addon5"
-                    required
-                  />
-                </div>
-
-                <div class="input-group mb-3">
-                  <label class="input-group-text" for="basic-addon6">
-                    <span id="basic-addon6">Repetir contraseña</span>
-                  </label>
-                  <input
-                    type="password"
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                    title="Mínimo 8 caracteres (al menos un número, una mayúscula y minúscula)."
-                    placeholder="********"
-                    class="form-control register-inputs"
-                    id="pass-repeat"
-                    aria-describedby="basic-addon6"
-                    required
-                  />
-                </div>
-
-                <div id="basic-addon7" class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                    required
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Acepto recibir notificaciones por email.
-                  </label>
-                </div>
-                <br />
-                <div class="d-flex justify-content-center">
-                  <button class="btn btn-success me-1" type="submit">
-                    Suscribirme
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-secondary ms-1"
-                    data-bs-dismiss="modal"
-                  >
-                    Cancelar
-                  </button>
-                </div>
-              </form>
-            </div>
+                  Cancelar
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+</div>
 <!-- Fin modal registro -->
 
 <!-- Modal Login -->
-<div class="offcanvas offcanvas-end  collapse navbar-collapse" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+<div class="offcanvas-login offcanvas offcanvas-end  collapse navbar-collapse" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title text-light text-start" id="offcanvasDarkNavbarLabel">Iniciar sesion</h5>
     <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <form>
+    <form onsubmit="loginCheck(event)">
       <div class="form-floating mb-3">
-        <input 
-              type="email" 
-              class="form-control" 
-              id="floatingInput" 
-              placeholder="name@example.com" 
+        <input
+              type="email"
+              class="form-control"
+              id="login-email"
+              placeholder="name@example.com"
               required>
-        <label for="floatingInput">Dirección de email</label>
+        <label for="login-email">Dirección de email</label>
       </div>
       <div class="form-floating">
-        <input 
-              type="password" 
-              class="form-control" 
-              id="floatingPassword" 
+        <input
+              type="password"
+              class="form-control"
+              id="login-pass"
               placeholder="Password"
               required>
-        <label for="floatingPassword">Contraseña</label>
+        <label for="login-pass">Contraseña</label>
       </div>
-      
+      <div id="invalid-data"></div>
       <div class="mt-3 mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="Check1" required>
         <label class="form-check-label text-light" for="Check1">No soy un robot</label>
       </div>
       <div>
-      <button type="submit" class="btn btn-info text-light fw-bold">Ingresar</button>
-      <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#recuperarPass">¿Olvidaste tu Contraseña?</button>             
+      <button type="submit" class="btn btn-info text-light fw-bold me-1">Ingresar</button>
+      <button type="button" class="ask-forget-pass btn btn-link" data-bs-toggle="modal" data-bs-target="#recuperarPass">¿Olvidaste tu Contraseña?</button>
     </div>
     </form>
   </div>
@@ -328,10 +251,6 @@
         <a class="navbar-element navbar-brand fw-bold ms-xl-5" href="#"
           >CineRolling+</a
         >
-        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
         <div class="buttons-landing-nav">
           <button
             class="navbar-element register-button-navbar fw-bold btn btn-warning border border-0"
@@ -346,7 +265,6 @@
             type="button"
             data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
           >
-            <!-- data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" -->
             Iniciar sesion
           </button>
         </div>
@@ -359,22 +277,22 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-light">
-          <div class="ms-2"> 
+          <div class="ms-2">
             Ingresá la dirección de email con la que te registraste y te enviaremos instrucciones para restablecer tu contraseña.
           </div>
           <form action="" class=" mt-3">
           <div class="form-floating">
-            <input 
-                  type="email" 
-                  class="form-control" 
-                  id="floatingInput" 
-                  placeholder="name@example.com" 
+            <input
+                  type="email"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
                   required>
             <label class="text-secondary" for="floatingInput">Dirección de email</label>
           </div>
           </form>
           </div>
-        
+
         <div class="modal-footer">
           <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Enviar correo electrónico</button>
         </div>
@@ -382,18 +300,14 @@
     </div>
   </div>
   <!-- fin 1er recuperar contraseña -->
-  
+
   <!-- 2do Modal Recuperar contraseña -->
   <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
     <nav class="navbar navbar-dark fixed-top">
-      <div class="container ms-lg-0 ps-lg-5 ps-sm-0">
+      <div class="container ms-lg-0 ps-lg-5 ps-sm-0 ">
         <a class="navbar-element navbar-brand fw-bold ms-xl-5" href="#"
           >CineRolling+</a
         >
-        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
         <div class="buttons-landing-nav">
           <button
             class="navbar-element register-button-navbar fw-bold btn btn-warning border border-0"
@@ -408,7 +322,6 @@
             type="button"
             data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
           >
-            <!-- data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" -->
             Iniciar sesion
           </button>
         </div>
@@ -422,7 +335,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
         </div>
-  
+
         <div class="modal-body">
           <div class="rev_modal_text">
             Por favor revisá tu casilla de mensajes. No te olvides de buscar en Spam o Correo no deseado.

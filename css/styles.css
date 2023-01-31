@@ -21,10 +21,25 @@
     --color-siena-oscuro2: #21090d;
     --color-footer: #1B1B1E; */
 }
-
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Poppins', sans-serif; */
+}
 body {
   margin: 0;
   padding: 0;
+}
+main{
+  background-color: #141d32;
+}
+
+.buttons-landing-main{
+  width: 70vw !important;
+  /* display: flex !important;
+  flex-wrap: wrap !important; */
 }
 
 #container-landing, #recuperarPass, #exampleModalToggle2 {
@@ -33,10 +48,22 @@ body {
   background-size: cover;
   background-position: right;
 }
-
+.footer{
+  height: 10%;
+}
 #titulo-landing {
   margin-top: 15vh;
   margin-left: 5vw;
+  font-weight: 600;
+}
+
+#titulo-landing h1 {
+font-weight: 600;
+}
+
+.container-preguntas{
+  background-color: #141d32;
+  padding-bottom: 10% !important;
 }
 #input-search {
   height: 35px !important;
@@ -65,14 +92,39 @@ body {
 @media screen and (min-width: 768px) {
   #titulo-landing {
     /* background-color: rgba(0, 0, 0, .1) !important; */
+    margin-top: 12vh;
+    margin-left: 20vw;
+    width: 50vw !important;
+  }
+}
+@media screen and (min-width: 850px) {
+  #titulo-landing {
+    /* background-color: rgba(0, 0, 0, .1) !important; */
     margin-top: 17vh;
-    margin-left: 28vw;
+    margin-left: 25vw;
+    width: 50vw !important;
+  }
+  .container-preguntas{
+    padding-bottom: 6% !important;
   }
 }
 
-@media screen and (max-width: 364px) {
-  .navbar-element, #container-landing, .input-group-text, .register-inputs {
+@media screen and (max-width: 367px) {
+  .navbar-element, #container-landing, .input-group-text, .register-inputs{
     font-size: 13.5px;
+  }
+  .accordion-button{
+    font-size: 17px !important;
+  }
+  .ask-forget-pass{
+    padding-left: 0;
+    padding-top: 10px;
+  }
+  #container-landing{
+    height: auto;
+  }
+  #titulo-landing {
+    margin-top: 11vh !important;
   }
 }
 
@@ -197,17 +249,17 @@ body {
   height: 100vh;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
 }
 
-.offcanvas{
+.offcanvas-login{
   margin: 0;
   padding: 0;
   background-image: url(./../assets/img/login-modal.png);
   height: 100vh;
   background-size: cover;
   background-position:top;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
 }
 
 
@@ -219,4 +271,47 @@ body {
 .modal-register-content{
   background-color: var(--color-siena-transparent);
   color: antiquewhite;
+}
+
+/* .h3-subtitulo:hover{
+  color: var(--color-azul-cuevana) !important;
+  transform: scale(1.01);
+  transform: translate(.5%,-.5%);
+} */
+
+/* .flip-scale-down-ver{
+  animation:flip-scale-down-ver .5s linear both
+}
+@keyframes flip-scale-down-ver{
+  0%{
+    transform:scale(1)
+    rotateY(0)
+  }50%{
+    transform:scale(.4) rotateY(-90deg)
+  }100%{
+    transform:scale(1) rotateY(-360deg)
+  }
+} */
+.slide-left{
+  line-height: 1!important
+}
+.slide-left:hover {
+	animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both !important;
+}
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(70px);
+  }
+}
+.container-landing-title{
+  line-height: .7;
+}
+.accordion-item{
+  color: white;
+  font-weight: 600;
+  text-align: start;
+
 }
