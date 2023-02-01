@@ -138,7 +138,7 @@ main.innerHTML = `
     </h1>
     </div>
     <h3 class="fs-2 fw-bold text-dark  mt-2 mb-1">Películas y series ilimitadas</h3>
-    <p class="me-5 col col-sm-8 col-md-10 ">
+    <p class="text-landing me-5 col-11 col-sm-8 col-md-10 fs-6">
       No pierdas más tiempo buscando por internet o esperando a que se
       transmitan tus series y películas favoritas en la televisión.
       ¡Disfruta de ellas en CineRolling y aprovecha al máximo tu tiempo
@@ -171,7 +171,8 @@ document.getElementsByTagName('main')[0].appendChild(main);
 let preguntasFrecuentes = document.createElement('div');
 preguntasFrecuentes.classList.add('container-preguntas','container', 'col', 'col-md-7', 'd-flex', 'flex-column', 'text-center', 'justify-content-center', 'pb-5')
 preguntasFrecuentes.innerHTML = `
-<div class="text-white text-center text-sm-start fw-bold fs-1 mt-4 mb-5 mb-lg-4">Preguntas frecuentes
+<div class="preguntas-frecuentes text-white text-center text-sm-start fw-bold fs-1 mt-4 mb-5 mb-lg-4">
+  Preguntas frecuentes
 </div>
 <div class="w-100 d-flex flex-column accordion" id="accordionExample">
   <div class="accordion-item fs-6 bg-secondary bg-secondary">
@@ -219,9 +220,9 @@ document.getElementsByTagName('main')[0].appendChild(preguntasFrecuentes);
 let nav = document.querySelector('.navbar-landing');
 window.addEventListener('scroll', function () {
   if(window.pageYOffset>20){
-    nav.classList.add('bg-dark', 'shadow');
+    nav.classList.add('bg-scroll-nav', 'shadow');
   }else{
-    nav.classList.remove('bg-dark', 'shadow')
+    nav.classList.remove('bg-scroll-nav', 'shadow')
   }
 })
 

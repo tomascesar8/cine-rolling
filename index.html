@@ -15,6 +15,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <link href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
@@ -24,10 +25,33 @@
       
     </main>
     <footer>
-      <div class="footer-landing sticky-bottom bg-dark opacity-75">
+      <div class="footer-landing sticky-bottom">
         <div class="container-fluid">
-          <a class="navbar-brand text-light" href="#">Sticky bottom</a>
-          <br><br>
+          <div class="row">
+            <div class="container-footer-links col-sm-6 col-md-4 order-1 mb-0 mb-sm-2 order-md-2 col-12">
+              <div >
+              <div class="footer-links text-light fs-5 my-2 py-2 my-0">Contacto</div>
+              <div class="footer-links text-light fs-5 my-2 py-2 my-0">Sobre Nosotros</div>
+              <div class="footer-links text-light fs-5 my-2 py-2 my-0">Suport</div>
+            </div>
+            </div>
+            <div class="d-flex justify-content-center align-items-center my-3 col-md-4 order-0 order-md-0 col-12">
+              <a class="fw-bold fs-1 ms-xl-5 container-logo text-start" href="#">CineRolling+</a>
+            </div>
+            
+          
+          <div class="icons-footer col-12 col-sm-6 col-md-4 d-flex justify-content-evenly align-items-center order-2 order-md-1 ">
+            <div class="container-icons-redes d-flex d-flex justify-content-between my-4 my-sm-0">
+              <div class="icons-redes footer-icon-insta text-light"><a class="icons-links-redes" href="#"><i class="fab fa-instagram"></i></a></div>
+              <div class="icons-redes footer-icon-twitter text-light"><a class="icons-links-redes" href="#"><i class="fab fa-twitter"></i></a></div>
+              <div class="icons-redes footer-icon-fb text-light"><a class="icons-links-redes" href="#"><i class="fab fa-facebook"></i></a></div>
+            </div>
+          </div>
+          <div class="container-footer-bottom order-4 text-light text-center col-12 d-flex justify-content-center py-2 mt-2 bg-dark">
+            <small>© 2023 <b>CineRolling</b> - Todos los Derechos Reservados.</small>
+          </div>
+          <!-- <div class="order-4 text-light col-12 d-flex flex-niwrap">© 2023 CineRolling - Todos los Derechos Reservados.</div> -->
+        </div>
         </div>
       </div>
 
@@ -236,7 +260,7 @@
         <label class="form-check-label text-light" for="Check1">No soy un robot</label>
       </div>
       <div>
-      <button type="submit" class="btn btn-info text-light fw-bold me-1">Ingresar</button>
+      <button type="submit" class="btn-login-modal btn  text-dark fw-bold me-1">Ingresar</button>
       <button type="button" class="ask-forget-pass btn btn-link" data-bs-toggle="modal" data-bs-target="#recuperarPass">¿Olvidaste tu Contraseña?</button>
     </div>
     </form>
