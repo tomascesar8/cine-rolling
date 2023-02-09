@@ -1,0 +1,133 @@
+:root {
+    --color-greyBlue: #364852;
+    --color-siena-transparent: #5f01115b;
+    --color-azul-verde: #295a5e;
+    --color-verde-aguila: #1f929a;
+    --color-font-footer-mg: #8FEAFF;
+    --color-lightBlue: #5ebbf0;
+    --color-azul-claro: #21608d;
+    --color-blue: #2b75a0; 
+    --color-navbar-scroll: #0f3b5f;
+    --color-azul-cuevana: #141f4a;
+    --color-blue-main: #141d32;
+    --color-footer-mg: #0A1A2A;
+}
+/* Pelicula Principal */
+.pelicula-principal, .carousel-item img{
+    font-size: 16px;
+    height: 38.44em;
+    color: white;
+    /* background: linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(../assets/img/main/avatar-background.jpg) !important; */
+    background-position: 70% center !important;
+    background-size: cover !important;
+    
+    /* margin-bottom: 3.12em; */
+}
+.pelicula-principal .container {
+    margin-bottom: 2em !important;
+    font-size: 14px;
+    z-index: 10 !important;
+}
+.pelicula-principal .container button{
+    z-index: 10;
+}
+.pelicula-principal .container p{
+    z-index: 11 !important;
+}
+
+
+.pelicula-principal .title {
+    font-weight: 600;
+    font-size: 3.12em;
+    margin-bottom: 0.4em;
+    transform: translateX(-.2%);
+    line-height: 1em;
+    margin-bottom: 20px !important;
+}
+.pelicula-principal .description{
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    margin-bottom: 1.25em;
+    /* max-width: 100%; */
+}
+.description{
+    max-height: 15vh !important;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.pelicula-principal button{
+    background: rgba(0, 0, 0, .5);
+    border: none;
+    border-radius: 0.31em;
+    padding: .93em 1.87em;
+    color: white;
+    margin-right: 1.25em;
+    cursor: pointer;
+    transition: .3s ease all;
+    font-size: 1.16em;
+}
+.pelicula-principal button{
+    margin-top: .5em;
+}
+.pelicula-principal button:hover{
+    background: #ffff;
+    color: #000;
+}
+.details h4, .details h5{
+    font-size: 15px !important;
+}
+@media screen and (min-width: 576px) {
+    .pelicula-principal .container{
+        margin-left: 5% !important;
+        margin-right: 5% !important;
+        margin-bottom: 4.25em !important;
+        font-size: 16px;
+
+    }
+    .pelicula-principal .button-info{
+        font-size: 1.16em !important;
+    }
+    .details h4, .details h5{
+        font-size: 22px !important;
+    }
+    /* .description{
+        max-height: 15vh !important;
+        overflow: auto;
+    } */
+}
+@media screen and (min-width: 768px) {
+    .pelicula-principal .description{
+        max-width: 80%;
+    }
+}
+@media screen and (max-width: 367px) {
+    .navbar-element, #container-landing, .input-group-text, .register-inputs{
+      font-size: 13.5px;
+    }
+    .description{
+        max-height: 24vh !important;
+        overflow: auto;
+    }
+}
+
+
+
+#navbar-main{
+    background: linear-gradient(rgba(20, 29, 50) 0%, rgba(20, 29, 50, .1) 100% );
+}
+
+
+/* #container-main{
+    height: 200px;
+    background-image: url(./../assets/img/main/bastardosApache.jpg);
+} */
+
+
+.carousel-control-prev, .carousel-control-next{
+    background-color: transparent !important;
+}
