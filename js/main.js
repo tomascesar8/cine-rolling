@@ -1,4 +1,6 @@
 const peliculas = JSON.parse(localStorage.getItem('films'));
+const user = JSON.parse(localStorage.getItem('user'));
+
 
 function isOutstanding(peliculas) {
     if (peliculas.destacada === true) {
@@ -27,19 +29,19 @@ categorySliderFilm.innerHTML = `${peliculasDestacadas[0].categoria}`
 yearSliderFilm.innerHTML = `${peliculasDestacadas[0].año}`
 
 
-setInterval(() => {
-    i++
-    if(i>peliculasDestacadas.length-1){
-        i=0
-    }
-    sliderFilms.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
-    titleSliderFilm.innerHTML = `${peliculasDestacadas[i].nombre}`
-    descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`
-    genderSliderFilm.innerHTML = `${peliculasDestacadas[i].genero}`
-    categorySliderFilm.innerHTML = `${peliculasDestacadas[i].categoria}`
-    yearSliderFilm.innerHTML = `${peliculasDestacadas[i].año}`
+// setInterval(() => {
+//     i++
+//     if(i>peliculasDestacadas.length-1){
+//         i=0
+//     }
+//     sliderFilms.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
+//     titleSliderFilm.innerHTML = `${peliculasDestacadas[i].nombre}`
+//     descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`
+    // genderSliderFilm.innerHTML = `${peliculasDestacadas[i].genero}`
+    // categorySliderFilm.innerHTML = `${peliculasDestacadas[i].categoria}`
+    // yearSliderFilm.innerHTML = `${peliculasDestacadas[i].año}`
 
-}, 5000);
+// }, 5000);
 
 let sliderDerecho = document.querySelector('.carousel-control-next');
 let sliderIzq = document.querySelector('.carousel-control-prev');
@@ -51,7 +53,10 @@ function moverDerecha() {
     }
     sliderFilms.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
     titleSliderFilm.innerHTML = `${peliculasDestacadas[i].nombre}`
-    descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`
+    descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`    
+    genderSliderFilm.innerHTML = `${peliculasDestacadas[i].genero}`
+    categorySliderFilm.innerHTML = `${peliculasDestacadas[i].categoria}`
+    yearSliderFilm.innerHTML = `${peliculasDestacadas[i].año}`
 }
 sliderDerecho.addEventListener('click', moverDerecha)
 
@@ -63,7 +68,25 @@ function moverIzq() {
     sliderFilms.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
     titleSliderFilm.innerHTML = `${peliculasDestacadas[i].nombre}`
     descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`
+    genderSliderFilm.innerHTML = `${peliculasDestacadas[i].genero}`
+    categorySliderFilm.innerHTML = `${peliculasDestacadas[i].categoria}`
+    yearSliderFilm.innerHTML = `${peliculasDestacadas[i].año}`
 }
 sliderIzq.addEventListener('click', moverIzq)
 
+let titleOffCanvasToggler = document.querySelector('.offcanvas-title')
+let userBtn = document.querySelector('.nav-btn-user');
+userBtn.innerHTML = `<i class="me-2 fas fa-user-circle"></i> ${user.name}`
+userBtn.classList.add('d-none');
 
+titleOffCanvasToggler.innerHTML = `<i class="me-2 fas fa-user-circle"></i> ${user.name}`;
+titleOffCanvasToggler.classList.add('d-flex', 'align-items-center');
+
+let nav = document.querySelector('.navbar-main');
+window.addEventListener('scroll', function () {
+  if(window.pageYOffset>20){
+    nav.classList.add('bg-scroll-nav', 'shadow');
+  }else{
+    nav.classList.remove('bg-scroll-nav', 'shadow')
+  }
+});
