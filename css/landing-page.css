@@ -1,22 +1,23 @@
 :root {
-  --color-greyBlue: #364852;
+  --color-greyBlue: rgb(54, 72, 82);
   --color-siena-transparent: #5f01115b;
   --color-azul-verde: #295a5e;
   --color-verde-aguila: #1f929a;
   --color-font-footer-mg: #8FEAFF;
-  --color-lightBlue: #5ebbf0;
+  --color-lightBlue: rgb(94, 187, 240);
   --color-azul-claro: #21608d;
-  --color-blue: #2b75a0; 
+  --color-blue: rgb(43, 117, 160); 
   --color-navbar-scroll: #0f3b5f;
-  --color-azul-cuevana: #141f4a;
+  --color-azul-cuevana: rgb(20, 31, 74);
   --color-blue-main: #141d32;
   --color-footer-mg: #0a1a2a;
   /* --color-siena-oscuro: #19079b; */
 
+  --color-celeste-oscuro-mas: rgb(67, 125, 159) !important;
+  --color-celeste-oscuro-menos: rgb(89, 132, 157) !important;
 
-  /* --color-granate: #212738; */
-  /* no es granate sino cadete del espacio */
-  /* --color-verde-aguila: #0F5257;
+    --color-cadete: #212738;
+    --color-verde-a: #0F5257;
     --color-lavanda: #6D6875;
     --color-gris-topo: #7A7682;
     --color-gris-claro: #C8D0CD;
@@ -25,7 +26,7 @@
     --color-rojo-toscano: gold;
     --color-malva-topo: #926269;
     --color-siena-oscuro2: #21090d;
-    --color-footer: #1B1B1E; */
+    --color-footer: #1B1B1E;
 }
 *{
     margin: 0;
@@ -73,7 +74,7 @@ font-weight: 600;
 }
 
 .container-preguntas{
-  background-color: var(--color-blue-main) !important;
+  /* background-color: var(--color-blue-main) !important; */
   padding-bottom: 10% !important;
 }
 #input-search {
@@ -99,6 +100,9 @@ font-weight: 600;
 .login-nav-button:hover {
   color: #9ba1a7 !important;
 }
+/* .text-landing{
+  font-size: 10px !important;
+} */
 @media screen and (min-width: 576px) {
   .icons-footer{
     transform: translateX(-7%);
@@ -106,7 +110,7 @@ font-weight: 600;
 }
 @media screen and (min-width: 678px) {
   .text-landing{
-    font-size: 20px !important;
+    font-size: 18px !important;
   }
 
 }
@@ -161,8 +165,15 @@ font-weight: 600;
   #titulo-landing {
     margin-top: 11vh !important;
   }
-.container-footer-links{
+  .container-footer-links{
     transform: translateX(-5%) !important;
+  }
+  #main-subtitle{
+    margin: 3px 0px !important;
+    line-height: 1em;
+  }
+  .text-landing{
+    margin-bottom: 15px;
   }
 }
 
@@ -346,15 +357,14 @@ font-weight: 600;
   }
 }
 .container-landing-title{
-  line-height: .7;
+  line-height: .3;
 }
 .accordion-item{
   color: white;
   font-weight: 600;
   text-align: start;
-
 }
-
+/** Footer */
 .icons-redes{
   height: 80px;
   width: 80px;
@@ -362,32 +372,50 @@ font-weight: 600;
 }
 .icons-links-redes{
   color: var(--color-blue) !important;
+  color: var(--color-verde-aguila) !important;
+}
+.footer-links a{
+  /* color: var(--color-blue) !important; */
+  color: rgb(67, 125, 159) !important;
+
+  font-weight: 750;
 }
 .container-footer-links{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-
 .container-logo{
   font-size: 35px !important;
   transform: translateX(-5%);
   text-decoration: none;
-  color: var(--color-blue) !important;
-}
-
-.container-footer-bottom{
+  /* color: var(--color-blue) !important; */
   color: var(--color-verde-aguila) !important;
 }
-
+.container-footer-bottom{
+  /* color: var(--color-verde-aguila) !important; */
+  color: rgb(125, 138, 145) !important;
+  font-weight: 700;
+}
 .footer-landing{
   /* background-color: #10161c; */
   background: linear-gradient(rgba(20, 29, 50) 0%, rgba(20, 29, 50, .8) 100% ) !important;
-
 }
+
+/** Final footer  */
+/* --color-cadete: #212738;
+--color-verde-a: #0F5257;
+--color-lavanda: #6D6875;
+--color-gris-topo: #7A7682;
+--color-gris-claro: #C8D0CD;
+--color-gainsboro: #DCE2E5;
+--color-siena-oscuro: #2c0f14;
+--color-rojo-toscano: gold;
+--color-malva-topo: #926269;
+--color-siena-oscuro2: #21090d;
+--color-footer: #1B1B1E; */
 .preguntas-frecuentes{
-  color: var(--color-verde-aguila) !important;
+  color: var(--color-gris-claro) !important;
   font-style: italic;
 }
 .btn-login-modal{
@@ -398,7 +426,10 @@ font-weight: 600;
 }
 
 .bg-scroll-nav{
-  background-color: #0f3b5f;
+  background-color: #0f3b5f !important;
+}
+.navbar-landing{
+  background: linear-gradient(rgba(20, 29, 50, .1) 0%, rgba(38, 110, 160, 0) 100% );
 }
 
 .footer-landing a:hover{
@@ -408,8 +439,6 @@ font-weight: 600;
 .footer-links{
   margin-left: -20% !important;
 }
-.footer-links a{
-  color: var(--color-blue) !important;
-  font-weight: 750;
-}
+
+
 

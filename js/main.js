@@ -74,13 +74,21 @@ function moverIzq() {
 }
 sliderIzq.addEventListener('click', moverIzq)
 
-let titleOffCanvasToggler = document.querySelector('.offcanvas-title')
+let titleOffCanvasToggler = document.querySelector('.offcanvas-title-toggler');
+let titleOffCanvasPerfil = document.querySelector('.offcanvas-title-perfil');
+let emailOffCanvasPerfil = document.querySelector('.offcanvas-email-perfil');
 let userBtn = document.querySelector('.nav-btn-user');
-userBtn.innerHTML = `<i class="me-2 fas fa-user-circle"></i> ${user.name}`
-userBtn.classList.add('d-none');
 
-titleOffCanvasToggler.innerHTML = `<i class="me-2 fas fa-user-circle"></i> ${user.name}`;
-titleOffCanvasToggler.classList.add('d-flex', 'align-items-center');
+function nameUser(element) {
+    element.innerHTML = `<i class="me-2 fas fa-user-circle"></i> ${user.name}`
+    element.classList.add('d-flex', 'align-items-center');
+}
+nameUser(titleOffCanvasToggler)
+nameUser(titleOffCanvasPerfil);
+nameUser(userBtn)
+userBtn.classList.add('d-none');
+emailOffCanvasPerfil.innerHTML = `${user.email}`
+
 
 let nav = document.querySelector('.navbar-main');
 window.addEventListener('scroll', function () {
@@ -90,3 +98,11 @@ window.addEventListener('scroll', function () {
     nav.classList.remove('bg-scroll-nav', 'shadow')
   }
 });
+
+
+document.querySelector('.log-out').addEventListener('click', logOut)
+function logOut() {
+    // localStorage.removeItem('user');
+    localStorage.clear()
+    document.location.assign(window.location.origin)
+}

@@ -1,16 +1,18 @@
 :root {
     --color-greyBlue: #364852;
     --color-siena-transparent: #5f01115b;
-    --color-azul-verde: #295a5e;
+    --color-azul-verde: #0d3135;
     --color-verde-aguila: #1f929a;
     --color-font-footer-mg: #8FEAFF;
     --color-lightBlue: #5ebbf0;
     --color-azul-claro: #21608d;
     --color-blue: #2b75a0;
-    --color-navbar-scroll: #0f3b5f;
+    --color-navbar-scroll: rgb(15, 59, 95);
     --color-azul-cuevana: #141f4a;
     --color-blue-main: #141d32;
     --color-footer-mg: #0A1A2A;
+    --color-celeste-oscuro-mas: rgb(67, 125, 159) !important;
+    --color-celeste-oscuro-menos: rgb(89, 132, 157) !important;
 }
 /* Pelicula Principal */
 .pelicula-principal, .carousel-item img{
@@ -18,7 +20,7 @@
     height: 38.44em;
     color: white;
     /* background: linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(../assets/img/main/avatar-background.jpg) !important; */
-    background-position: 70% center !important;
+    background-position: 70% 35% !important;
     background-size: cover !important;
 
     /* margin-bottom: 3.12em; */
@@ -46,15 +48,27 @@
     font-size: 1em;
     line-height: 1.75em;
     margin-bottom: 1.25em;
+    padding-right: 20px;
 }
 .description{
     max-height: 15vh !important;
     overflow: auto;
 }
-
-::-webkit-scrollbar {
-    display: none;
+.description::-webkit-scrollbar{
+    width: 7px !important;
 }
+.description::-webkit-scrollbar-thumb{
+    background-color: var(--color-azul-claro);
+    border-radius: 70rem;
+}
+.description::-webkit-scrollbar-track{
+    background-color: #031223;
+    border-radius: 70rem;
+
+}
+/* .description::-webkit-scrollbar {
+    display: none;
+} */
 
 .pelicula-principal button{
     background: rgba(0, 0, 0, .5);
@@ -77,9 +91,11 @@
 .details h4, .details h5{
     font-size: 15px !important;
 }
-
-#navbar-main{
-    background: linear-gradient(rgba(20, 29, 50) 0%, rgba(20, 29, 50, .1) 100% );
+.offcanvas-email-perfil{
+    color: var(--color-celeste-oscuro-mas) !important;
+}
+.navbar-main{
+    background: linear-gradient(rgba(38, 46, 78, 1) 0%, rgba(0, 0, 0, 0) 100% ) !important;
 }
 .carousel-control-prev, .carousel-control-next{
     background-color: transparent !important;
@@ -163,6 +179,18 @@
     .nav-btn-user{
         display: none !important;
     }
+    .offcanvas-body{
+        padding-top: 0 !important;
+    }
+    #offcanvasDarkNavbar{
+        margin: 0;
+        padding: 0;
+        background-image: url(./../assets/img/login-modal.png);
+        height: 100vh;
+        background-size: cover;
+        background-position:top;
+        background-repeat: no-repeat;
+    }
 }
 
 @media screen and (max-width: 367px) {
@@ -180,6 +208,58 @@
 }
 
 .bg-scroll-nav{
-    background-color: #0f3b5f !important;
-  }
+    background-color: #204a6d !important;
+}
+/* #204a6d piola*/ 
+/* #022747 2 puede ser */
 
+.dropdown-menu{
+    max-height: 250px !important;
+    overflow: auto !important;
+    border-radius: .7rem 0 0 .7rem !important;
+    background-color: #031223;
+}
+.dropdown-menu::-webkit-scrollbar{
+    width: 7px !important;
+}
+.dropdown-menu::-webkit-scrollbar-thumb{
+    background-color: var(--color-blue);
+    border-radius: 70rem;
+}
+.dropdown-menu::-webkit-scrollbar-track{
+    background-color: #031223;
+    border-radius: 0rem 1rem 1rem 0;
+}
+.offcanvas-perfil{
+    margin: 0;
+    padding: 0;
+    background-image: url(./../assets/img/login-modal.png);
+    height: 100vh;
+    background-size: cover;
+    background-position:top;
+    background-repeat: no-repeat;
+}
+
+.perfil-element{
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 0;
+    color: whitesmoke ;
+    font-weight: 600;
+}
+.perfil-element{
+    color: white ;
+}
+.offcanvas-perfil-item{
+    margin-top: 15px !important;
+}
+.offcanvas-perfil-list{
+    list-style: none;
+    padding-left: 25px;
+
+}
+.separador-perfil{
+    width: 80%;
+    border: solid 1px var(--color-greyBlue) !important; 
+    margin: 4px;
+}

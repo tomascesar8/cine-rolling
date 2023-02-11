@@ -754,7 +754,7 @@ landingMain.innerHTML = `
       UNA MONTAÑA DE <br /> <span class="text-warning"> ENTRETENIMIENTO.</span>
     </h1>
     </div>
-    <h3 class="fs-2 fw-bold text-dark  mt-2 mb-1">Películas y series ilimitadas</h3>
+    <h3 id="main-subtitle" class="fs-2 fw-bold text-dark  mt-2 mb-1">Películas y series ilimitadas</h3>
     <p class="text-landing me-5 col-11 col-sm-8 col-md-10 fs-6">
       No pierdas más tiempo buscando por internet o esperando a que se
       transmitan tus series y películas favoritas en la televisión.
