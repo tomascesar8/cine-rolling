@@ -50,8 +50,6 @@ main{
 
 .buttons-landing-main{
   width: 70vw !important;
-  /* display: flex !important;
-  flex-wrap: wrap !important; */
 }
 
 #container-landing, #recuperarPass, #exampleModalToggle2 {
@@ -149,8 +147,17 @@ font-weight: 600;
 }
 
 @media screen and (max-width: 367px) {
+  .button-landing-suscript, .landing-ingreso-btn{
+     font-size: 20px !important;
+  }
   .navbar-element, #container-landing, .input-group-text, .register-inputs{
     font-size: 13.5px;
+  }
+  .navbar-brand{
+    margin-right: 0;
+  }
+  ..container-landing-title{
+    font-weight: 25px !important;
   }
   .accordion-button {
     font-size: 17px !important;
@@ -429,7 +436,7 @@ font-weight: 600;
   background-color: #0f3b5f !important;
 }
 .navbar-landing{
-  background: linear-gradient(rgba(20, 29, 50, .1) 0%, rgba(38, 110, 160, 0) 100% );
+  background: linear-gradient(rgba(20, 29, 50, .5) 0%, rgba(38, 110, 160, 0) 100% );
 }
 
 .footer-landing a:hover{

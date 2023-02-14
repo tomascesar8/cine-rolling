@@ -8,14 +8,14 @@
     --color-azul-claro: #21608d;
     --color-blue: #2b75a0;
     --color-navbar-scroll: rgb(15, 59, 95);
-    --color-azul-cuevana: #141f4a;
+    --color-azul-cuevana: rgb(20, 31, 74);
     --color-blue-main: #141d32;
     --color-footer-mg: #0A1A2A;
     --color-celeste-oscuro-mas: rgb(67, 125, 159) !important;
     --color-celeste-oscuro-menos: rgb(89, 132, 157) !important;
 }
 /* Pelicula Principal */
-.pelicula-principal, .carousel-item img{
+.slider-main, .carousel-item img{
     font-size: 16px;
     height: 38.44em;
     color: white;
@@ -25,7 +25,7 @@
 
     /* margin-bottom: 3.12em; */
 }
-.pelicula-principal .container {
+.slider-main .container {
     margin-bottom: 2em !important;
     font-size: 14px;
     z-index: 10 !important;
@@ -35,7 +35,7 @@
     margin-left: 4% !important;
     margin-right: 4% !important;
 }
-.pelicula-principal .title {
+.slider-main .title {
     font-weight: 600;
     font-size: 3.12em;
     margin-bottom: 0.4em;
@@ -43,7 +43,7 @@
     line-height: 1.1em;
     margin-bottom: 20px !important;
 }
-.pelicula-principal .description{
+.slider-main .description{
     font-weight: normal;
     font-size: 1em;
     line-height: 1.75em;
@@ -64,13 +64,12 @@
 .description::-webkit-scrollbar-track{
     background-color: #031223;
     border-radius: 70rem;
-
 }
 /* .description::-webkit-scrollbar {
     display: none;
 } */
 
-.pelicula-principal button{
+.slider-main button{
     background: rgba(0, 0, 0, .5);
     border: none;
     border-radius: 0.31em;
@@ -81,10 +80,10 @@
     transition: .3s ease all;
     font-size: 1.16em;
 }
-.pelicula-principal button{
+.slider-main button{
     margin-top: .5em;
 }
-.pelicula-principal button:hover{
+.slider-main button:hover{
     background: #ffff;
     color: #000;
 }
@@ -149,14 +148,14 @@
 }
 
 @media screen and (min-width: 576px) {
-    .pelicula-principal .container{
+    .slider-main .container{
         margin-left: 5% !important;
         margin-right: 5% !important;
         margin-bottom: 4.25em !important;
         font-size: 16px;
 
     }
-    .pelicula-principal .button-info{
+    .slider-main .button-info{
         font-size: 1.16em !important;
     }
     .details h4, .details h5{
@@ -164,7 +163,7 @@
     }
 }
 @media screen and (min-width: 768px) {
-    .pelicula-principal .description{
+    .slider-main .description{
         max-width: 80%;
     }
     .nav-btn-user{
@@ -173,7 +172,25 @@
     }
 }
 @media screen and (max-width: 768px) {
+    .movie{
+        width: 130px !important;
+        height: 180px !important;
+    }
+    .movie:hover::after{
+        width: 130px !important;
+        height: 180px !important;
+        content: url(./../assets/img/boton-de-play\ \(1\).png) !important;
 
+    }
+    .container-films-cats button:first-child {
+        padding: 0;
+    }
+    /* .container-films-cats{
+        transform: translateY(10%) !important;
+    }
+    #title-categories{
+        transform: translate(-2%, 80%) !important;
+    } */
 }
 @media screen and (max-width: 992px) {
     .nav-btn-user{
@@ -192,7 +209,29 @@
         background-repeat: no-repeat;
     }
 }
-
+@media screen and (max-width: 484px) {
+    .container-categories{
+        padding: 20px 0px 35px 0px !important;
+    }
+    .container-icons-redes{
+        height: 10px;
+        padding: 0 !important;
+        margin-top: 0 !important;
+    }
+    .icons-links-redes{
+        font-size: 45px !important;
+    }
+    .icons-footer{
+        padding: 0 !important;
+        margin-top: 0 !important;
+        padding-bottom: 60px !important;
+    }
+    .container-footer-links{
+        height: 150px;
+        padding: 0 !important;
+        transform: translate(-5%, -5%);
+    }
+}
 @media screen and (max-width: 367px) {
     .navbar-brand{
       font-size: 18px !important;
@@ -202,7 +241,7 @@
         max-height: 24vh !important;
         overflow: auto;
     }
-    .pelicula-principal .title {
+    .slider-main .title {
         font-size: 2.3em !important;
     }
 }
@@ -210,7 +249,7 @@
 .bg-scroll-nav{
     background-color: #204a6d !important;
 }
-/* #204a6d piola*/ 
+/* #204a6d piola*/
 /* #022747 2 puede ser */
 
 .dropdown-menu{
@@ -247,6 +286,9 @@
     color: whitesmoke ;
     font-weight: 600;
 }
+.perfil-element:hover{
+    color: var(--color-greyBlue);
+}
 .perfil-element{
     color: white ;
 }
@@ -260,6 +302,129 @@
 }
 .separador-perfil{
     width: 80%;
-    border: solid 1px var(--color-greyBlue) !important; 
+    border: solid 1px var(--color-greyBlue) !important;
     margin: 4px;
 }
+
+/* CONTAINER CATEGORIES */
+
+.container-categories{
+    /* background: linear-gradient(rgba(38, 46, 78, .5) 0%, rgba(38, 46, 78, .7) 100% ) , url(./../assets/img/login-modal.png); */
+    padding: 50px 0px;
+    background: linear-gradient(rgba(38, 46, 78, .5) 0%, rgba(11, 152, 189, .7) 100% ) , url(./../assets/img/login-modal.png);
+    background-size: cover;
+}
+
+.carrousel-cats{
+    overflow: hidden;
+}
+.container-films-cats{
+    padding: 10px;
+}
+.container-films-cats button{
+    color: var(--color-azul-claro);
+}
+.movie{
+    width: 181px;
+    height: 240px;
+    background-position: 50% 0%;
+    background-size: cover;
+    display: flex;
+    justify-content: end;
+    /* box-shadow: -10px 10px rgba(12, 17, 19, 0.1), 0 5px 30px rgba(12, 17, 19, .95); */
+}
+.movie:hover{
+    position: relative;
+    transform: scale(1.07);
+    transition: all .15s;
+}
+.movie-card{
+    margin-right: 12px ;
+
+}
+.fav-btn i{
+    color: gainsboro;
+    font-size: 30px !important;
+    margin-bottom: 3px;
+    color: var(--color-navbar-scroll)
+}
+.fav-btn{
+    position: relative;
+    z-index: 1;
+}
+
+.fav-btn i:hover{
+    color: rgb(157, 16, 16);
+}
+.fav-btn::after{
+    z-index: -1;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 2.5px;
+    height: 20px;
+    width: 20px;
+    background-color: gainsboro;
+}
+
+.movie:hover::after{
+    position: absolute;
+    width: 181px;
+    height: 240px;
+    background-color: rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: url(./../assets/img/boton-de-play\ \(4\).png);
+    /* content: url(./../assets/img/jugar.png); */
+}
+
+/* .container-films-cats{
+    transform: translateY(-2%);
+}
+#title-categories{
+    transform: translateY(-20%);
+} */
+
+/** footer */
+.icons-redes{
+    height: 80px;
+    width: 80px;
+    font-size: 60px !important;
+  }
+  .icons-links-redes{
+    color: var(--color-blue) !important;
+    color: var(--color-verde-aguila) !important;
+  }
+  .footer-links a{
+    color: rgb(67, 125, 159) !important;
+
+    font-weight: 750;
+  }
+  .container-footer-links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .container-logo{
+    font-size: 35px !important;
+    transform: translateX(-5%);
+    text-decoration: none;
+    color: var(--color-verde-aguila) !important;
+  }
+  .container-footer-bottom{
+    color: rgb(125, 138, 145) !important;
+    font-weight: 700;
+  }
+  .footer-landing{
+    background: linear-gradient(rgba(20, 29, 50) 0%, rgba(20, 29, 50, .8) 100% ) !important;
+  }
+
+  .footer-landing a:hover{
+    color: var(--color-font-footer-mg) !important;
+
+  }
+  .footer-links{
+    margin-left: -20% !important;
+  }
