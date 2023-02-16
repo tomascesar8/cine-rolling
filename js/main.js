@@ -107,33 +107,15 @@ function logOut() {
     document.location.assign(window.location.origin)
 }
 
-// const containerCategories = document.getElementById("categories")
-// const categories = document.createElement("h1");
-// categories.innerHTML = "Categorías"
-// categories.classList.add("ml-2", "color3", "titlesandbtns")
-// containerCategories.appendChild(categories);
-
-// const containerFavs = document.getElementById("favorites-list")
-// const favsTitle = document.createElement("div");
-// favsTitle.classList.add("titlesandbtns","dropdown-header", "text-center","bg-color1","color6","mt-0","mb-1");
-// favsTitle.style.fontSize="large"
-// favsTitle.innerHTML="Lista de favoritos"
-// containerFavs.appendChild(favsTitle);
-// const URL = 'http://localhost:3000/peliculas';
-
-
 let containerCategories = document.querySelector('.container-categories');
-const containerFavs = document.getElementById("favorites-list");
-// let categories = document.createElement('div');
-// categories.innerHTML = `
-    
-// `
 
 let cats = ['Acción', 'Drama', 'Comedia', 'Familia', 'Ficción', 'Terror'];
 cats.forEach(categoria=>{
     const cat = document.createElement('h3');
-    cat.setAttribute('id', 'title-categories');
+    cat.classList.add('title-categories', `title-${categoria}`, 'd-block');
+    cat.setAttribute('data-aos', 'fade-right')
     const carrousel = document.createElement("div");
+    carrousel.setAttribute('data-aos', 'fade-right');
     carrousel.classList.add('container-films-cats', 'container-fluid')
     cat.innerHTML = categoria;
     cat.style.marginLeft = "2em"
@@ -169,7 +151,7 @@ let filmsTerror = peliculas.filter(movie=>movie.genero.includes('Terror'));
 console.log(filmsCienciaF);
 console.log(filmsTerror);
 
-//* <i class="fas fa-plus-circle fs-3 text-warning bg-light"></i> 
+
 function listarFilms(array) {    
     array.forEach(movie => {
         switch (true) {
@@ -247,10 +229,8 @@ listarFilms(filmsTerror)
 listarFilms(filmsCienciaF)
 
 
-
 containerCategories.addEventListener("click",(event)=>{
-    if(event.target.classList.contains("angle-right"))
-    { 
+    if(event.target.classList.contains("angle-right")){ 
         switch (true) {
             case event.target.parentElement.id === 'Comedia' || event.target.parentElement.parentElement.id === 'Comedia':
                 comedia.scrollLeft+=193.9;
@@ -272,24 +252,276 @@ containerCategories.addEventListener("click",(event)=>{
             break;
             default:
         }  
-        
+    }else if(event.target.classList.contains("angle-left")){
+        switch (true) {
+            case event.target.parentElement.id === 'Comedia' || event.target.parentElement.parentElement.id === 'Comedia':
+                comedia.scrollLeft+= -195;
+            break;
+            case event.target.parentElement.id === 'Ficción' || event.target.parentElement.parentElement.id === 'Ficción':
+                cienciaFiccion.scrollLeft+= -195;
+            break;
+            case event.target.parentElement.id === 'Terror' || event.target.parentElement.parentElement.id === 'Terror':
+                terror.scrollLeft+= -195;
+            break;
+            case event.target.parentElement.id === 'Drama' || event.target.parentElement.parentElement.id === 'Drama':
+                drama.scrollLeft+= -195;
+            break;
+            case event.target.parentElement.id === 'Acción' || event.target.parentElement.parentElement.id === 'Acción':
+                accion.scrollLeft+= -195;
+            break;
+            case event.target.parentElement.id === 'Familia' || event.target.parentElement.parentElement.id === 'Familia':
+                familia.scrollLeft+= -195;
+            break;
+            default:
+            }
+        }
+})
+
+
+let generosAccion = document.querySelector('.lista-generos-accion');
+let generosAnimacion = document.querySelector('lista-generos-animacion')
+let generosAventura = document.querySelector('lista-generos-aventura')
+let generosGuerra = document.querySelector('lista-generos-guerra')
+let generosFiccion = document.querySelector('lista-generos-ficcion')
+let generosComedia= document.querySelector('lista-generos-comedia')
+let generosCrimen = document.querySelector('lista-generos-crimen')
+let generosDrama = document.querySelector('lista-generos-drama')
+let generosFamilia = document.querySelector('lista-generos-familia')
+let generosFantasia = document.querySelector('lista-generos-fantasia')
+let generosRomance = document.querySelector('lista-generos-romance')
+let generosTerror = document.querySelector('lista-generos-terror')
+
+let navGeneros = document.querySelector('.lista-generos');
+console.log(navGeneros);
+navGeneros.addEventListener("click",(event)=>{
+    setTimeout(() => {
+    document.documentElement.scrollTop-= 100;
+    },750)
+    if(document.documentElement.scrollWidth < 992){
+        //* - QUE SE CIERRE EL MODAL Y LO SCROLLEE A LA CATEGORIA !????????
+        //* - o que se cree una lista con el resultado dentro del modal
+        //* - o crear un modal con los resultados
+        //* - o trasladar a una nueva página con las cards de los resultados//
+        setTimeout(() => {
+            document.getElementById('btn-close-modal').click()
+        },750)
     }
 })
 
-containerCategories.addEventListener("click", (event) => {
-    if (event.target.classList.contains("angle-left")) {
-        if (event.target.parentElement.id === 'Comedia' || event.target.parentElement.parentElement.id === 'Comedia') {
-            comedia.scrollLeft += -195;
-        } else if (event.target.parentElement.id === 'Terror' || event.target.parentElement.parentElement.id === 'Terror') {
-            terror.scrollLeft += -195;
-        } else if (event.target.parentElement.id === 'Drama' || event.target.parentElement.parentElement.id === 'Drama') {
-            drama.scrollLeft += -195;
-        } else if (event.target.parentElement.id === 'Acción' || event.target.parentElement.parentElement.id === 'Acción') {
-            accion.scrollLeft += -195;
-        } else{
-            cienciaFiccion.scrollLeft += -195;
+
+
+
+//* FAVORITOS
+// const containerCategories = document.getElementById("categories")
+// const categories = document.createElement("h1");
+// categories.innerHTML = "Categorías"
+// categories.classList.add("ml-2", "color3", "titlesandbtns")
+// containerCategories.appendChild(categories);
+
+const containerFavs = document.getElementById("favorites-list")
+const favsTitle = document.createElement("div");
+favsTitle.classList.add("titlesandbtns","dropdown-header", "text-center","bg-color1","color6","mt-0","mb-1");
+favsTitle.style.fontSize="large"
+favsTitle.innerHTML="Lista de favoritos"
+containerFavs.appendChild(favsTitle);
+const URL = 'http://localhost:3000/peliculas';
+
+
+// function actualizarLS() {
+//     JSON.parse(localStorage.getItem('films'));
+// }
+
+// function getMovie(id) {
+//     const idPelicula = `${peliculas}.${id}`
+//     return idPelicula;
+// }
+
+// async function editMovie(id, newData) {
+//     const idPelicula = `${peliculas}.${id}`
+//     const peliLS = 
+//     return data;
+// }
+
+function getFavsLS() {
+    return JSON.parse(localStorage.getItem('favs'));
+}
+
+function saveFavLS(favInfo){
+    let favs = getFavsLS();
+    favs.push(favInfo);
+    localStorage.setItem('favs', JSON.stringify(favs));
+}
+
+function addFav(favInfo){
+    const favorite = document.createElement("div")
+    favorite.id=`fav-${favInfo.id}`
+    favorite.style.width= "350px";
+    favorite.classList.add(`fav-${favInfo.id}`,"dropdown-item","pt-0");
+    favorite.innerHTML=`
+    <div class="row no-gutters">
+        <div class="col-md-2" style="height:65px">
+            <img src="${favInfo.imagen}" class="card-img h-100" alt="...">
+        </div>
+        <div class="col-md-9 align-self-center">
+            <a href="detail.html#${favInfo.id}" class="text-decoration-none color1 card-title h5 pl-2">${favInfo.nombre}</a>
+        </div>
+        <div class="col-md-1 align-self-center">
+            <h3 class="delete-fav color2 ml-2 mb-0" role="button">&times</h3>
+        </div>
+    </div>
+    <hr class="mt-1 mb-0">
+    `;
+    containerFavs.appendChild(favorite);
+}
+
+function renderFavsLS(){
+    setTimeout(() => {
+        let favs = getFavsLS();
+        favs.forEach((fav)=>{
+            const favorite=document.createElement("div")
+            favorite.id=`fav-${fav.id}`
+            favorite.style.width= "350px";
+            favorite.classList.add(`fav-${fav.id}`,"dropdown-item","pt-0");
+            favorite.innerHTML=`
+            <div class="row no-gutters responsive-favs">
+                <div class="col-2" style="height:65px">
+                    <img src="${fav.imagen}" class="card-img h-100" alt="...">
+                </div>
+                <div class="col-9 align-self-center">
+                    <a href="detail.html#${fav.id}" class="text-decoration-none color1 card-title h5 pl-2">${fav.nombre}</a>
+                </div>
+                <div class="col-1 align-self-center">
+                    <h3 class="delete-fav color2 ml-2 mb-0" role="button">&times</h3>
+                </div>
+            </div>
+            <hr class="mt-1 mb-0">
+            `;
+            containerFavs.appendChild(favorite);
+            document.getElementById(`${fav.id}`).querySelector('.fa-heart').classList.add('color2');
+        })
+    },2000);
+}
+
+function deleteFav(e){
+    console.log("hola");
+    if(e.target.classList.contains("delete-fav"))
+    {
+        e.preventDefault();
+        const removedElement = e.target.parentElement.parentElement.parentElement
+        const deleteId= removedElement.id.slice(4);
+        removedElement.remove();
+        deleteFavLS(deleteId);
+        document.getElementById(`${deleteId}`).querySelector('.fa-heart').classList.remove('color2');
+    }
+}
+
+function deleteFavLS(deleteId){
+    let favs = getFavsLS();
+    favs.forEach((fav,index)=>{
+        if(fav.id === deleteId){
+            favs.splice(index,1);
+        }
+    })
+    localStorage.setItem("favs",JSON.stringify(favs));
+}
+document.addEventListener("DOMContentLoaded",renderFavsLS);
+
+containerCategories.addEventListener("click",(e)=>{
+    if(e.target.classList.contains("fav-btn")){
+        e.preventDefault();
+        let favInfo=e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+        if(favInfo.classList.contains("movie")){
+            if (e.target.classList.contains("color2")){
+                e.target.classList.remove("color2")
+                containerFavs.querySelector(`.fav-${favInfo.id}`).remove()
+                deleteFavLS(favInfo.id)
+            }else{
+                e.target.classList.add("color2")
+                favInfo=
+                {
+                    imagen: favInfo.style.backgroundImage.slice(5,-2),
+                    nombre: favInfo.querySelector(".movie-title").textContent,
+                    id: favInfo.id
+                }
+                addFav(favInfo)
+                saveFavLS(favInfo)
+            }
+        }
+        else{
+            favInfo=favInfo.querySelector(".movie");
+            if(e.target.children.classList.contains("color2")){
+                e.target.classList.remove("color2")
+                containerFavs.querySelector(`.fav-${favInfo.id}`).remove()
+                deleteFavLS(favInfo.id)
+            }else{
+                e.target.children.classList.add("color2")
+                favInfo=
+                {
+                    imagen: favInfo.style.backgroundImage.slice(5,-2),
+                    nombre: favInfo.querySelector(".movie-title").textContent,
+                    id: favInfo.id
+                }
+                addFav(favInfo)
+                saveFavLS(favInfo)
+            }
         }
     }
 })
+containerFavs.addEventListener("click",deleteFav);
 
-containerCategories.addEventListener("click",(event)=>{console.log(event.target.parentElement.parentElement)});
+// let favsBtn = document.querySelectorAll('.fav-btn')
+// favsBtn.addEventListener('click', addFav)
+// console.log(favsBtn)
+setTimeout(() => {
+    console.log('CONCHAETUMADRE');
+}, 2000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//? Seleccion de titulos
+// let titleAccion = document.querySelector('.title-Acción');
+// let titleAnimacion = document.querySelector('.title-Familia');
+// let titleAventura = document.querySelector('.title-Acción');
+// let titleGuerra = document.querySelector('.title-Acción');
+// let titleFiccion = document.querySelector('.title-Ficción');
+// let titleComedia = document.querySelector('.title-Comedia');
+// let titleCrimen = document.querySelector('.title-Drama');
+// let titleDrama = document.querySelector('.title-Drama');
+// let titleFamilia = document.querySelector('.title-Familia');
+// let titleFantasia = document.querySelector('.title-Familia');
+// let titleRomance = document.querySelector('.title-Familia');
+// let titleTerror = document.querySelector('.title-Terror');
+
+// function moverTitle(element, titleElement) {
+//     element.addEventListener("click",(event)=>{
+//             setTimeout(() => {
+//                 titleElement.classList.add('animate__animated' , 'animate__pulse')      
+//                 console.log('chau');        
+//             }, 2000);
+//             titleElement.classList.remove('animate__animated' , 'animate__pulse')
+// //             if(document.documentElement.scrollWidth < 992){
+//     }
+// )}
+// moverTitle(generosAccion, titleAccion)
+// moverTitle(generosAnimacion, titleAnimacion)
+// moverTitle(generosAventura, titleAventura)
+// moverTitle(generosGuerra, titleGuerra)
+// moverTitle(generosFiccion, titleFiccion)
+// moverTitle(generosComedia, titleComedia)
+// moverTitle(generosCrimen, titleCrimen)
+// moverTitle(generosDrama, titleDrama)
+// moverTitle(generosFamilia, titleFamilia)
+// moverTitle(generosFantasia, titleFantasia) 
+// moverTitle(generosRomance, titleRomance)
+// moverTitle(generosTerror, titleTerror)
+//?

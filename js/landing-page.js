@@ -226,7 +226,7 @@ let peliculas = [
     "nombre": "A.I. Rising",
     "descripcion": "Año 2048, Milutin ha emprendido un viaje a Alfa Centauri con la ayuda de Nimani, una androide con forma de mujer que, entre otras cosas, proporcionará compañía a Milutin, que la somete a una tórrida relación sexual. Harto de las funciones preestablecidas de la androide, el astronauta decide configurarla a partir de las experiencias que esta ha vivido… el resultado, sin embargo, no será el que él espera.",
     "director": "Lazar Bodroža",
-    "genero": "Acción",
+    "genero": "Acción, Ciencia Ficción",
     "categoria": "ATP",
     "codigo": "pls",
     "publicada": true,
@@ -241,7 +241,7 @@ let peliculas = [
     "nombre": "Bob Esponja: Un héroe fuera del agua",
     "descripcion": "La vida en Fondo de Bikini no podría ser mejor para un eterno optimista como Bob Esponja (Tom Kenny) y sus amigos: la fiel estrella de mar Patricio (Bill Fagerbakke), el sarcástico Calamardo (Rodger Bumpass), la ardilla y científica Arenita (Carolyn Lawrence) y el crustáceo capitalista, Sr. Cangrejo (Clancy Brown). Cuando alguien roba la receta ultrasecreta de las Cangreburgers, los perpetuos enemigos Bob Esponja y Plankton (Mr. Lawrence) tendrán que unir sus fuerzas en un viaje a través del tiempo y el espacio para controlar sus superpoderes internos y enfrentarse al malvado pirata Barba Burger (Antonio Banderas), quien tiene sus propios planes para esas deliciosas exquisiteces.",
     "director": "Bob Camp, Carla Rose Ponzio",
-    "genero": "Acción",
+    "genero": "Acción, Familia",
     "categoria": "ATP",
     "codigo": "pls",
     "publicada": true,
@@ -276,7 +276,7 @@ let peliculas = [
       "publicada": true,
       "destacada": true,
       "año": "2003",
-      "tapa": "https://www.themoviedb.org/t/p/original/5fsbtdPKfpD3pZ7brNoRUOVlfK7.jpg",
+      "tapa": "https://www.themoviedb.org/t/p/w1280/w6wTh6B6QYVozkFPqynEenMbPlk.jpg",
       "imagen": "https://www.themoviedb.org/t/p/original/rOmd5Beem8FNcEA2DrmlBMjf6v5.jpg",
       "video": "https://www.youtube.com/watch?v=cUuz3-QCg58&ab_channel=ESmaugQDanVS"
   },
@@ -623,12 +623,177 @@ let peliculas = [
     "imagen": "https://www.themoviedb.org/t/p/original/dp3jTcbb4KPOSOoItuUmp5ZvwEX.jpg",
     "video": "https://www.youtube.com/embed/4Yq15X_gj9A"
   },
-
+  {
+    "id": 42,
+    "nombre": "Soul",
+    "descripcion": "¿Alguna vez te has preguntado de dónde provienen tu pasión, tus sueños y tus intereses? ¿Qué es lo que te hace ser... tú? Viaja desde las calles de Nueva York a los reinos cósmicos para descubrir las respuestas a las preguntas más importantes de la vida.",
+    "director": "Pete Docter",
+    "genero": "Comedia, Animación, Familia",
+    "categoria": "ATP",
+    "codigo": "pls",
+    "destacada": false,
+    "publicada": true,
+    "año": 2020,
+    "tapa": "https://www.themoviedb.org/t/p/w1280/xJ7MCAy4oCLerPo3JjnB8lKOhl4.jpg",
+    "imagen": "https://www.themoviedb.org/t/p/original/qF8eaVidzEsXGMU9qp8owby4bzV.jpg",
+    "video": "https://www.youtube.com/watch?v=3QIdlo4uIVg&ab_channel=SensaCineTRAILERS"
+  },
+  {
+    "id": 43,
+    "nombre": "El rey león",
+    "descripcion": "Simba es el hijo del rey de los leones, Mufasa, y heredero de todo el reino. Pero cuando su padre es brutalmente asesinado por su tío Scar, decidirá huir, dejando vía libre para que su tío tome el puesto de su padre como líder de la manada. En su camino, Simba se encuentra con el suricato Timón y el jabalí Pumba, que le enseñarán a vivir la vida sin preocupaciones. Pero el joven león se verá obligado a decidir entre su vida libre de problemas o su destino como rey.",
+    "director": "Jon Favreau",
+    "genero": "Familia, Animación",
+    "categoria": "ATP",
+    "codigo": "pls",
+    "destacada": true,
+    "publicada": true,
+    "año": 2019,
+    "tapa": "https://www.themoviedb.org/t/p/w1280/dzBtMocZuJbjLOXvrl4zGYigDzh.jpg",
+    "imagen": "https://www.themoviedb.org/t/p/original/nRXO2SnOA75OsWhNhXstHB8ZmI3.jpg",
+    "video": "https://www.youtube.com/watch?v=TDIqwTgdT5U&ab_channel=DisneyEspa%C3%B1a"
+  },
+  {
+    "id": 44,
+    "nombre": "Mulán",
+    "descripcion": "Mulán, una joven china hija única de la familia Fa, en lugar de buscar novio, como sus amigas, trata por todos los medios de alistarse en el ejército imperial para evitar que su anciano padre sea llamado a filas para defender al Emperador del acoso de los Hunos. Cuando el emisario imperial lleva a cabo la orden de reclutar a los varones de todas las familias, Mulán se hará pasar por soldado y se someterá a un duro entrenamiento hasta hacerse merecedora de la estima y de la confianza del resto de su escuadrón.",
+    "director": "Barry Cook",
+    "genero": "Animación, Familia, Comedia",
+    "categoria": "ATP",
+    "codigo": "pls",
+    "destacada": true,
+    "publicada": true,
+    "año": 1998,
+    "tapa": "https://www.themoviedb.org/t/p/w1280/5wDwQcab7AcsM2zciw7gJmxUKEf.jpg",
+    "imagen": "https://www.themoviedb.org/t/p/original/9I4LHCJRJ7j2M690r4Q3sK0VKyh.jpg",
+    "video": "https://www.youtube.com/watch?v=4XPc6bw6l9c&ab_channel=ReinaldoJunior"
+  },
+  {
+    "id": 45,
+    "nombre": "El libro de la selva",
+    "descripcion": "Después de ser abandonado en la selva, una familia de lobos cría al pequeño cachorro humano Mowgli. Gracias a la manada de lobos, sale adelante hasta ser capaz de enfrentarse por sí mismo a los peligros de la selva. Pero con la llegada del peligroso Shere Khan, Mowgli deja de ser bien recibido. Este temible tigre, resentido por las heridas que le ha ocasionado el hombre, ha prometido eliminar toda amenaza humana en la selva. Así que a Mowgli no le queda más remedio que abandonar el único hogar que ha conocido en toda su vida. El pequeño niño humano emprenderá entonces un arriesgado y fascinante viaje de autodescubrimiento, para regresar junto a su especie, acompañado de la siempre fiel Bagheera, la pantera mentora del niño, y el despreocupado y divertido oso Baloo. Esta nueva adaptación de El Libro de la selva de Rudyard Kipling, que combina acción real con escenarios fotorrealistas y animales generados por ordenador, corre a cargo de Disney.",
+    "director": "Jon Favreau",
+    "genero": "Animación, Familia, Drama",
+    "categoria": "ATP",
+    "codigo": "pls",
+    "destacada": true,
+    "publicada": true,
+    "año": 2016,
+    "tapa": "https://www.themoviedb.org/t/p/w1280/pQGB08Kxyt3TLN4L01E175BRcvu.jpg",
+    "imagen": "https://www.themoviedb.org/t/p/original/wcM0r4JcXK4Wz2LeP7qLU92ZOG9.jpg",
+    "video": "https://www.youtube.com/watch?v=C4qgAaxB_pc&ab_channel=WaltDisneyStudios"
+  },
+  {
+    "id": 46,
+    "nombre": "El señor de los anillos: Las dos torres",
+    "descripcion": "La Compañía del Anillo se ha disuelto. El portador del anillo Frodo y su fiel amigo Sam se dirigen hacia Mordor para destruir el Anillo Único y acabar con el poder de Sauron. Mientras, y tras la dura batalla contra los orcos donde cayó Boromir, el hombre Aragorn, el elfo Legolas y el enano Gimli intentan rescatar a los medianos Merry y Pipin, secuestrados por los ogros de Mordor. Por su parte, Saurón y el traidor Sarumán continúan con sus planes en Mordor, en espera de la guerra contra las razas libres de la Tierra Media.",
+    "director": "Peter Jackson",
+    "genero": "Aventura, Fantasía, Acción",
+    "categoria": "+13",
+    "codigo": "pls",
+    "destacada": true,
+    "publicada": true,
+    "año": 2002,
+    "tapa": "https://www.themoviedb.org/t/p/w1280/mTk8LNB3vEOojJlSrBKN2dDwF4g.jpg",
+    "imagen": "https://www.themoviedb.org/t/p/original/nS4picOwj15APKzJeBCk6EBcMG5.jpg",
+    "video": "https://www.youtube.com/watch?v=nuTU5XcZTLA&ab_channel=WarnerBros.Entertainment"
+  },
+  {
+    "id": 47,
+    "nombre": "El señor de los anillos: La comunidad del anillo",
+    "descripcion": "En la Tierra Media, el Señor Oscuro Saurón creó los Grandes Anillos de Poder, forjados por los herreros Elfos. Tres para los reyes Elfos, siete para los Señores Enanos, y nueve para los Hombres Mortales. Secretamente, Saurón también forjó un anillo maestro, el Anillo Único, que contiene en sí el poder para esclavizar a toda la Tierra Media. Con la ayuda de un grupo de amigos y de valientes aliados, Frodo emprende un peligroso viaje con la misión de destruir el Anillo Único. Pero el Señor Oscuro Sauron, quien creara el Anillo, envía a sus servidores para perseguir al grupo. Si Sauron lograra recuperar el Anillo, sería el final de la Tierra Media.",
+    "director": "Peter Jackson",
+    "genero": "Aventura, Fantasía, Acción",
+    "categoria": "+13",
+    "codigo": "pls",
+    "destacada": true,
+    "publicada": true,
+    "año": 2002,
+    "tapa": "https://www.themoviedb.org/t/p/w1280/w3NF110cyjqxkQD2azmUMyaFzhG.jpg",
+    "imagen": "https://www.themoviedb.org/t/p/original/keyOZ8KcjHMTVH8p0owTXvw18Wf.jpg",
+    "video": "https://www.youtube.com/watch?v=FYZl0lpB9iM&ab_channel=IBroadcast"
+  },
+  {
+    "id": 48,
+    "nombre": "Volver al futuro",
+    "descripcion": "Marty McFly, un estudiante de secundaria de 17 años, es enviado accidentalmente treinta años al pasado en un DeLorean que viaja en el tiempo, inventado por su gran amigo, el excéntrico científico Doc Brown.",
+    "director": "Robert Zemeckis",
+    "genero": "Aventura, Comedia, Ciencia Ficción",
+    "categoria": "+13",
+    "codigo": "pls",
+    "destacada": true,
+    "publicada": true,
+    "año": 1985,
+    "tapa": "https://www.themoviedb.org/t/p/w1280/gcCbAMXptil3zInWAsZZ4ecH0Z9.jpg",
+    "imagen": "https://www.themoviedb.org/t/p/original/ek6oBe077b5hDQ0iJlJh9XHRhVZ.jpg",
+    "video": "https://www.youtube.com/watch?v=U71BvFM7Wpw&ab_channel=VintageMovieTrailers"
+  },
+  {
+    "id": 49,
+    "nombre": "It",
+    "descripcion": "Remake del clásico de Stephen King en el que un payaso aterroriza a los niños de un vecindario. En un pequeño pueblo de Maine, siete niños conocidos como el Club de los Perdedores se encuentran cara a cara con problemas de la vida, matones y un monstruo que toma la forma de un payaso llamado Pennywise.",
+    "director": "Andy Muschietti",
+    "genero": "Terror, Fantasía",
+    "categoria": "+13",
+    "codigo": "pls",
+    "destacada": true,
+    "publicada": true,
+    "año": 2017,
+    "tapa": "https://www.themoviedb.org/t/p/w1280/6uDpMsdn8bbZScDptbika5JEtSH.jpg",
+    "imagen": "https://www.themoviedb.org/t/p/original/tcheoA2nPATCm2vvXw2hVQoaEFD.jpg",
+    "video": "https://www.youtube.com/watch?v=xKJmEC5ieOk&ab_channel=WarnerBros.Pictures"
+  },
+  {
+    "id": 50,
+    "nombre": "Scream",
+    "descripcion": "Sidney Prescott, una adolescente de la pequeña comunidad de Woodsboro, se convierte en el objetivo de un misterioso asesino en serie. Una reportera de un canal de noticias, Gale Weathers, que cubrió el asesinato un año atrás de la madre de Sidney, cubre ahora estos asesinatos, además ha escrito un libro en el que defiende al supuesto asesino de Maureen, Cotton Weary, que va a ir a la cámara de gas, alegando que cayó en una trampa, lo que hace reavivar la polémica. Los crímenes dejan de ser aislados y continúan los asesinatos. Ahora Sidney, su novio y sus amigos están en peligro, ya que el asesino quiere revivir lo sucedido un año atrás con Maureen Prescott, pero esta vez con su hija.",
+    "director": "Wes Craven",
+    "genero": "Crimen, Terror, Misterio",
+    "categoria": "+13",
+    "codigo": "pls",
+    "destacada": true,
+    "publicada": true,
+    "año": 1996,
+    "tapa": "https://www.themoviedb.org/t/p/w1280/ma59qEE7APF70Ekf06iSMAnUOA4.jpg",
+    "imagen": "https://www.themoviedb.org/t/p/original/7ZigA0vEuUMDXeZdo8ltjov8oRB.jpg",
+    "video": "https://www.youtube.com/watch?v=23jmjs-rMGI&ab_channel=prinzefilms"
+  },  
+  {
+    "id": 51,
+    "nombre": "The Ring",
+    "descripcion": "Rachel Keller es una periodista de investigación que no da mucho crédito a lo que considera una especie de leyenda urbana: al parecer, circula por ahí una cinta de vídeo con imágenes aterradoras, que va acompañada de una llamada telefónica en la que se predice, con una semana de antelación, la muerte de quien las ha visto. Sin embargo, cuando cuatro adolescentes encuentran la muerte exactamente una semana después de ver el vídeo, la curiosidad se apodera de ella y no parará hasta encontrar la cinta y verla.",
+    "director": "Gore Verbinski",
+    "genero": "Terror, Misterio",
+    "categoria": "+13",
+    "codigo": "pls",
+    "destacada": true,
+    "publicada": true,
+    "año": 2002,
+    "tapa": "https://www.themoviedb.org/t/p/w1280/e2t5CKMox7tjv3iD3Ko7NdFa5lJ.jpg",
+    "imagen": "https://www.themoviedb.org/t/p/original/9D5iDqq0BoitxyEsfnsHzBH0zzY.jpg",
+    "video": "https://www.youtube.com/watch?v=mTACCgSWu8E&ab_channel=RottenTomatoesClassicTrailers"
+  },  
+  {
+    "id": 52,
+    "nombre": "Interstellar",
+    "descripcion": "Narra las aventuras de un grupo de exploradores que hacen uso de un agujero de gusano recientemente descubierto para superar las limitaciones de los viajes espaciales tripulados y vencer las inmensas distancias que tiene un viaje interestelar.",
+    "director": "Christopher Nolan",
+    "genero": "Aventura, Drama, Ciencia Ficción",
+    "categoria": "+13",
+    "codigo": "pls",
+    "destacada": true,
+    "publicada": true,
+    "año": 2014,
+    "tapa": "https://www.themoviedb.org/t/p/w1280/q6KI8ChlkIYYZww8C053cVfPQRo.jpg",
+    "imagen": "https://www.themoviedb.org/t/p/original/w7F97hhhUPLVPWERoYGAiZrQpsz.jpg",
+    "video": "https://www.youtube.com/watch?v=OA3Txp94pjs&ab_channel=ApexClips"
+  }
 ];
 
 if(!localStorage.getItem('films')){
   let pelisJSON = JSON.stringify(peliculas)
   localStorage.setItem('films', pelisJSON)
+  localStorage.setItem('reserveFilms', pelisJSON)
 };
 let filmsLS = localStorage.getItem('films')
 let dataFilms = JSON.parse(filmsLS);
@@ -787,6 +952,8 @@ document.getElementsByTagName('main')[0].appendChild(landingMain);
 
 let preguntasFrecuentes = document.createElement('div');
 preguntasFrecuentes.classList.add('container-preguntas','container', 'col', 'col-md-7', 'd-flex', 'flex-column', 'text-center', 'justify-content-center', 'pb-5')
+preguntasFrecuentes.setAttribute('data-aos' , 'fade-up')
+preguntasFrecuentes.setAttribute('data-aos-duration' , '3000')
 preguntasFrecuentes.innerHTML = `
 <div class="preguntas-frecuentes text-white text-center text-sm-start fw-bold fs-1 mt-4 mb-4  mb-lg-4">
   Preguntas frecuentes

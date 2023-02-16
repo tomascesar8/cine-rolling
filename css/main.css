@@ -310,16 +310,13 @@
 
 .container-categories{
     /* background: linear-gradient(rgba(38, 46, 78, .5) 0%, rgba(38, 46, 78, .7) 100% ) , url(./../assets/img/login-modal.png); */
-    padding: 50px 0px;
-    background: linear-gradient(rgba(38, 46, 78, .5) 0%, rgba(11, 152, 189, .7) 100% ) , url(./../assets/img/login-modal.png);
+    padding: 20px 0px 40px 0px;
+    background: linear-gradient(rgba(38, 46, 78, .5) 0%, rgba(11, 152, 189, .2) 100% ) , url(./../assets/img/login-modal.png);
     background-size: cover;
 }
 
 .carrousel-cats{
     overflow: hidden;
-}
-.container-films-cats{
-    padding: 10px;
 }
 .container-films-cats button{
     color: var(--color-azul-claro);
@@ -428,3 +425,10 @@
   .footer-links{
     margin-left: -20% !important;
   }
+
+.title-categories{
+    padding: 5px 0px;
+}
+.container-films-cats{
+    padding: 0px 10px;
+}

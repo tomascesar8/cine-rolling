@@ -15,12 +15,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <header>
-      <nav class="navbar-main navbar navbar-dark fixed-top navbar-expand-lg ">
+      <nav class="navbar-main navbar navbar-dark fixed-top navbar-expand-lg">
         <div class="container " id="nabvar-contain">
           <a class="navbar-brand fw-bold ms-xl-5" href="#"
             >CineRolling+</a
@@ -28,7 +29,7 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas offcanvas-end text-bg-dark offcanvas-modal" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
               <button class=" btn text-white border border-0"
               type="button"
@@ -36,7 +37,7 @@
               >
                 <h5 class="offcanvas-title-toggler mb-0" id="offcanvasDarkNavbarLabel"></h5>
               </button>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              <button type="button" class="btn-close btn-close-white" id="btn-close-modal" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <hr class="separador-perfil opacity-75 d-lg-none mt-0 mb-4">
             <div class="offcanvas-body">
@@ -70,52 +71,55 @@
                   <a class="nav-link dropdown-toggle navbar-element" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Géneros
                   </a>
-                  <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="#">Acción</a></li>
+                  <ul class="dropdown-menu dropdown-menu-dark lista-generos">
+                    <li class="dropdown ">
+                      <a class="dropdown-item lista-generos-accion" href="#Acción" >Acción</a>
+                    </li>
+                    
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Animación</a></li>
+                    <li><a class="dropdown-item lista-generos-familia" href="#Familia">Animación</a></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Aventura</a></li>
+                    <li><a class="dropdown-item lista-generos-aventura" href="#Acción">Aventura</a></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Bélico Guerra</a></li>
+                    <li><a class="dropdown-item lista-generos-guerra" href="#Acción">Bélico Guerra</a></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Ciencia Ficción</a></li>
+                    <li><a class="dropdown-item lista-generos-ficcion" href="#Ficción">Ciencia Ficción</a></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Comedia</a></li>
+                    <li><a class="dropdown-item lista-generos-comedia" href="#Comedia">Comedia</a></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Crimen</a></li>
+                    <li><a class="dropdown-item lista-generos-crimen" href="#Drama">Crimen</a></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Drama</a></li>
+                    <li><a class="dropdown-item lista-generos-drama" href="#Drama">Drama</a></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Familiar</a></li>
+                    <li><a class="dropdown-item lista-generos-familia" href="#Familia">Familia</a></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Fantasía</a></li>
+                    <li><a class="dropdown-item lista-generos-fantasia" href="#Familia">Fantasía</a></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Romance</a></li>
+                    <li><a class="dropdown-item lista-generos-romance" href="#Familia">Romance</a></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Terror</a></li>
+                    <li><a class="dropdown-item lista-generos-terror" href="#Terror">Terror</a></li>
                   </ul>
                 </li>
               
@@ -211,6 +215,10 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <script src="/js/main.js" type="module"></script>
   </body>
 </html>
