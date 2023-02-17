@@ -1,0 +1,442 @@
+:root {
+    --color-greyBlue: #364852;
+    --color-siena-transparent: #5f01115b;
+    --color-azul-verde: #0d3135;
+    --color-verde-aguila: #1f929a;
+    --color-font-footer-mg: #8FEAFF;
+    --color-lightBlue: #5ebbf0;
+    --color-azul-claro: #21608d;
+    --color-blue: #2b75a0;
+    --color-navbar-scroll: rgb(15, 59, 95);
+    --color-azul-cuevana: rgb(20, 31, 74);
+    --color-blue-main: #141d32;
+    --color-footer-mg: #0A1A2A;
+    --color-celeste-oscuro-mas: rgb(67, 125, 159) !important;
+    --color-celeste-oscuro-menos: rgb(89, 132, 157) !important;
+}
+/* Pelicula Principal */
+.slider-main, .carousel-item img{
+    font-size: 16px;
+    height: 38.44em;
+    color: white;
+    /* background: linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(../assets/img/main/avatar-background.jpg) !important; */
+    background-position: 70% 35% !important;
+    background-size: cover !important;
+
+    /* margin-bottom: 3.12em; */
+}
+.slider-main .container {
+    margin-bottom: 2em !important;
+    font-size: 14px;
+    z-index: 10 !important;
+}
+#nabvar-contain{
+    width: 90vw !important;
+    margin-left: 4% !important;
+    margin-right: 4% !important;
+}
+.slider-main .title {
+    font-weight: 600;
+    font-size: 3.12em;
+    margin-bottom: 0.4em;
+    transform: translateX(-.2%);
+    line-height: 1.1em;
+    margin-bottom: 20px !important;
+}
+.slider-main .description{
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    margin-bottom: 1.25em;
+    padding-right: 20px;
+}
+.description{
+    max-height: 15vh !important;
+    overflow: auto;
+}
+.description::-webkit-scrollbar{
+    width: 7px !important;
+}
+.description::-webkit-scrollbar-thumb{
+    background-color: var(--color-azul-claro);
+    border-radius: 70rem;
+}
+.description::-webkit-scrollbar-track{
+    background-color: #031223;
+    border-radius: 70rem;
+}
+/* .description::-webkit-scrollbar {
+    display: none;
+} */
+
+.slider-main button{
+    background: rgba(0, 0, 0, .5);
+    border: none;
+    border-radius: 0.31em;
+    padding: .93em 1.87em;
+    color: white;
+    margin-right: 1.25em;
+    cursor: pointer;
+    transition: .3s ease all;
+    font-size: 1.16em;
+}
+.slider-main button{
+    margin-top: .5em;
+}
+.slider-main button:hover{
+    background: #ffff;
+    color: #000;
+}
+.details h4, .details h5{
+    font-size: 15px !important;
+}
+.offcanvas-email-perfil{
+    color: var(--color-celeste-oscuro-mas) !important;
+}
+.navbar-main{
+    background: linear-gradient(rgba(38, 46, 78, 1) 0%, rgba(0, 0, 0, 0) 100% ) !important;
+}
+.carousel-control-prev, .carousel-control-next{
+    background-color: transparent !important;
+}
+#input-search{
+    width: 11rem;
+    height: 30px;
+    outline: none;
+    border-radius: 50px 0px 0px 50px;
+    padding: 20px;
+    font-size: 18px;
+    transition: all .25s ease;
+    overflow: visible;
+    border-style: solid;
+    border-color:  rgba(61, 79, 145, .5) !important;
+    border-right: none;
+    background-color: rgba(8, 15, 40, .5);
+    color: inherit;
+    font: inherit;
+}
+#input-search:hover{
+    width: 13rem;
+}
+#input-search:focus{
+    width: 13rem;
+}
+.cont1{
+    width: 50px;
+    height: 30px;
+    border-style: solid;
+    border-color: rgba(61, 79, 145, .5);
+    background-color: rgba(8, 15, 40, .5);
+    border-left: none;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 50px 50px 0px;
+    border-width: 1.6px;
+}
+.cont2 button{
+    background-color: rgba(8, 15, 40, 0);
+    border: none;
+    color: var(--color-azul-claro)
+}
+.navbar-element{
+    margin: 0px 0px 0px 10px;
+}
+.navbar-brand{
+    margin-left: 2% !important;
+}
+
+@media screen and (min-width: 576px) {
+    .slider-main .container{
+        margin-left: 5% !important;
+        margin-right: 5% !important;
+        margin-bottom: 4.25em !important;
+        font-size: 16px;
+
+    }
+    .slider-main .button-info{
+        font-size: 1.16em !important;
+    }
+    .details h4, .details h5{
+        font-size: 22px !important;
+    }
+}
+@media screen and (min-width: 768px) {
+    .slider-main .description{
+        max-width: 80%;
+    }
+    .nav-btn-user{
+        display: flex !important;
+        align-items: center !important;
+    }
+}
+@media screen and (max-width: 768px) {
+    .movie{
+        width: 130px !important;
+        height: 180px !important;
+    }
+    .movie:hover::after{
+        width: 130px !important;
+        height: 180px !important;
+        content: url(./../assets/img/boton-de-play\ \(1\).png) !important;
+
+    }
+    .container-films-cats button:first-child {
+        padding: 0;
+    }
+    /* .container-films-cats{
+        transform: translateY(10%) !important;
+    }
+    #title-categories{
+        transform: translate(-2%, 80%) !important;
+    } */
+}
+@media screen and (max-width: 992px) {
+    .nav-btn-user{
+        display: none !important;
+    }
+    .offcanvas-body{
+        padding-top: 0 !important;
+    }
+    #offcanvasDarkNavbar{
+        margin: 0;
+        padding: 0;
+        background-image: url(./../assets/img/login-modal.png);
+        height: 100vh;
+        background-size: cover;
+        background-position:top;
+        background-repeat: no-repeat;
+    }
+}
+@media screen and (max-width: 484px) {
+    .container-categories{
+        padding: 20px 0px 35px 0px !important;
+    }
+    .container-icons-redes{
+        height: 10px;
+        padding: 0 !important;
+        margin-top: 0 !important;
+    }
+    .icons-links-redes{
+        font-size: 45px !important;
+    }
+    .icons-footer{
+        padding: 0 !important;
+        margin-top: 0 !important;
+        padding-bottom: 60px !important;
+    }
+    .container-footer-links{
+        height: 150px;
+        padding: 0 !important;
+        transform: translate(-5%, -5%);
+    }
+
+}
+@media screen and (max-width: 367px) {
+    .navbar-brand{
+      font-size: 18px !important;
+      margin-left: 15px;
+    }
+    .description{
+        max-height: 24vh !important;
+        overflow: auto;
+    }
+    .slider-main .title {
+        font-size: 2.3em !important;
+    }
+    .dropdown-menu{
+        min-width: 250px !important;
+        max-height: 220px !important;
+    }
+}
+
+.bg-scroll-nav{
+    background-color: #204a6d !important;
+}
+/* #204a6d piola*/
+/* #022747 2 puede ser */
+
+.dropdown-menu{
+    min-width: 280px ;
+    max-height: 250px ;
+    overflow: auto !important;
+    border-radius: .7rem 0 0 .7rem !important;
+    background-color: #031223;
+}
+.dropdown-menu::-webkit-scrollbar{
+    width: 7px !important;
+}
+.dropdown-menu::-webkit-scrollbar-thumb{
+    background-color: var(--color-blue);
+    border-radius: 70rem;
+}
+.dropdown-menu::-webkit-scrollbar-track{
+    background-color: #031223;
+    border-radius: 0rem 1rem 1rem 0;
+}
+.offcanvas-perfil{
+    margin: 0;
+    padding: 0;
+    background-image: url(./../assets/img/login-modal.png);
+    height: 100vh;
+    background-size: cover;
+    background-position:top;
+    background-repeat: no-repeat;
+}
+
+.perfil-element{
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 0;
+    color: whitesmoke ;
+    font-weight: 600;
+}
+.perfil-element:hover{
+    color: var(--color-greyBlue);
+}
+.perfil-element{
+    color: white ;
+}
+.offcanvas-perfil-item{
+    margin-top: 15px !important;
+}
+.offcanvas-perfil-list{
+    list-style: none;
+    padding-left: 25px;
+
+}
+.separador-perfil{
+    width: 80%;
+    border: solid 1px var(--color-greyBlue) !important;
+    margin: 4px;
+}
+
+/* CONTAINER CATEGORIES */
+
+.container-categories{
+    /* background: linear-gradient(rgba(38, 46, 78, .5) 0%, rgba(38, 46, 78, .7) 100% ) , url(./../assets/img/login-modal.png); */
+    padding: 20px 0px 40px 0px;
+    background: linear-gradient(rgba(38, 46, 78, .5) 0%, rgba(11, 152, 189, .2) 100% ) , url(./../assets/img/login-modal.png);
+    background-size: cover;
+}
+
+.carrousel-cats{
+    overflow: hidden;
+}
+.container-films-cats button{
+    color: var(--color-azul-claro);
+}
+.movie{
+    /* width: 170px o 175px; */
+    /* height: 230px; */
+    width: 181px;
+    height: 240px;
+    background-position: 50% 0%;
+    background-size: cover;
+    display: flex;
+    justify-content: end;
+    /* box-shadow: -10px 10px rgba(12, 17, 19, 0.1), 0 5px 30px rgba(12, 17, 19, .95); */
+}
+.movie:hover{
+    position: relative;
+    transform: scale(1.07);
+    transition: all .15s;
+}
+.movie-card{
+    margin-right: 12px ;
+
+}
+.fav-btn i{
+    color: gainsboro;
+    font-size: 30px !important;
+    margin-bottom: 3px;
+    color: var(--color-navbar-scroll);
+}
+.fav-btn{
+    position: relative;
+    z-index: 1;
+}
+
+.fav-btn i:hover{
+    color: rgb(157, 16, 16);
+}
+.fav-btn::after{
+    z-index: -1;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 2.5px;
+    height: 20px;
+    width: 20px;
+    background-color: gainsboro;
+}
+
+.movie:hover::after{
+    position: absolute;
+    width: 181px;
+    height: 240px;
+    background-color: rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: url(./../assets/img/boton-de-play\ \(4\).png);
+    /* content: url(./../assets/img/jugar.png); */
+}
+
+/* .container-films-cats{
+    transform: translateY(-2%);
+}
+#title-categories{
+    transform: translateY(-20%);
+} */
+
+/** footer */
+.icons-redes{
+    height: 80px;
+    width: 80px;
+    font-size: 60px !important;
+  }
+  .icons-links-redes{
+    color: var(--color-blue) !important;
+    color: var(--color-verde-aguila) !important;
+  }
+  .footer-links a{
+    color: rgb(67, 125, 159) !important;
+
+    font-weight: 750;
+  }
+  .container-footer-links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .container-logo{
+    font-size: 35px !important;
+    transform: translateX(-5%);
+    text-decoration: none;
+    color: var(--color-verde-aguila) !important;
+  }
+  .container-footer-bottom{
+    color: rgb(125, 138, 145) !important;
+    font-weight: 700;
+  }
+  .footer-landing{
+    background: linear-gradient(rgba(20, 29, 50) 0%, rgba(20, 29, 50, .8) 100% ) !important;
+  }
+
+  .footer-landing a:hover{
+    color: var(--color-font-footer-mg) !important;
+
+  }
+  .footer-links{
+    margin-left: -20% !important;
+  }
+
+.title-categories{
+    padding: 5px 0px;
+}
+.container-films-cats{
+    padding: 0px 10px;
+}
