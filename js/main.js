@@ -216,7 +216,7 @@ function listarFilms(array) {
                     movieCardTerror.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
                         <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
-                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
+                        <a href="#" class="link-icon-${movie.id} fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     terror.appendChild(movieCardTerror);
@@ -348,7 +348,6 @@ function getFavsLS() {
     }
     return getFavs;
 }
-
 function saveFavLS(favInfo){
     console.log('SAVE FAV LS');
     let favs = getFavsLS();
@@ -360,7 +359,7 @@ function addFav(favInfo){
     console.log('ADD FAV');
     const favorite=document.createElement("li")
     favorite.id=`fav-${favInfo.id}`
-    favorite.classList.add(`fav-${favInfo.id}`,"dropdown-item","pt-0", "d-flex", "align-items-center");
+    favorite.classList.add(`fav-${favInfo.id}`,"dropdown-item","pt-0", "d-flex", "align-items-center", "element-fav");
     console.log('entre aca');
     console.log(favorite);
     favorite.innerHTML=`
@@ -371,6 +370,8 @@ function addFav(favInfo){
     `;
     containerFavs.appendChild(favorite);
     console.log(favorite);
+    
+    containerFavs.querySelector('#lista-vacia')?.remove()
 }
 
 
@@ -382,19 +383,29 @@ function renderFavsLS(){
         favs.forEach((fav)=>{
             const favorite=document.createElement("li")
             favorite.id=`fav-${fav.id}`
-            favorite.classList.add(`fav-${fav.id}`,"dropdown-item","pt-0", "d-flex", "align-items-center");
+            favorite.classList.add(`fav-${fav.id}`,"dropdown-item","pt-0", "d-flex", "align-items-center", "element-fav");
             console.log('entre aca');
             console.log(favorite);
             favorite.innerHTML=`
             <div class="me-2 col-md-1 align-self-center">
                 <h3 class="mb-1 delete-fav text-danger ml-2 mb-0" role="button">&times</h3>
             </div>
-            <a class="ps-2 pe-1 pe-3 text-wrap text-decoration-none text-light" href="detail.html#${fav.id}">${fav.nombre}</a> 
+            <a class="ps-2 pe-1 pe-3 text-wrap text-decoration-none text-light" href="detail.html#${fav.id}">${fav.nombre}</a>
             `;
             containerFavs.appendChild(favorite);
+            console.log(document.getElementById(`${fav.id}`))
+            document.getElementById(`${fav.id}`).querySelector('.link-icon').innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>`
             // .innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>` //? CÓMO HACER PARA QUE AL ACTUALIZAR LA PAGINA NO ME PERMITA AGREGARLO
         })
-    },2000);
+        if(favs.length == 0){
+            let listaVacia = document.createElement('li');
+            listaVacia.setAttribute('id', 'lista-vacia')
+            listaVacia.classList.add("dropdown-item","pt-0", "d-flex", "align-items-center");
+            listaVacia.innerText = `Tu lista está vacía`
+            containerFavs.appendChild(listaVacia)
+        }
+    },100);
+    
 }
 
 function deleteFav(e){
@@ -406,7 +417,16 @@ function deleteFav(e){
         removedElement.remove();
         deleteFavLS(deleteId);
         console.log(deleteId);
+        console.log(document.getElementById(`${deleteId}`).querySelector('.text-success').parentElement)
         document.getElementById(`${deleteId}`).querySelector('.text-success').parentElement.innerHTML = `<i class="fas fa-plus-square fs-3 fav-btn">`
+        console.log(e.target.parentElement.parentElement.parent)
+    }
+    if(!containerFavs.querySelector('.element-fav')){
+        let listaVacia = document.createElement('li');
+        listaVacia.setAttribute('id', 'lista-vacia')
+        listaVacia.classList.add("dropdown-item","pt-0", "d-flex", "align-items-center");
+        listaVacia.innerText = `Tu lista está vacía`
+        containerFavs.appendChild(listaVacia)
     }
 }
 
@@ -440,6 +460,14 @@ containerCategories.addEventListener("click",(e)=>{
                 deleteFavLS(favInfo.id)
                 console.log('no cambia el i');
                 e.target.parentElement.innerHTML = `<i class="fas fa-plus-square fs-3 fav-btn">`
+                if(!containerFavs.querySelector('.element-fav')){
+                    let listaVacia = document.createElement('li');
+                    listaVacia.setAttribute('id', 'lista-vacia')
+                    listaVacia.classList.add("dropdown-item","pt-0", "d-flex", "align-items-center");
+                    listaVacia.innerText = `Tu lista está vacía`
+                    containerFavs.appendChild(listaVacia)
+                }
+
             }else{
                 console.log('CHECKEA');
                 e.target.parentElement.innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>`
