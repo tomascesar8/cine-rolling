@@ -1,20 +1,21 @@
 //SIMULAMOS BASE DE DATOS:
 class User{
-  constructor(name, email, phoneNumber, gender, pass, admin){
+  constructor(name, email, phoneNumber, gender, pass, admin, favs){
     this.name = name;
     this.email = email;
     this.phoneNumber = phoneNumber;
     this.gender = gender;
     this.pass = pass;
     this.admin = admin;
+    this.favs = favs;
   }
 };
 let users = [
-  new User('Tomás César', 'tomas@hotmail.com', '351-1234567', 'Masculino', '123456', true),
-  new User('Nicolás César', 'nicolas@hotmail.com', '351-2345678',  'Masculino', '123456', false),
-  new User('Celeste César', 'celeste@hotmail.com', '351-3456789',  'Femenino', '123456', false),
-  new User('Gonzalo César', 'gonzalo@hotmail.com', '351-4567890',  'Masculino', '123456', false),
-  new User('Viviana Bacha', 'viviana@hotmail.com', '351-5678901',  'Femenino', '123456', true),
+  new User('Tomás César', 'tomas@hotmail.com', '351-1234567', 'Masculino', '123456', true, []),
+  new User('Nicolás César', 'nicolas@hotmail.com', '351-2345678',  'Masculino', '123456', false, []),
+  new User('Celeste César', 'celeste@hotmail.com', '351-3456789',  'Femenino', '123456', false, []),
+  new User('Gonzalo César', 'gonzalo@hotmail.com', '351-4567890',  'Masculino', '123456', false, []),
+  new User('Viviana Bacha', 'viviana@hotmail.com', '351-5678901',  'Femenino', '123456', true, []),
 ];
 
 let peliculas = [
@@ -819,6 +820,7 @@ function loginCheck(event){
     console.log(pass);
     if (passUserLoged){
       localStorage.setItem('user', JSON.stringify(userLoged));
+      localStorage.setItem("favs", JSON.stringify(userLoged.favs))
       window.location.assign(`${window.location.origin}/main.html`);
       console.log('Iniciaste sesión');
     }else{

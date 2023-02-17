@@ -231,6 +231,7 @@
         padding: 0 !important;
         transform: translate(-5%, -5%);
     }
+
 }
 @media screen and (max-width: 367px) {
     .navbar-brand{
@@ -244,6 +245,10 @@
     .slider-main .title {
         font-size: 2.3em !important;
     }
+    .dropdown-menu{
+        min-width: 250px !important;
+        max-height: 220px !important;
+    }
 }
 
 .bg-scroll-nav{
@@ -253,7 +258,8 @@
 /* #022747 2 puede ser */
 
 .dropdown-menu{
-    max-height: 250px !important;
+    min-width: 280px ;
+    max-height: 250px ;
     overflow: auto !important;
     border-radius: .7rem 0 0 .7rem !important;
     background-color: #031223;
@@ -322,6 +328,8 @@
     color: var(--color-azul-claro);
 }
 .movie{
+    /* width: 170px o 175px; */
+    /* height: 230px; */
     width: 181px;
     height: 240px;
     background-position: 50% 0%;
@@ -343,7 +351,7 @@
     color: gainsboro;
     font-size: 30px !important;
     margin-bottom: 3px;
-    color: var(--color-navbar-scroll)
+    color: var(--color-navbar-scroll);
 }
 .fav-btn{
     position: relative;

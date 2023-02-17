@@ -160,7 +160,8 @@ function listarFilms(array) {
                     movieCardFamilia.classList.add("movie-card")
                     movieCardFamilia.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
-                    <a href="#" class="fav-btn me-2"><i class="fas fa-plus-square fs-3"></i></i></a>
+                        <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
+                        <a href="#" class="link-icon fav-btn me-2"><i class="fas fa-plus-square fs-3 fav-btn"></i></i></a>
                     </div>
                     `
                     familia.appendChild(movieCardFamilia);
@@ -170,7 +171,8 @@ function listarFilms(array) {
                     movieCardComedia.classList.add("movie-card")
                     movieCardComedia.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
-                        <a href="#" class="fav-btn me-1"><i class="fas fa-plus-square fs-3"></i></a>
+                        <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
+                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     comedia.appendChild(movieCardComedia);
@@ -180,7 +182,8 @@ function listarFilms(array) {
                     movieCardDrama.classList.add("movie-card")
                     movieCardDrama.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
-                        <a href="#" class="fav-btn me-1"><i class="fas fa-plus-square fs-3"></i></a>
+                        <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
+                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     drama.appendChild(movieCardDrama);
@@ -190,7 +193,8 @@ function listarFilms(array) {
                     movieCardAccion.classList.add("movie-card")
                     movieCardAccion.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
-                        <a href="#" class="fav-btn me-1"><i class="fas fa-plus-square fs-3"></i></a>
+                        <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
+                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     accion.appendChild(movieCardAccion);
@@ -200,7 +204,8 @@ function listarFilms(array) {
                     movieCardCienciaF.classList.add("movie-card")
                     movieCardCienciaF.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
-                        <a href="#" class="fav-btn me-1"><i class="fas fa-plus-square fs-3"></i></a>
+                        <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
+                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     cienciaFiccion.appendChild(movieCardCienciaF);
@@ -210,7 +215,8 @@ function listarFilms(array) {
                     movieCardTerror.classList.add("movie-card")
                     movieCardTerror.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
-                        <a href="#" class="fav-btn me-1"><i class="fas fa-plus-square fs-3"></i></a>
+                        <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
+                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     terror.appendChild(movieCardTerror);
@@ -298,33 +304,20 @@ navGeneros.addEventListener("click",(event)=>{
     document.documentElement.scrollTop-= 100;
     },750)
     if(document.documentElement.scrollWidth < 992){
-        //* - QUE SE CIERRE EL MODAL Y LO SCROLLEE A LA CATEGORIA !????????
-        //* - o que se cree una lista con el resultado dentro del modal
-        //* - o crear un modal con los resultados
-        //* - o trasladar a una nueva página con las cards de los resultados//
         setTimeout(() => {
             document.getElementById('btn-close-modal').click()
         },750)
     }
 })
 
-
-
-
 //* FAVORITOS
-// const containerCategories = document.getElementById("categories")
-// const categories = document.createElement("h1");
-// categories.innerHTML = "Categorías"
-// categories.classList.add("ml-2", "color3", "titlesandbtns")
-// containerCategories.appendChild(categories);
 
 const containerFavs = document.getElementById("favorites-list")
-const favsTitle = document.createElement("div");
-favsTitle.classList.add("titlesandbtns","dropdown-header", "text-center","bg-color1","color6","mt-0","mb-1");
-favsTitle.style.fontSize="large"
-favsTitle.innerHTML="Lista de favoritos"
-containerFavs.appendChild(favsTitle);
-const URL = 'http://localhost:3000/peliculas';
+// const favsTitle = document.createElement("div");
+// favsTitle.classList.add("titlesandbtns","dropdown-header","mt-0","mb-1", 'ms-5');
+// favsTitle.style.fontSize="large"
+// favsTitle.innerHTML="Lista de favoritos"
+// containerFavs.appendChild(favsTitle);
 
 
 // function actualizarLS() {
@@ -343,79 +336,82 @@ const URL = 'http://localhost:3000/peliculas';
 // }
 
 function getFavsLS() {
-    return JSON.parse(localStorage.getItem('favs'));
+    console.log(' GET FAVS LS');
+    let getFavs;
+    if(localStorage.getItem('favs')){
+        let dataFavs = JSON.parse(localStorage.getItem('favs'))
+        getFavs = dataFavs;
+    }else{
+        let favs = [];
+        JSON.stringify(localStorage.setItem('favs', favs))
+        getFavs = favs;
+    }
+    return getFavs;
 }
 
 function saveFavLS(favInfo){
+    console.log('SAVE FAV LS');
     let favs = getFavsLS();
     favs.push(favInfo);
     localStorage.setItem('favs', JSON.stringify(favs));
 }
 
 function addFav(favInfo){
-    const favorite = document.createElement("div")
+    console.log('ADD FAV');
+    const favorite=document.createElement("li")
     favorite.id=`fav-${favInfo.id}`
-    favorite.style.width= "350px";
-    favorite.classList.add(`fav-${favInfo.id}`,"dropdown-item","pt-0");
+    favorite.classList.add(`fav-${favInfo.id}`,"dropdown-item","pt-0", "d-flex", "align-items-center");
+    console.log('entre aca');
+    console.log(favorite);
     favorite.innerHTML=`
-    <div class="row no-gutters">
-        <div class="col-md-2" style="height:65px">
-            <img src="${favInfo.imagen}" class="card-img h-100" alt="...">
-        </div>
-        <div class="col-md-9 align-self-center">
-            <a href="detail.html#${favInfo.id}" class="text-decoration-none color1 card-title h5 pl-2">${favInfo.nombre}</a>
-        </div>
-        <div class="col-md-1 align-self-center">
-            <h3 class="delete-fav color2 ml-2 mb-0" role="button">&times</h3>
-        </div>
+    <div class="me-2 col-md-1 align-self-center">
+        <h3 class="mb-1  delete-fav text-danger ml-2 mb-0" role="button">&times</h3>
     </div>
-    <hr class="mt-1 mb-0">
+    <a class="ps-2 pe-1 text-wrap text-decoration-none text-light" href="detail.html#${favInfo.id}">${favInfo.nombre}</a>
     `;
     containerFavs.appendChild(favorite);
+    console.log(favorite);
 }
 
+
+
 function renderFavsLS(){
+    console.log('RENDER FAV LS');
     setTimeout(() => {
         let favs = getFavsLS();
         favs.forEach((fav)=>{
-            const favorite=document.createElement("div")
+            const favorite=document.createElement("li")
             favorite.id=`fav-${fav.id}`
-            favorite.style.width= "350px";
-            favorite.classList.add(`fav-${fav.id}`,"dropdown-item","pt-0");
+            favorite.classList.add(`fav-${fav.id}`,"dropdown-item","pt-0", "d-flex", "align-items-center");
+            console.log('entre aca');
+            console.log(favorite);
             favorite.innerHTML=`
-            <div class="row no-gutters responsive-favs">
-                <div class="col-2" style="height:65px">
-                    <img src="${fav.imagen}" class="card-img h-100" alt="...">
-                </div>
-                <div class="col-9 align-self-center">
-                    <a href="detail.html#${fav.id}" class="text-decoration-none color1 card-title h5 pl-2">${fav.nombre}</a>
-                </div>
-                <div class="col-1 align-self-center">
-                    <h3 class="delete-fav color2 ml-2 mb-0" role="button">&times</h3>
-                </div>
+            <div class="me-2 col-md-1 align-self-center">
+                <h3 class="mb-1 delete-fav text-danger ml-2 mb-0" role="button">&times</h3>
             </div>
-            <hr class="mt-1 mb-0">
+            <a class="ps-2 pe-1 pe-3 text-wrap text-decoration-none text-light" href="detail.html#${fav.id}">${fav.nombre}</a> 
             `;
             containerFavs.appendChild(favorite);
-            document.getElementById(`${fav.id}`).querySelector('.fa-heart').classList.add('color2');
+            // .innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>` //? CÓMO HACER PARA QUE AL ACTUALIZAR LA PAGINA NO ME PERMITA AGREGARLO
         })
     },2000);
 }
 
 function deleteFav(e){
-    console.log("hola");
-    if(e.target.classList.contains("delete-fav"))
-    {
+    console.log("DELETE FAV");
+    if(e.target.classList.contains("delete-fav")){
         e.preventDefault();
-        const removedElement = e.target.parentElement.parentElement.parentElement
+        const removedElement = e.target.parentElement.parentElement
         const deleteId= removedElement.id.slice(4);
         removedElement.remove();
         deleteFavLS(deleteId);
-        document.getElementById(`${deleteId}`).querySelector('.fa-heart').classList.remove('color2');
+        console.log(deleteId);
+        document.getElementById(`${deleteId}`).querySelector('.text-success').parentElement.innerHTML = `<i class="fas fa-plus-square fs-3 fav-btn">`
     }
 }
 
 function deleteFavLS(deleteId){
+    console.log('DELETE FAV LS');
     let favs = getFavsLS();
     favs.forEach((fav,index)=>{
         if(fav.id === deleteId){
@@ -427,20 +423,30 @@ function deleteFavLS(deleteId){
 document.addEventListener("DOMContentLoaded",renderFavsLS);
 
 containerCategories.addEventListener("click",(e)=>{
+    console.log('entro al escuchador de eventos del carrusel');
+    console.log(e.target);
     if(e.target.classList.contains("fav-btn")){
+        console.log('entro al fav-btn');
+        console.log(e.target);
         e.preventDefault();
-        let favInfo=e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+        let favInfo=e.target.parentElement.parentElement;
+        console.log(favInfo);
         if(favInfo.classList.contains("movie")){
-            if (e.target.classList.contains("color2")){
-                e.target.classList.remove("color2")
+            console.log('entro a movie');
+            if (e.target.classList.contains("text-success")){
+                console.log('entro a color');
+                e.target.classList.remove("text-success")
                 containerFavs.querySelector(`.fav-${favInfo.id}`).remove()
                 deleteFavLS(favInfo.id)
+                console.log('no cambia el i');
+                e.target.parentElement.innerHTML = `<i class="fas fa-plus-square fs-3 fav-btn">`
             }else{
-                e.target.classList.add("color2")
+                console.log('CHECKEA');
+                e.target.parentElement.innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>`
+                console.log(favInfo.parentElement.previusSibling)
                 favInfo=
                 {
-                    imagen: favInfo.style.backgroundImage.slice(5,-2),
-                    nombre: favInfo.querySelector(".movie-title").textContent,
+                    nombre: favInfo.parentElement.querySelector('.movie-title').innerHTML,
                     id: favInfo.id
                 }
                 addFav(favInfo)
@@ -448,6 +454,7 @@ containerCategories.addEventListener("click",(e)=>{
             }
         }
         else{
+            console.log('el ultimo');
             favInfo=favInfo.querySelector(".movie");
             if(e.target.children.classList.contains("color2")){
                 e.target.classList.remove("color2")
@@ -461,6 +468,7 @@ containerCategories.addEventListener("click",(e)=>{
                     nombre: favInfo.querySelector(".movie-title").textContent,
                     id: favInfo.id
                 }
+                favInfo.querySelector(".movie-title").textContent,
                 addFav(favInfo)
                 saveFavLS(favInfo)
             }
@@ -469,12 +477,12 @@ containerCategories.addEventListener("click",(e)=>{
 })
 containerFavs.addEventListener("click",deleteFav);
 
-// let favsBtn = document.querySelectorAll('.fav-btn')
-// favsBtn.addEventListener('click', addFav)
-// console.log(favsBtn)
-setTimeout(() => {
-    console.log('CONCHAETUMADRE');
-}, 2000);
+// // let favsBtn = document.querySelectorAll('.fav-btn')
+// // favsBtn.addEventListener('click', addFav)
+// // console.log(favsBtn)
+// setTimeout(() => {
+//     console.log('CONCHAETUMADRE');
+// }, 2000);
 
 
 
