@@ -1,7 +1,6 @@
 const peliculas = JSON.parse(localStorage.getItem('films'));
 const user = JSON.parse(localStorage.getItem('user'));
 
-
 function isOutstanding(peliculas) {
     if (peliculas.destacada === true) {
         console.log(peliculas);
@@ -28,27 +27,26 @@ genderSliderFilm.innerHTML = `${peliculasDestacadas[0].genero}`
 categorySliderFilm.innerHTML = `${peliculasDestacadas[0].categoria}`
 yearSliderFilm.innerHTML = `${peliculasDestacadas[0].año}`
 
+setInterval(() => {
+    i++
+    if(i>peliculasDestacadas.length-1){
+        i=0
+    }
+    sliderFilms.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
+    titleSliderFilm.innerHTML = `${peliculasDestacadas[i].nombre}`
+    descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`
+    genderSliderFilm.innerHTML = `${peliculasDestacadas[i].genero}`
+    categorySliderFilm.innerHTML = `${peliculasDestacadas[i].categoria}`
+    yearSliderFilm.innerHTML = `${peliculasDestacadas[i].año}`
 
-// setInterval(() => {
-//     i++
-//     if(i>peliculasDestacadas.length-1){
-//         i=0
-//     }
-//     sliderFilms.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
-//     titleSliderFilm.innerHTML = `${peliculasDestacadas[i].nombre}`
-//     descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`
-    // genderSliderFilm.innerHTML = `${peliculasDestacadas[i].genero}`
-    // categorySliderFilm.innerHTML = `${peliculasDestacadas[i].categoria}`
-    // yearSliderFilm.innerHTML = `${peliculasDestacadas[i].año}`
-
-// }, 5000);
+}, 5000);
 
 let sliderDerecho = document.querySelector('.carousel-control-next');
 let sliderIzq = document.querySelector('.carousel-control-prev');
 
 function moverDerecha() {
     i++
-    if (i>peliculasDestacadas.length -1 ) {
+    if (i > (peliculasDestacadas.length - 1)) {
         i = 0;
     }
     sliderFilms.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
@@ -62,8 +60,8 @@ sliderDerecho.addEventListener('click', moverDerecha)
 
 function moverIzq() {
     i--
-    if (i<0 ) {
-        i = peliculasDestacadas.length -1;
+    if (i < 0) {
+        i = peliculasDestacadas.length - 1;
     }
     sliderFilms.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
     titleSliderFilm.innerHTML = `${peliculasDestacadas[i].nombre}`
@@ -92,11 +90,11 @@ emailOffCanvasPerfil.innerHTML = `${user.email}`
 
 let nav = document.querySelector('.navbar-main');
 window.addEventListener('scroll', function () {
-  if(window.pageYOffset>20){
+    if(window.pageYOffset>20){
     nav.classList.add('bg-scroll-nav', 'shadow');
-  }else{
+    }else{
     nav.classList.remove('bg-scroll-nav', 'shadow')
-  }
+    }
 });
 
 
@@ -161,7 +159,7 @@ function listarFilms(array) {
                     movieCardFamilia.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
                         <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
-                        <a href="#" class="link-icon fav-btn me-2"><i class="fas fa-plus-square fs-3 fav-btn"></i></i></a>
+                        <a href="#" class="link-icon-${movie.id} fav-btn me-2"><i class="fas fa-plus-square fs-3 fav-btn"></i></i></a>
                     </div>
                     `
                     familia.appendChild(movieCardFamilia);
@@ -170,9 +168,9 @@ function listarFilms(array) {
                     const movieCardComedia = document.createElement("div");
                     movieCardComedia.classList.add("movie-card")
                     movieCardComedia.innerHTML = `
-                    <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
+                    <div id="${movie.id}" class=" movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
                         <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
-                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
+                        <a href="#" class="link-icon-${movie.id} fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     comedia.appendChild(movieCardComedia);
@@ -183,7 +181,7 @@ function listarFilms(array) {
                     movieCardDrama.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
                         <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
-                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
+                        <a href="#" class="link-icon-${movie.id} fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     drama.appendChild(movieCardDrama);
@@ -194,7 +192,7 @@ function listarFilms(array) {
                     movieCardAccion.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
                         <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
-                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
+                        <a href="#" class="link-icon-${movie.id} fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     accion.appendChild(movieCardAccion);
@@ -205,7 +203,7 @@ function listarFilms(array) {
                     movieCardCienciaF.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
                         <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
-                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
+                        <a href="#" class="link-icon-${movie.id} fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     cienciaFiccion.appendChild(movieCardCienciaF);
@@ -320,10 +318,6 @@ const containerFavs = document.getElementById("favorites-list")
 // containerFavs.appendChild(favsTitle);
 
 
-// function actualizarLS() {
-//     JSON.parse(localStorage.getItem('films'));
-// }
-
 // function getMovie(id) {
 //     const idPelicula = `${peliculas}.${id}`
 //     return idPelicula;
@@ -334,6 +328,13 @@ const containerFavs = document.getElementById("favorites-list")
 //     const peliLS = 
 //     return data;
 // }
+function createListaVacia() {
+    let listaVacia = document.createElement('li');
+        listaVacia.setAttribute('id', 'lista-vacia')
+        listaVacia.classList.add("dropdown-item","pt-0", "d-flex", "align-items-center");
+        listaVacia.innerText = `Tu lista está vacía`
+        containerFavs.appendChild(listaVacia);
+}
 
 function getFavsLS() {
     console.log(' GET FAVS LS');
@@ -374,8 +375,6 @@ function addFav(favInfo){
     containerFavs.querySelector('#lista-vacia')?.remove()
 }
 
-
-
 function renderFavsLS(){
     console.log('RENDER FAV LS');
     setTimeout(() => {
@@ -394,18 +393,13 @@ function renderFavsLS(){
             `;
             containerFavs.appendChild(favorite);
             console.log(document.getElementById(`${fav.id}`))
-            document.getElementById(`${fav.id}`).querySelector('.link-icon').innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>`
-            // .innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>` //? CÓMO HACER PARA QUE AL ACTUALIZAR LA PAGINA NO ME PERMITA AGREGARLO
+            document.querySelectorAll(`.link-icon-${fav.id}`).forEach(result=>
+            result.innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>`)
         })
         if(favs.length == 0){
-            let listaVacia = document.createElement('li');
-            listaVacia.setAttribute('id', 'lista-vacia')
-            listaVacia.classList.add("dropdown-item","pt-0", "d-flex", "align-items-center");
-            listaVacia.innerText = `Tu lista está vacía`
-            containerFavs.appendChild(listaVacia)
+            createListaVacia()
         }
     },100);
-    
 }
 
 function deleteFav(e){
@@ -418,15 +412,12 @@ function deleteFav(e){
         deleteFavLS(deleteId);
         console.log(deleteId);
         console.log(document.getElementById(`${deleteId}`).querySelector('.text-success').parentElement)
-        document.getElementById(`${deleteId}`).querySelector('.text-success').parentElement.innerHTML = `<i class="fas fa-plus-square fs-3 fav-btn">`
+        document.querySelectorAll(`.link-icon-${deleteId}`).forEach(result=>
+            result.innerHTML = `<i class="fas fa-plus-square fs-3 fav-btn">`)
         console.log(e.target.parentElement.parentElement.parent)
     }
     if(!containerFavs.querySelector('.element-fav')){
-        let listaVacia = document.createElement('li');
-        listaVacia.setAttribute('id', 'lista-vacia')
-        listaVacia.classList.add("dropdown-item","pt-0", "d-flex", "align-items-center");
-        listaVacia.innerText = `Tu lista está vacía`
-        containerFavs.appendChild(listaVacia)
+        createListaVacia()
     }
 }
 
@@ -455,22 +446,21 @@ containerCategories.addEventListener("click",(e)=>{
             console.log('entro a movie');
             if (e.target.classList.contains("text-success")){
                 console.log('entro a color');
-                e.target.classList.remove("text-success")
+                // e.target.classList.remove("text-success")
                 containerFavs.querySelector(`.fav-${favInfo.id}`).remove()
                 deleteFavLS(favInfo.id)
                 console.log('no cambia el i');
-                e.target.parentElement.innerHTML = `<i class="fas fa-plus-square fs-3 fav-btn">`
+                document.querySelectorAll(`.link-icon-${favInfo.id}`).forEach(result=>
+                    result.innerHTML = `<i class="fas fa-plus-square fs-3 fav-btn">`)
+                // e.target.parentElement.innerHTML = `<i class="fas fa-plus-square fs-3 fav-btn">`
                 if(!containerFavs.querySelector('.element-fav')){
-                    let listaVacia = document.createElement('li');
-                    listaVacia.setAttribute('id', 'lista-vacia')
-                    listaVacia.classList.add("dropdown-item","pt-0", "d-flex", "align-items-center");
-                    listaVacia.innerText = `Tu lista está vacía`
-                    containerFavs.appendChild(listaVacia)
+                    createListaVacia()
                 }
-
             }else{
                 console.log('CHECKEA');
-                e.target.parentElement.innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>`
+                document.querySelectorAll(`.link-icon-${favInfo.id}`).forEach(result=>
+                    result.innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>`)
+                // e.target.parentElement.innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>`
                 console.log(favInfo.parentElement.previusSibling)
                 favInfo=
                 {
@@ -481,47 +471,9 @@ containerCategories.addEventListener("click",(e)=>{
                 saveFavLS(favInfo)
             }
         }
-        else{
-            console.log('el ultimo');
-            favInfo=favInfo.querySelector(".movie");
-            if(e.target.children.classList.contains("color2")){
-                e.target.classList.remove("color2")
-                containerFavs.querySelector(`.fav-${favInfo.id}`).remove()
-                deleteFavLS(favInfo.id)
-            }else{
-                e.target.children.classList.add("color2")
-                favInfo=
-                {
-                    imagen: favInfo.style.backgroundImage.slice(5,-2),
-                    nombre: favInfo.querySelector(".movie-title").textContent,
-                    id: favInfo.id
-                }
-                favInfo.querySelector(".movie-title").textContent,
-                addFav(favInfo)
-                saveFavLS(favInfo)
-            }
-        }
     }
 })
 containerFavs.addEventListener("click",deleteFav);
-
-// // let favsBtn = document.querySelectorAll('.fav-btn')
-// // favsBtn.addEventListener('click', addFav)
-// // console.log(favsBtn)
-// setTimeout(() => {
-//     console.log('CONCHAETUMADRE');
-// }, 2000);
-
-
-
-
-
-
-
-
-
-
-
 
 
 //? Seleccion de titulos
@@ -561,3 +513,5 @@ containerFavs.addEventListener("click",deleteFav);
 // moverTitle(generosRomance, titleRomance)
 // moverTitle(generosTerror, titleTerror)
 //?
+
+
