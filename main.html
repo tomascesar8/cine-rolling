@@ -112,18 +112,19 @@
                   </ul>
                 </li>
               
-                <form class="navbar-element order-0 ms-0" onsubmit="">
-                  <div class="centrar d-flex">
+                <!-- <form class="navbar-element order-0 ms-0" onsubmit="buscador(event)"> -->
+                  <div class="centrar d-flex position-relative">
                     <div class="entrada-cont d-flex justify-content-center align-items-center">
-                      <input id="input-search" type="text" placeholder="Buscar películas...">
+                      <input id="input-search" type="text" placeholder="Buscar películas..." list="search-datalist" autocomplete="off" >
+                       
                       <div class="cont1">
                         <div class="cont2">
-                          <button type="submit"><i width="20px" class="fas fa-search"></i></button>
+                          <button id="btn-lupa" type="button"><i width="20px" class="fas fa-search"></i></button>
                         </div>
                       </div>
                     </div>
                   </div>
-                </form>
+                <!-- </form> -->
               </ul>
               <button
               class="nav-btn-user navbar-element btn text-white border border-0"

@@ -51,7 +51,7 @@ function moverDerecha() {
     }
     sliderFilms.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
     titleSliderFilm.innerHTML = `${peliculasDestacadas[i].nombre}`
-    descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`    
+    descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`
     genderSliderFilm.innerHTML = `${peliculasDestacadas[i].genero}`
     categorySliderFilm.innerHTML = `${peliculasDestacadas[i].categoria}`
     yearSliderFilm.innerHTML = `${peliculasDestacadas[i].año}`
@@ -130,7 +130,7 @@ cats.forEach(categoria=>{
     containerCategories.appendChild(carrousel);
 })
 
-const familia = document.querySelector('.carrousel-Familia'); 
+const familia = document.querySelector('.carrousel-Familia');
 const comedia = document.querySelector('.carrousel-Comedia');
 const drama = document.querySelector('.carrousel-Drama');
 const accion = document.querySelector('.carrousel-Acción');
@@ -150,7 +150,7 @@ console.log(filmsCienciaF);
 console.log(filmsTerror);
 
 
-function listarFilms(array) {    
+function listarFilms(array) {
     array.forEach(movie => {
         switch (true) {
             case array == filmsFamilia:
@@ -163,7 +163,7 @@ function listarFilms(array) {
                     </div>
                     `
                     familia.appendChild(movieCardFamilia);
-                break;           
+                break;
                 case array == filmsComedia:
                     const movieCardComedia = document.createElement("div");
                     movieCardComedia.classList.add("movie-card")
@@ -219,7 +219,7 @@ function listarFilms(array) {
                     `;
                     terror.appendChild(movieCardTerror);
                 break;
-                
+
                 default:
         }
     familia.scrollLeft = comedia.scrollLeft = drama.scrollLeft = accion.scrollLeft = cienciaFiccion.scrollLeft = terror.scrollLeft = 0;
@@ -234,7 +234,7 @@ listarFilms(filmsCienciaF)
 
 
 containerCategories.addEventListener("click",(event)=>{
-    if(event.target.classList.contains("angle-right")){ 
+    if(event.target.classList.contains("angle-right")){
         switch (true) {
             case event.target.parentElement.id === 'Comedia' || event.target.parentElement.parentElement.id === 'Comedia':
                 comedia.scrollLeft+=193.9;
@@ -255,7 +255,7 @@ containerCategories.addEventListener("click",(event)=>{
                 familia.scrollLeft+=193.9;
             break;
             default:
-        }  
+        }
     }else if(event.target.classList.contains("angle-left")){
         switch (true) {
             case event.target.parentElement.id === 'Comedia' || event.target.parentElement.parentElement.id === 'Comedia':
@@ -325,7 +325,7 @@ const containerFavs = document.getElementById("favorites-list")
 
 // async function editMovie(id, newData) {
 //     const idPelicula = `${peliculas}.${id}`
-//     const peliLS = 
+//     const peliLS =
 //     return data;
 // }
 function createListaVacia() {
@@ -371,7 +371,7 @@ function addFav(favInfo){
     `;
     containerFavs.appendChild(favorite);
     console.log(favorite);
-    
+
     containerFavs.querySelector('#lista-vacia')?.remove()
 }
 
@@ -493,8 +493,8 @@ containerFavs.addEventListener("click",deleteFav);
 // function moverTitle(element, titleElement) {
 //     element.addEventListener("click",(event)=>{
 //             setTimeout(() => {
-//                 titleElement.classList.add('animate__animated' , 'animate__pulse')      
-//                 console.log('chau');        
+//                 titleElement.classList.add('animate__animated' , 'animate__pulse')
+//                 console.log('chau');
 //             }, 2000);
 //             titleElement.classList.remove('animate__animated' , 'animate__pulse')
 // //             if(document.documentElement.scrollWidth < 992){
@@ -509,9 +509,44 @@ containerFavs.addEventListener("click",deleteFav);
 // moverTitle(generosCrimen, titleCrimen)
 // moverTitle(generosDrama, titleDrama)
 // moverTitle(generosFamilia, titleFamilia)
-// moverTitle(generosFantasia, titleFantasia) 
+// moverTitle(generosFantasia, titleFantasia)
 // moverTitle(generosRomance, titleRomance)
 // moverTitle(generosTerror, titleTerror)
 //?
 
 
+//* BUSCADOR
+let searchDataList = document.querySelector('#input-search').value;
+let containerSearcher = document.querySelector('.centrar')
+let containerResultado = document.createElement('div')
+containerResultado.setAttribute('id', 'resultados-busqueda');
+containerResultado.classList.add('position-absolute')
+
+document.addEventListener('keyup', e=>{
+    if(e.target.matches('#input-search')){
+        if (containerResultado.childNodes.length===0) {
+        peliculas.forEach(pelicula=>{
+                let itemBusqueda = document.createElement('div')
+                itemBusqueda.classList.add('list-item-busqueda', 'd-none')
+                itemBusqueda.innerHTML = `
+                <a id="movie-fav-${pelicula.id}" class="dropdown-item text-wrap p-1">${pelicula.nombre}</a>
+                `
+                containerResultado.appendChild(itemBusqueda)
+                containerSearcher.appendChild(containerResultado)
+            })
+        }
+        document.querySelectorAll('.list-item-busqueda').forEach(item=>{
+            if(item.textContent.toLowerCase().includes(e.target.value.toLowerCase())){
+                console.log('LCDST');
+                item.classList.remove('d-none')
+            }else if(!item.textContent.toLowerCase().includes(e.target.value.toLowerCase())){
+                item.classList.add('d-none')
+                containerResultado.classList.add('p-0')
+            }
+        })       
+    }
+    if(e.target.value.length == 0){
+            containerSearcher.removeChild(containerResultado)
+            containerResultado.innerHTML = ""
+        }
+    })
