@@ -243,7 +243,7 @@
       margin-left: 15px;
     }
     .description{
-        max-height: 24vh !important;
+        max-height: 18vh !important;
         overflow: auto;
     }
     .slider-main .title {
@@ -337,7 +337,7 @@
     /* height: 230px; */
     width: 181px;
     height: 240px;
-    background-position: 50% 0%;
+    background-position: 50% 10%;
     background-size: cover;
     display: flex;
     justify-content: end;
