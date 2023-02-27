@@ -15,7 +15,7 @@
     --color-celeste-oscuro-menos: rgb(89, 132, 157) !important;
 }
 /* Pelicula Principal */
-.slider-main, .carousel-item img{
+.slider-main, .carousel-item img, .img-movie-main{
     font-size: 16px;
     height: 38.44em;
     color: white;
@@ -25,7 +25,7 @@
 
     /* margin-bottom: 3.12em; */
 }
-.slider-main .container {
+.slider-main .container, .img-movie-main{
     margin-bottom: 2em !important;
     font-size: 14px;
     z-index: 10 !important;
@@ -35,7 +35,7 @@
     margin-left: 4% !important;
     margin-right: 4% !important;
 }
-.slider-main .title {
+.slider-main .title{
     font-weight: 600;
     font-size: 3.12em;
     margin-bottom: 0.4em;
