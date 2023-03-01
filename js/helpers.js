@@ -2,9 +2,12 @@
 export const crearNav =()=>{
     let navMain = document.createElement('nav');
     navMain.classList.add('navbar-main', 'navbar', 'navbar-dark', 'fixed-top', 'navbar-expand-lg');
+    let url = window.location.href;
+    console.log(url.includes('main'));
+    let urlMain = `${window.location.origin}/main.html`
     navMain.innerHTML = `
             <div class="container " id="nabvar-contain">
-            <a class="navbar-brand fw-bold ms-xl-5" href="#"
+            <a class="navbar-brand fw-bold ms-xl-5" href="main.html"
                 >CineRolling+</a
             >
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
@@ -45,7 +48,7 @@ export const crearNav =()=>{
                         <li>
                         <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#Familia">Animación</a></li>
+                        <li><a class="dropdown-item yatu" >Animación</a></li>
                         <li>
                         <hr class="dropdown-divider">
                         </li>
@@ -112,9 +115,27 @@ export const crearNav =()=>{
             </div>
             `
     document.getElementsByTagName('header')[0].appendChild(navMain)
+    // ${url.includes('main')? `href="#Familia"` : `href="${urlMain}#Familia"`}
+    document.querySelector('.yatu').addEventListener('click', ()=>{
+        window.location.assign(`${urlMain}#Familia`)
+        // setTimeout(() => {
+        //     document.documentElement.scrollTop-= 100;
+        //     },3000)
+    })
+
 }
+export const subirScroll =()=>{
+    console.log(window.location.href.includes('#Familia'));
+    if(window.location.href.includes('#Familia')){
+    // document.addEventListener("DOMContentLoaded", ()=>{
+        setTimeout(() => {
+        document.documentElement.scrollTop-= 100;
+            },1000)
 
+    // });
 
+    }
+}
 export function addUserName() {        
     const user = JSON.parse(localStorage.getItem('user'));
     let titleOffCanvasToggler = document.querySelector('.offcanvas-title-toggler');
@@ -134,9 +155,10 @@ export function addUserName() {
     }
 
 //* FOOTER
+// footer class 'sticky-bottom'
 export const addFooter =()=>{
     let footer = document.createElement('div');
-    footer.classList.add('footer-landing', 'sticky-bottom')
+    footer.classList.add('footer-landing')
     footer.innerHTML = `
             <div class="container-fluid">
               <div class="row">
@@ -164,6 +186,7 @@ export const addFooter =()=>{
             </div>
     `
     document.getElementsByTagName('footer')[0].appendChild(footer);
+
 }
 addFooter()
 
@@ -177,6 +200,7 @@ export const colorScrollNav =()=>{
       }
     })
 }
+colorScrollNav()
 
 export function logOut() {
     document.querySelector('.log-out').addEventListener('click', ()=>{
@@ -309,10 +333,10 @@ export const listaFavoritos =()=>{
   }
   document.addEventListener("DOMContentLoaded",renderFavsLS);
 
-      let containerCategories = document.querySelector('.container-categories');
+      let containerCategories = document.querySelector('.container-categories'); //! REVISAR que no aplique a todo el container sino a las movies
       containerCategories.addEventListener("click",(e)=>{
-      console.log('entro al escuchador de eventos del carrusel');
-      console.log(e.target);
+    //   console.log('entro al escuchador de eventos del carrusel');
+    //   console.log(e.target);
       if(e.target.classList.contains("fav-btn")){
           console.log('entro al fav-btn');
           console.log(e.target);
@@ -395,6 +419,45 @@ export const buscador =()=>{
   })
 }
 
+//* REPRODUCIR VIDEO
+export const reproducirVideo =(movie)=>{
+    let reproductor = document.createElement('div');
+    reproductor.setAttribute('id', 'container-reproductor');
+    reproductor.classList.add('d-flex', 'justify-content-center', 'align-items-center', 'w-100', 'h-100')
+            reproductor.innerHTML = `
+            <iframe
+                class="d-none"
+                id="video-iframe"
+                width="560" 
+                height="315"  
+                title="YouTube video player" 
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>        
+            </iframe>
+    
+            `
+    document.querySelector('main').appendChild(reproductor)
+    let btnVideo = document.querySelector('#btn-play-video') || document.querySelector('.button-play-title');
+    btnVideo.addEventListener('click', ()=>{
+      let video = document.querySelector('#video-iframe')
+      video.classList.remove('d-none')
+      video.setAttribute('src',`${movie.video}`)
+      video.requestFullscreen()
+    
+        video.addEventListener("fullscreenchange", function(event) {
+          if (!document.fullscreenElement) {
+            window.location.reload()
+          }})
+    })
+    btnVideo.click()
+}
 // export function redirigir(event){
 //     console.log(e.target)
+// }
+// function hola() {
+    // document.querySelector('.animacionCuliau').addEventListener('click', ()=>{
+    //     document.querySelector('.lista-generos').click()
+    
+    // })
 // }

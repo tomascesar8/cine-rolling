@@ -1,0 +1,112 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.img-movie-main{
+    /* padding-top: 15vh; */
+    padding-top: 5vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0 !important;
+    /* height: auto; */
+}
+.container-details{
+    max-width: 85%;
+    max-height: 80%;
+    margin-top: 50px !important;
+}
+.titulo-detail, .metricas-detail, .detalles-detail{
+    font-size: 16px !important;
+}
+.descripcion-detail{
+    font-size: 16px;
+    max-height: 150px;
+    overflow: auto;
+    padding-right: 10px;
+}
+.descripcion-detail::-webkit-scrollbar, #resultados-busqueda::-webkit-scrollbar{
+    width: 7px !important;
+}
+.descripcion-detail::-webkit-scrollbar-thumb, #resultados-busqueda::-webkit-scrollbar-thumb{
+    background-color: var(--color-azul-claro);
+    border-radius: 70rem;
+}
+.descripcion-detail::-webkit-scrollbar-track, , #resultados-busqueda::-webkit-scrollbar-track{
+    background-color: #031223;
+    border-radius: 70rem;
+}
+
+
+/** BUTTON PLAY */
+#btn-play-video{
+    background: rgba(0, 0, 0, .5);
+    border: none;
+    border-radius: 0.31em;
+    padding: .93em 1.87em;
+    color: white;
+    margin-right: 1.25em;
+    cursor: pointer;
+    transition: .3s ease all;
+    font-size: 1.4em !important;
+}
+#btn-play-video{
+    margin-top: .5em;
+}
+#btn-play-video:hover{
+    background: #fff;
+    color: #000;
+}
+/**  */
+
+@media screen and (max-width: 1124px){
+    .img-movie-main{
+        height: 105vh;
+
+        padding-top: 7.5vh;
+        /* height: auto; */
+    }
+}
+@media screen and (max-width: 1024px){
+    .img-movie-main{
+        height: 110vh;
+
+        padding-top: 7.5vh;
+        /* height: auto; */
+    }
+}
+
+@media screen and (max-width: 800px){
+    .img-movie-main{
+        padding-top: 5vh;
+        /* height: auto; */
+    }
+}
+@media screen and (max-width: 575px){
+    .descripcion-detail{
+        overflow: auto;
+        font-size: 16px;
+        /* margin-top: 15px; */
+        max-width: 85% !important;
+        max-height: 172px;
+    }
+    #btn-play-video{
+        font-size: 1.2em !important;
+    }
+
+}
+@media screen and (max-width: 458px){
+    .info-movie{
+        margin-top: 80px;
+    }
+    .metricas-detail{
+        font-size: 16px !important;
+    }
+}
+@media screen and (max-width: 444px){
+    .titulo-detail, .metricas-detail, .detalles-detail{
+        font-size: 13px !important;
+    }
+}

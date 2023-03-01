@@ -1,4 +1,4 @@
-import { addFooter, colorScrollNav, crearNav, scrollGeneros, listaFavoritos, buscador, addUserName, logOut  } from "./helpers.js";
+import { colorScrollNav, crearNav, scrollGeneros, listaFavoritos, buscador, addUserName, logOut, reproducirVideo, subirScroll } from "./helpers.js";
 const peliculas = JSON.parse(localStorage.getItem('films'));
 const user = JSON.parse(localStorage.getItem('user'));
 crearNav()
@@ -19,7 +19,7 @@ const slider =()=>{
                 <p class="description mb-0">
                 </p>
                 <div class="d-flex flex-wrap mt-3">
-                    <button role="button" class="button-play-title ">
+                    <button role="button" class="button-play-title">
                         <i class="fas fa-play me-4"></i>
                         Reproducir
                     </button>
@@ -106,19 +106,28 @@ const slider =()=>{
         genderSliderFilm.innerHTML = `${peliculasDestacadas[i].genero}`
         categorySliderFilm.innerHTML = `${peliculasDestacadas[i].categoria}`
         yearSliderFilm.innerHTML = `${peliculasDestacadas[i].año}`
-        // console.log(idPeliculasDestacada)
+        console.log(idPeliculasDestacada)
 
     }
     sliderIzq.addEventListener('click', moverIzq)
 
-    function redirigir(event){
-        let buttonInfo = document.querySelector('.button-info');
-        buttonInfo.addEventListener('click', (event)=>{
-            console.log(idPeliculasDestacada.slice(idPeliculasDestacada.indexOf('-')+1));
+    let buttonInfo = document.querySelector('.button-info');
+    let btnDestacada = document.querySelector('.button-play-title');
+
+    function redirigir(element){
+        element.addEventListener('click', (event)=>{
+            // console.log(idPeliculasDestacada.slice(idPeliculasDestacada.indexOf('-')+1));
             window.location.assign(window.location.origin + `/movie-detail.html#${idPeliculasDestacada.slice(idPeliculasDestacada.indexOf('-')+1)}`)
         })
     }
-    redirigir(event)
+    redirigir(buttonInfo)
+    // redirigir(btnDestacada)
+    btnDestacada.addEventListener('click', (event)=>{
+        let peliDestacada = peliculasDestacadas.find(movie=>movie.id == idPeliculasDestacada.slice(idPeliculasDestacada.indexOf('-')+1))
+        console.log(peliDestacada);
+        reproducirVideo(peliDestacada)
+        // btnDestacada.addEventListener('click', )
+    })
 }
 slider()
 colorScrollNav()
@@ -138,10 +147,10 @@ const createCategories =()=>{
     cat.style.marginLeft = "2em"
     carrousel.id = categoria;
     carrousel.innerHTML = `
-    <button class="angle-left h-50 btn"><i class="fas fa-angle-left fa-2x angle-left color6"></i></button>
+    <button class="angle-left h-50 btn"><i class="fas fa-angle-left fa-2x angle-left"></i></button>
     <div class="d-flex carrousel-cats p-2 carrousel-${categoria}">
     </div>
-    <button class="angle-right h-50 btn"><i class="fas fa-angle-right fa-2x angle-right color6"></i></button>
+    <button class="angle-right h-50 btn"><i class="fas fa-angle-right fa-2x angle-right"></i></button>
     `
     carrousel.classList.add("d-flex", "align-items-center", "carrousel", "mt-0");
     cat.classList.add("text-light", "commontexts", "mb-0");
@@ -299,6 +308,34 @@ containerCategories.addEventListener("click",(event)=>{
             }
         }
 })
+let categorias = document.querySelectorAll('.carrousel-cats')
+console.log(categorias);
+
+categorias.forEach(cat=> cat.addEventListener('click', (e)=>{
+    console.log(e.target);
+    
+    if(e.target.classList.contains('movie')){
+        let idMovie = e.target.id;
+        console.log(idMovie)
+        window.location.assign(window.location.origin + `/movie-detail.html#${idMovie.slice(idMovie.indexOf('-')+1)}`)
+    }
+})
+)
+
+// let btnDestacada = document.querySelector('.button-play-title');
+// btnDestacada.addEventListener('click', (e)=>{
+//     console.log(e.target);
+//         // window.location.assign(window.location.origin + `/movie-detail.html#${idMovie.slice(idMovie.indexOf('-')+1)}`)
+// })
+
+// function redirigir(event){
+//     let buttonInfo = document.querySelector('.container-categories');
+//     buttonInfo.addEventListener('click', (event)=>{
+//         console.log(idPeliculasDestacada.slice(idPeliculasDestacada.indexOf('-')+1));
+//         window.location.assign(window.location.origin + `/movie-detail.html#${idPeliculasDestacada.slice(idPeliculasDestacada.indexOf('-')+1)}`)
+//     })
+// }
+// redirigir(event)
 }
 createCategories()
 scrollGeneros()
@@ -309,3 +346,4 @@ listaFavoritos()
 //* BUSCADOR
 buscador()
 
+subirScroll()
