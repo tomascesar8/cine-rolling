@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineRolling</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+</head>
+<body>
+    <div class="error-main vw-100 vh-100 d-flex justify-content-center align-items-center">
+        <!-- <img class="container-fluid img-error" src="assets/img/404.JPG" alt=""> -->
+        
+        <div class="container-fluid img-error d-flex align-items-center text-light flex-column">
+            <div class="mx-3">
+                <p class="animate__animated animate__flash animate__slow animate__repeat-2 title-error fw-bold">ERROR 404</p>
+                <p class="animate__animated animate__flash animate__slow animate__repeat-2 fs-2">SORRY, THE PAGE NOT FOUND</p>
+                <div class="align-self-center mt-5 mt-md-5 text-wrap">
+                    <a class="text-decoration-none text-info" type="button" onclick="volver()"><p class="fs-1 fw-bolder">Back to CineRolling+</p></a>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    const volver =()=>{
+        const paginaAnterior = history.back()
+    }
+</script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous">
+    </script>
+</body>
+</html>

@@ -32,7 +32,7 @@
       </section>
     </main>
 <!-- FOOTER -->
-    <footer>
+    <footer class="align-self-end">
     </footer>
 <!-- FINAL FOOTER -->
     <script
@@ -70,16 +70,16 @@
   <div class="offcanvas-body d-flex justify-content-start w-100">
     <ul class="offcanvas-perfil-list flex-grow-1 pe-3 ">
       <li class="offcanvas-perfil-item mt-2 mt-lg-0">
-        <a class="offcanvas-perfil-link active perfil-element" aria-current="page" href="#">Editar perfil</a>
+        <a class="offcanvas-perfil-link active perfil-element" aria-current="page" href="error404.html">Editar perfil</a>
       </li>
       <li class="offcanvas-perfil-item mt-2 mt-lg-0">
-        <a class="offcanvas-perfil-link active perfil-element" aria-current="page" href="#">Gestionar cuentas</a>
+        <a class="offcanvas-perfil-link active perfil-element" aria-current="page" href="error404.html">Gestionar cuentas</a>
       </li>
       <li class="offcanvas-perfil-item mt-2 mt-lg-0">
-        <a class="offcanvas-perfil-link active perfil-element" aria-current="page" href="#">Ajustes</a>
+        <a class="offcanvas-perfil-link active perfil-element" aria-current="page" href="error404.html">Ajustes</a>
       </li>
       <li class="offcanvas-perfil-item mt-2 mt-lg-0">
-        <a class="offcanvas-perfil-link active perfil-element" aria-current="page" href="#">Ayuda</a>
+        <a class="offcanvas-perfil-link active perfil-element" aria-current="page" data-bs-toggle="modal" data-bs-target="#contactModal" type="button">Ayuda</a>
       </li>
       <li>
         <hr class="dropdown-divider">
@@ -89,4 +89,81 @@
       </li>
     </ul>    
   </div>
+</div>
+
+<!-- Modal Contacto -->
+<div
+  class="modal bounce-in-top background-contact"
+  id="contactModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="contactModalLabel"
+  aria-hidden="true"
+>
+<div class="modal-dialog modal-fullscreen-sm-down">
+  <div class="modal-content modal-contact-content">
+    <div class="modal-header d-flex justify-content-beetwen">
+      <div></div>
+      <div>
+        <h2 class="modal-title" id="contactModalLabel">Contacto</h2>
+      </div>
+      <div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="form-container">
+            <form class="row">
+                  <div class="form-remitente">
+                    <div class="form-floating mb-2">
+                      <input
+                      type="email"
+                      class="form-control"
+                      placeholder="name@example.com"
+                      minlength="3"
+                      maxlength="25"
+                      required>
+                      <label for="floatingInput">Dirección de email</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Asunto"
+                      minlength="3"
+                      maxlength="50"
+                      required>
+                      <label for="floatingAsunto">Asunto</label>
+                    </div>
+                  </div>
+          
+                  <div class="form-group form_contact">
+                    <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    name="exampleFormControlTextarea1"
+                    rows="5"
+                    minlength="3"
+                    maxlength="1000"
+                    placeholder="¿Cuál es tu consulta?"></textarea>
+                    <div class="d-flex justify-content-end">
+                      <button type="button" class="btn btn-success mt-3 me-2">Enviar mensaje</button>
+                    </div>
+                  </div>
+                  <br>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

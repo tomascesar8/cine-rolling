@@ -27,7 +27,7 @@ export const crearNav =()=>{
                 <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item mt-2 mt-lg-0 order-1">
-                    <a class="nav-link active navbar-element" aria-current="page" href="#">Inicio</a>
+                    <a class="nav-link active navbar-element" aria-current="page" ${url.includes('main')? `href="#"` : `href="main.html"`}">Inicio</a>
                     </li>
                     <!-- <li class="nav-item mt-2 mt-lg-0 order-2">
                     <a class="nav-link navbar-element" href="#">Mi lista</a>
@@ -43,52 +43,51 @@ export const crearNav =()=>{
                         Géneros
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark lista-generos">
-                        <li><a class="dropdown-item" href="#Acción">Acción</a>
-                        </li>
-                        <li>
-                        <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item yatu" >Animación</a></li>
-                        <li>
-                        <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#Acción">Aventura</a></li>
-                        <li>
-                        <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#Acción">Bélico Guerra</a></li>
-                        <li>
-                        <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#Ficción">Ciencia Ficción</a></li>
-                        <li>
-                        <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#Comedia">Comedia</a></li>
-                        <li>
-                        <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#Drama">Crimen</a></li>
-                        <li>
-                        <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#Drama">Drama</a></li>
-                        <li>
-                        <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#Familia">Familia</a></li>
-                        <li>
-                        <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#Familia">Fantasía</a></li>
-                        <li>
-                        <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#Familia">Romance</a></li>
-                        <li>
-                        <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#Terror">Terror</a></li>
+                        <div class="d-flex">
+                            <div class="generos-col-left col-6">
+                                <li><a class="dropdown-item" ${url.includes('main')? `href="#Acción"` : `href="${urlMain}#Acción"`}>Acción</a>
+                                
+                                <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" ${url.includes('main')? `href="#Familia"` : `href="${urlMain}#Familia"`}>Animación</a>
+                                
+                                <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" ${url.includes('main')? `href="#Acción"` : `href="${urlMain}#Acción"`}">Aventura</a>
+                                
+                                <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" ${url.includes('main')? `href="#Acción"` : `href="${urlMain}#Acción"`}>Bélico Guerra</a>
+                                
+                                <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" ${url.includes('main')? `href="#Ficción"` : `href="${urlMain}#Ficción"`}>Ciencia Ficción</a>
+                                
+                                <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" ${url.includes('main')? `href="#Comedia"` : `href="${urlMain}#Comedia"`}>Comedia</a>
+                                
+                              
+                            </div>
+                            <div class="col-6">
+                                <li><a class="dropdown-item" ${url.includes('main')? `href="#Drama"` : `href="${urlMain}#Drama"`}>Crimen</a>
+                                <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" ${url.includes('main')? `href="#Drama"` : `href="${urlMain}#Drama"`}>Drama</a>
+                                <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" ${url.includes('main')? `href="#Familia"` : `href="${urlMain}#Familia"`}">Familia</a>
+                                <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" ${url.includes('main')? `href="#Familia"` : `href="${urlMain}#Familia"`}">Fantasía</a>
+                                <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" ${url.includes('main')? `href="#Familia"` : `href="${urlMain}#Familia"`}">Romance</a>
+                                <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" ${url.includes('main')? `href="#Terror"` : `href="${urlMain}#Terror"`}>Terror</a></li>
+                            </div>
+                        </div>
                     </ul>
                     </li>
                     <!-- BUSCADOR -->
@@ -115,27 +114,17 @@ export const crearNav =()=>{
             </div>
             `
     document.getElementsByTagName('header')[0].appendChild(navMain)
-    // ${url.includes('main')? `href="#Familia"` : `href="${urlMain}#Familia"`}
-    document.querySelector('.yatu').addEventListener('click', ()=>{
-        window.location.assign(`${urlMain}#Familia`)
-        // setTimeout(() => {
-        //     document.documentElement.scrollTop-= 100;
-        //     },3000)
-    })
+
+    // document.querySelector('.yatu').addEventListener('click', ()=>{
+    //     window.location.assign(`${urlMain}#Familia`)
+    // })
 
 }
-export const subirScroll =()=>{
-    console.log(window.location.href.includes('#Familia'));
-    if(window.location.href.includes('#Familia')){
-    // document.addEventListener("DOMContentLoaded", ()=>{
-        setTimeout(() => {
-        document.documentElement.scrollTop-= 100;
-            },1000)
-
-    // });
-
-    }
-}
+// const subirScroll =()=>{
+// if(window.location.href.includes('#Familia')){
+//             document.documentElement.scrollTop-= 100;
+// }
+// }
 export function addUserName() {        
     const user = JSON.parse(localStorage.getItem('user'));
     let titleOffCanvasToggler = document.querySelector('.offcanvas-title-toggler');
@@ -157,6 +146,7 @@ export function addUserName() {
 //* FOOTER
 // footer class 'sticky-bottom'
 export const addFooter =()=>{
+    let url = window.location.href;
     let footer = document.createElement('div');
     footer.classList.add('footer-landing')
     footer.innerHTML = `
@@ -164,13 +154,16 @@ export const addFooter =()=>{
               <div class="row">
                 <div class="container-footer-links col-sm-6 col-md-4 order-1 mb-0 mb-sm-2 order-md-2 col-12">
                   <div>
-                    <div class="footer-links fs-5 my-2 py-2 my-0"><a class="text-decoration-none" href="/contact.html">Contacto</a></div>
+                    <div class="footer-links fs-5 my-2 py-2 my-0"><a class="text-decoration-none" data-bs-toggle="modal"
+                    data-bs-target="#contactModal" type="button">Contacto</a></div>
                     <div class="footer-links fs-5 my-2 py-2 my-0"><a class="text-decoration-none" href="/about-us.html">Sobre Nosotros</a></div>
                     <div class="footer-links fs-5 my-2 py-2 my-0"><a class="text-decoration-none" href="/suport.html">Suport</a></div>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center my-3 col-md-4 order-0 order-md-0 col-12">
-                  <a class="fw-bold fs-1 ms-xl-5 container-logo text-start" href="#header-landing">CineRolling+</a>
+                  <a class="fw-bold fs-1 ms-xl-5 container-logo text-start" ${document.querySelector('#container-landing') || url.includes('main')? `href="#"` : `href="main.html"`}>
+                    CineRolling+
+                  </a>
                 </div>
                 <div class="icons-footer col-12 col-sm-6 col-md-4 d-flex justify-content-evenly align-items-center order-2 order-md-1 ">
                   <div class="container-icons-redes d-flex d-flex justify-content-between my-4 my-sm-0">
@@ -190,10 +183,19 @@ export const addFooter =()=>{
 }
 addFooter()
 
+{/* <button
+class="navbar-element register-button-navbar fw-bold btn btn-warning border border-0"
+type="button"
+data-bs-toggle="modal"
+data-bs-target="#staticBackdrop"
+>
+Registro
+</button> */}
+
 export const colorScrollNav =()=>{
-    let nav = document.querySelector('.navbar-landing') || document.querySelector('.navbar-main');
     window.addEventListener('scroll', function () {
-      if(window.pageYOffset>20){
+        let nav = document.querySelector('.navbar-landing') || document.querySelector('.navbar-main');
+        if(window.pageYOffset>20){
         nav.classList.add('bg-scroll-nav', 'shadow');
       }else{
         nav.classList.remove('bg-scroll-nav', 'shadow')
@@ -214,9 +216,9 @@ export const scrollGeneros =()=>{
   let navGeneros = document.querySelector('.lista-generos');
   console.log(navGeneros);
   navGeneros.addEventListener("click",(event)=>{
-      setTimeout(() => {
-      document.documentElement.scrollTop-= 100;
-      },750)
+    //   setTimeout(() => {
+    //   document.documentElement.scrollTop-= 100;
+    //   },750)
       if(document.documentElement.scrollWidth < 992){
           setTimeout(() => {
               document.getElementById('btn-close-modal').click()
@@ -240,9 +242,12 @@ export const listaFavoritos =()=>{
       console.log(' GET FAVS LS');
       let getFavs;
       if(localStorage.getItem('favs')){
+        console.log('GET FAVS 1');
+
           let dataFavs = JSON.parse(localStorage.getItem('favs'))
           getFavs = dataFavs;
       }else{
+        console.log('GET FAVS 2');
           let favs = [];
           JSON.stringify(localStorage.setItem('favs', favs))
           getFavs = favs;
@@ -267,7 +272,7 @@ export const listaFavoritos =()=>{
       <div class="me-2 col-md-1 align-self-center">
           <h3 class="mb-1  delete-fav text-danger ml-2 mb-0" role="button">&times</h3>
       </div>
-      <a class="ps-2 pe-1 text-wrap text-decoration-none text-light" href="detail.html#${favInfo.id}">${favInfo.nombre}</a>
+      <a class="ps-2 pe-1 text-wrap text-decoration-none text-light" href="movie-detail.html#${favInfo.id}">${favInfo.nombre}</a>
       `;
       containerFavs.appendChild(favorite);
       console.log(favorite);
@@ -289,12 +294,13 @@ export const listaFavoritos =()=>{
               <div class="me-2 col-md-1 align-self-center">
                   <h3 class="mb-1 delete-fav text-danger ml-2 mb-0" role="button">&times</h3>
               </div>
-              <a class="ps-2 pe-1 pe-3 text-wrap text-decoration-none text-light" href="detail.html#${fav.id}">${fav.nombre}</a>
+              <a class="ps-2 pe-1 pe-3 text-wrap text-decoration-none text-light" href="movie-detail.html#${fav.id}">${fav.nombre}</a>
               `;
               containerFavs.appendChild(favorite);
               console.log(document.getElementById(`${fav.id}`))
               document.querySelectorAll(`.link-icon-${fav.id}`).forEach(result=>
-              result.innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>`)
+                result.innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>`
+                )
           })
           if(favs.length == 0){
               createListaVacia()
@@ -313,7 +319,8 @@ export const listaFavoritos =()=>{
           console.log(deleteId);
           console.log(document.getElementById(`${deleteId}`).querySelector('.text-success').parentElement)
           document.querySelectorAll(`.link-icon-${deleteId}`).forEach(result=>
-              result.innerHTML = `<i class="fas fa-plus-square fs-3 fav-btn">`)
+            result.innerHTML = `<i class="fas fa-plus-square fs-3 fav-btn">`
+            )
           console.log(e.target.parentElement.parentElement.parent)
       }
       if(!containerFavs.querySelector('.element-fav')){
@@ -325,7 +332,9 @@ export const listaFavoritos =()=>{
       console.log('DELETE FAV LS');
       let favs = getFavsLS();
       favs.forEach((fav,index)=>{
-          if(fav.id === deleteId){
+        console.log(index);
+        console.log(fav.id);
+        if(fav.id == deleteId){
               favs.splice(index,1);
           }
       })
@@ -396,7 +405,7 @@ export const buscador =()=>{
               let itemBusqueda = document.createElement('div')
               itemBusqueda.classList.add('list-item-busqueda', 'd-none')
               itemBusqueda.innerHTML = `
-              <a id="movie-fav-${pelicula.id}" class="dropdown-item text-wrap p-1">${pelicula.nombre}</a>
+              <a href="movie-detail.html#${pelicula.id}" id="search-${pelicula.id}" class="item-search dropdown-item text-wrap p-1">${pelicula.nombre}</href=>
               `
               containerResultado.appendChild(itemBusqueda)
               containerSearcher.appendChild(containerResultado)
@@ -405,9 +414,12 @@ export const buscador =()=>{
       document.querySelectorAll('.list-item-busqueda').forEach(item=>{
           if(item.textContent.toLowerCase().includes(e.target.value.toLowerCase())){
               console.log('LCDST');
+            //   item.addEventListener('click', reproducirVideo(item))
               item.classList.remove('d-none')
           }else if(!item.textContent.toLowerCase().includes(e.target.value.toLowerCase())){
               item.classList.add('d-none')
+            //   item.removeEventListener('click', reproducirVideo(item))
+              item.removeAttribute('href','reproducirVideo(pelicula)')
               containerResultado.classList.add('p-0')
           }
       })       
@@ -417,6 +429,30 @@ export const buscador =()=>{
           containerResultado.innerHTML = ""
       }
   })
+    const redireccionBusqueda = () =>{
+        containerResultado.addEventListener('click', (e)=>{   
+            setTimeout(() => {
+                window.location.reload()
+            }, 50);
+        })
+    }
+    redireccionBusqueda()
+            // console.log(e.target);
+            // if(e.target.classList.contains('item-search')){
+            //     let idMovie = e.target.id.slice(e.target.id.indexOf('-')+1)
+            //     if(!window.location.href.includes('movie-detail')){
+            //         window.location.assign(window.location.origin + `/movie-detail.html#${idMovie}`)
+            //     }else{
+            //         window.location.href = (window.location.origin + `/movie-detail.html#${idMovie}`)
+              
+                    // console.log(window.location.href.indexOf('#'));
+                    // console.log((window.location.href.indexOf('#')+1, idMovie));
+                    // window.location.href.splice(window.location.href.indexOf('#')+1, 2, idMovie)
+                    
+                // }
+                // console.log(idMovie.slice(idMovie.indexOf('-')+1));
+                // window.location.assign(window.location.origin + `/movie-detail.html#${idMovie}`)
+            // }
 }
 
 //* REPRODUCIR VIDEO

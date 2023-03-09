@@ -41,21 +41,23 @@ body{
 
 
 /** BUTTON PLAY */
-#btn-play-video{
+#btn-play-video, #btn-add-list{
     background: rgba(0, 0, 0, .5);
     border: none;
     border-radius: 0.31em;
-    padding: .93em 1.87em;
+    padding: .73em 1.57em !important;
     color: white;
     margin-right: 1.25em;
     cursor: pointer;
     transition: .3s ease all;
     font-size: 1.4em !important;
+    /* font-weight: 500; */
+
 }
-#btn-play-video{
+#btn-play-video, #btn-add-list{
     margin-top: .5em;
 }
-#btn-play-video:hover{
+#btn-play-video:hover, #btn-add-list:hover{
     background: #fff;
     color: #000;
 }

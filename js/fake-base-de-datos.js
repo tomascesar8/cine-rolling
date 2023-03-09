@@ -926,7 +926,7 @@ let peliculas = [
     "reparto": "Naomi Watts, Martin Henderson, David Dorfman, Brian Cox, Jane Alexander, etc.",
     "duracion": "115 Min",
     "codigo": "pls",
-    "destacada": true,
+    "destacada": false,
     "publicada": true,
     "año": 2002,
     "tapa": "https://www.themoviedb.org/t/p/w1280/e2t5CKMox7tjv3iD3Ko7NdFa5lJ.jpg",
@@ -949,7 +949,7 @@ let peliculas = [
     "tapa": "https://www.themoviedb.org/t/p/w1280/2RV6aJqBztmkL0faL1aQsowtkPt.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/lRFtFFIoGQfHxyHNS254Ew7PV9c.jpg",
     "video": "https://www.youtube.com/embed/6T3Z0JTf77k?autoplay=1",
-    "id": 26
+    "id": 52
   },
 ];
 

@@ -1,4 +1,4 @@
-import { colorScrollNav, crearNav, scrollGeneros, listaFavoritos, buscador, addUserName, logOut, reproducirVideo, subirScroll } from "./helpers.js";
+import { colorScrollNav, crearNav, listaFavoritos, buscador, addUserName, logOut, reproducirVideo, scrollGeneros } from "./helpers.js";
 const peliculas = JSON.parse(localStorage.getItem('films'));
 const user = JSON.parse(localStorage.getItem('user'));
 crearNav()
@@ -37,7 +37,7 @@ const slider =()=>{
 
     function isOutstanding(peliculas) {
         if (peliculas.destacada === true) {
-            console.log(peliculas);
+            // console.log(peliculas);
             return peliculas;
         }
     }
@@ -308,18 +308,15 @@ containerCategories.addEventListener("click",(event)=>{
             }
         }
 })
-let categorias = document.querySelectorAll('.carrousel-cats')
-console.log(categorias);
 
-categorias.forEach(cat=> cat.addEventListener('click', (e)=>{
-    console.log(e.target);
-    
-    if(e.target.classList.contains('movie')){
-        let idMovie = e.target.id;
-        console.log(idMovie)
-        window.location.assign(window.location.origin + `/movie-detail.html#${idMovie.slice(idMovie.indexOf('-')+1)}`)
-    }
-})
+let categorias = document.querySelectorAll('.carrousel-cats')
+categorias.forEach(cat=> cat.addEventListener('click', (e)=>{    
+        if(e.target.classList.contains('movie')){
+            let idMovie = e.target.id;
+            console.log(idMovie)
+            window.location.assign(window.location.origin + `/movie-detail.html#${idMovie.slice(idMovie.indexOf('-')+1)}`)
+        }
+    })
 )
 
 // let btnDestacada = document.querySelector('.button-play-title');
@@ -346,4 +343,3 @@ listaFavoritos()
 //* BUSCADOR
 buscador()
 
-subirScroll()
