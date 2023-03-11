@@ -132,7 +132,7 @@ const listaFavoritos =()=>{
       <div class="me-2 col-md-1 align-self-center">
           <h3 class="mb-1  delete-fav text-danger ml-2 mb-0" role="button">&times</h3>
       </div>
-      <a class="ps-2 pe-1 text-wrap text-decoration-none text-light item-fav-list" type="button">${favInfo.nombre}</a>
+      <a class="ps-2 pe-1 text-wrap text-decoration-none text-light item-fav-list" type="button" href="movie-detail.html#${favInfo.Id}">${favInfo.nombre}</a>
       `;
       containerFavs.appendChild(favorite);
       console.log(favorite);
@@ -158,7 +158,7 @@ const listaFavoritos =()=>{
               <div class="me-2 col-md-1 align-self-center">
                   <h3 class="mb-1 delete-fav text-danger ml-2 mb-0" role="button">&times</h3>
               </div>
-              <a class="ps-2 pe-1 pe-3 text-wrap text-decoration-none text-light item-fav-list" type="button">${fav.nombre}</a>
+              <a class="ps-2 pe-1 pe-3 text-wrap text-decoration-none text-light item-fav-list" type="button" href="movie-detail.html#${fav.Id}">${fav.nombre}</a>
               `;
               containerFavs.appendChild(favorite);
               // document.querySelector('.item-fav-list').addEventListener('click', ()=>{
@@ -183,6 +183,7 @@ const listaFavoritos =()=>{
 
   function deleteFav(e){
       console.log("DELETE FAV");
+      console.log(e);
       if(e.target.classList.contains("delete-fav")){
           e.preventDefault();
           const removedElement = e.target.parentElement.parentElement
@@ -196,8 +197,7 @@ const listaFavoritos =()=>{
           deleteFavLS(deleteId);
           console.log(deleteId);
           console.log(e.target.parentElement.parentElement.parent)
-      }
-      if(!containerFavs.querySelector('.element-fav')){
+      }else if(!containerFavs.querySelector('.element-fav')){
           createListaVacia()
       }else{
         const removedElement = e.target.parentElement

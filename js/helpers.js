@@ -131,16 +131,20 @@ export function addUserName() {
     let titleOffCanvasPerfil = document.querySelector('.offcanvas-title-perfil');
     let emailOffCanvasPerfil = document.querySelector('.offcanvas-email-perfil');
     let userBtn = document.querySelector('.nav-btn-user');
+    let adminEdit = document.querySelector('.admin-link-edit'); 
 
     function nameUser(element) {
-        element.innerHTML = `<i class="me-2 fas fa-user-circle"></i> ${user.name}`
+        element.innerHTML = `${user.admin? `<i class="fas fa-user-edit me-2"></i> ${user.name}` : `<i class="me-2 fas fa-user-circle me-2"></i>${user.name}`}`
         element.classList.add('d-flex', 'align-items-center');
     }
     nameUser(titleOffCanvasToggler)
     nameUser(titleOffCanvasPerfil);
     nameUser(userBtn)
-    userBtn.classList.add('d-none');
+    // userBtn.classList.add('d-none');
     emailOffCanvasPerfil.innerHTML = `${user.email}`
+    if(user.admin){
+      adminEdit.classList.remove('d-none')
+    }
     }
 
 //* FOOTER
@@ -154,8 +158,7 @@ export const addFooter =()=>{
               <div class="row">
                 <div class="container-footer-links col-sm-6 col-md-4 order-1 mb-0 mb-sm-2 order-md-2 col-12">
                   <div>
-                    <div class="footer-links fs-5 my-2 py-2 my-0"><a class="text-decoration-none" data-bs-toggle="modal"
-                    data-bs-target="#contactModal" type="button">Contacto</a></div>
+                    <div class="footer-links fs-5 my-2 py-2 my-0"><a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#contactModal" type="button">Contacto</a></div>
                     <div class="footer-links fs-5 my-2 py-2 my-0"><a class="text-decoration-none" href="/about-us.html">Sobre Nosotros</a></div>
                     <div class="footer-links fs-5 my-2 py-2 my-0"><a class="text-decoration-none" href="/suport.html">Suport</a></div>
                   </div>

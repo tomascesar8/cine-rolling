@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineRolling</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- <link rel="stylesheet" href="css/movie-detail.css" /> -->
+  </head>
+
+  <body>
+    <div class="contenedor-body-admin"> 
+
+      <header>
+      </header>
+
+      <main>
+        <section class="pt-5 px-md-4 px-lg-0 container-fluid container-lg">
+            <div class="pt-5 pb-3 title-table-movie d-flex justify-content-between text-info align-items-center">
+                <h2 class="text-center">Administracion de contenido</h2>
+                <div class="m-3 d-flex align-items-center">
+                    <button onclick="" onblur data-bs-toggle="modal" data-bs-target="#modalAddMovie" class="btn btn-info fw-bold">Agregar película</button>
+                </div>
+            </div>
+            <div class="table-movies" id="table-movies">                
+                <table class="table text-light">
+                    <thead>
+                        <tr class="header-table d-flex flex-wrap text-center">
+                            <th class="col-3 col-sm-2" scope="col">Nombre</th>
+                            <th class="col-3 col-sm-2" scope="col">Director</th>
+                            <th class="col-4 col-sm-2" scope="col">Genero</th>
+                            <th class="col-1" scope="col">Categoria</th>
+                            <!-- <th class="col-3 col-sm-1" scope="col">Publicado</th> -->
+                            <th class="col-12 col-sm-5 d-none d-sm-block" scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-table"></tbody>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+      </main>
+
+      <footer>
+      </footer>
+    </div>
+    <script src="/js/helpers.js" type="module"></script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+     <!-- <script src="/js/movie-detail.js" type="module"></script> -->
+    <script src="/js/admin.js" type="module"></script>
+</body>
+</html>
+
+
+<!-- Modal Nueva pelicula -->
+
+<div class="modal" id="modalAddMovie" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-sm-down mt-0">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="exampleModalLabel">Editar película</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          <form>
+            <div class="form-floating mb-2">
+              <input
+                    type="text"
+                    class="form-control"
+                    id="name-add-movie"
+                    placeholder="Nombre"
+                    required>
+              <label for="name-add-movie">Nombre:</label>
+            </div>
+              <div class="form-floating mb-2">
+                <textarea class="form-control" placeholder="Descripción de la pelicula" id="desc-add-movie" style="height: auto" style="min-height: 100px" required></textarea>
+                <label for="desc-add-movie">Descripción:</label>
+              </div>
+              <div class="form-floating mb-2">
+                <select class="form-select" id="genero-add-movie" aria-label="Floating label select example" required>
+                  <option selected>Seleccionar</option>
+                  <option value="1">Acción</option>
+                  <option value="2">Familia</option>
+                  <option value="3">Drama</option>
+                  <option value="4">Comedia</option>
+                  <option value="5">Ciencia Ficción</option>
+                  <option value="6">Terror</option>
+                </select>
+                <label for="genero-add-movie">Genero:</label>
+              </div>
+              
+              <div class="form-floating mb-2">
+                <input
+                      type="text"
+                      class="form-control"
+                      id="director-add-movie"
+                      placeholder="Nombre director"
+                      required>
+                <label for="director-add-movie">Director:</label>
+              </div>
+            
+              <div class="form-floating mb-3">
+                <input
+                      type="text"
+                      class="form-control"
+                      id="categoria-add-movie"
+                      placeholder="Categoría"
+                      required>
+                <label for="categoria-add-movie">Categoría:</label>
+              </div>
+            
+              <div class="form-floating mb-3">
+                <input
+                      type="text"
+                      class="form-control"
+                      id="year-add-movie"
+                      placeholder="Año de la pélicula"
+                      required>
+                <label for="year-add-movie">Año:</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input
+                      type="text"
+                      class="form-control"
+                      id="imagen-add-movie"
+                      placeholder="Imagen de la pélicula"
+                      value=""
+                      required>
+                <label for="imagen-add-movie">Imagen (link):</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input
+                      type="text"
+                      class="form-control"
+                      id="video-add-movie"
+                      placeholder="Video de la pélicula"
+                      value=""
+                      required>
+                <label for="video-add-movie">Video (link):</label>
+              </div>
+            <div class="checkboxs d-flex">             
+              <div class="form-check form-switch form-group me-3">
+                <input type="checkbox" class="form-check-input" id="publicada-add-movie">
+                <label class="form-check-label" for="publicada-add-movie">Publicada</label>
+              </div>
+              <div class="form-check form-switch form-group">
+                <input type="checkbox" class="form-check-input" id="destacada-add-movie">
+                <label class="form-check-label" for="destacada-add-movie">Destacada</label>
+              </div>
+            </div>
+          </form>
+          </div>
+          <div class="modal-footer">
+          <button  type="submit" class="btn bg-color2 color3">Editar</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Offcanvas Perfil -->
+<div 
+class="offcanvas-perfil offcanvas offcanvas-end  collapse navbar-collapse" 
+tabindex="-1" 
+id="offcanvasUser" 
+aria-labelledby="offcanvasUserLabel"
+>
+<div class="offcanvas-header d-flex justify-content-beetwen w-100 ms-5">
+  <div class="d-flex flex-column justify-content-start mt-3">
+    <h5 class="offcanvas-title-perfil text-light text-start" id="offcanvasUserLabel"></h5>
+    <h5 class="offcanvas-email-perfil text-start fs-5 mt-2 fst-italic fw-semibold text-info" id="offcanvasUserLabelEmail"></h5>
+  </div>
+  <button type="button" class="btn-close btn-close-white me-5 mb-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div>
+</div>
+<hr class="separador-perfil opacity-75">
+<div class="offcanvas-body d-flex justify-content-start w-100">
+  <ul class="offcanvas-perfil-list flex-grow-1 pe-3 ">
+    <li class="admin-link-edit offcanvas-perfil-item mb-4 mt-0 mt-lg-0 d-none">
+      <a class="offcanvas-perfil-link active perfil-element text-info" aria-current="page" href="admin.html">
+        ADMIN<i class="ms-3 fas fa-edit"></i>
+      </a>
+    </li>
+    <li class="offcanvas-perfil-item mt-2 mt-lg-0">
+      <a class="offcanvas-perfil-link active perfil-element" aria-current="page" href="error404.html">Modificar perfil</a>
+    </li>
+    <li class="offcanvas-perfil-item mt-2 mt-lg-0">
+      <a class="offcanvas-perfil-link active perfil-element" aria-current="page" href="error404.html">Gestionar cuenta</a>
+    </li>
+    <li class="offcanvas-perfil-item mt-2 mt-lg-0">
+      <a class="offcanvas-perfil-link active perfil-element" aria-current="page" href="error404.html">Ajustes</a>
+    </li>
+    <li class="offcanvas-perfil-item mt-2 mt-lg-0">
+      <a class="offcanvas-perfil-link active perfil-element" aria-current="page" data-bs-toggle="modal" data-bs-target="#contactModal" type="button">Ayuda</a>
+    </li>
+    <li>
+      <hr class="dropdown-divider">
+    </li>
+    <li class="offcanvas-perfil-item mt-2 mt-lg-0">
+      <a class="log-out offcanvas-perfil-link active perfil-element" aria-current="page" href="#">Cerrar sesión</a>
+    </li>
+  </ul>    
+</div>
+</div>
+
+<!-- Modal Contacto -->
+<div
+class="modal bounce-in-top background-contact"
+id="contactModal"
+data-bs-backdrop="static"
+data-bs-keyboard="false"
+tabindex="-1"
+aria-labelledby="contactModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog modal-fullscreen-sm-down">
+<div class="modal-content modal-contact-content">
+<div class="modal-header d-flex justify-content-beetwen">
+  <div></div>
+  <div>
+    <h2 class="modal-title" id="contactModalLabel">Contacto</h2>
+  </div>
+  <div>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      aria-label="Close"
+    ></button>
+  </div>
+</div>
+<div class="modal-body">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="form-container">
+        <form class="row">
+              <div class="form-remitente">
+                <div class="form-floating mb-2">
+                  <input
+                  type="email"
+                  class="form-control"
+                  placeholder="name@example.com"
+                  minlength="3"
+                  maxlength="25"
+                  required>
+                  <label for="floatingInput">Dirección de email</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Asunto"
+                  minlength="3"
+                  maxlength="50"
+                  required>
+                  <label for="floatingAsunto">Asunto</label>
+                </div>
+              </div>
+      
+              <div class="form-group form_contact">
+                <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                name="exampleFormControlTextarea1"
+                rows="5"
+                minlength="3"
+                maxlength="1000"
+                placeholder="¿Cuál es tu consulta?"></textarea>
+                <div class="d-flex justify-content-end">
+                  <button type="button" class="btn btn-success mt-3 me-2">Enviar mensaje</button>
+                </div>
+              </div>
+              
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<!-- <div class="modal-header">
+  <h5 class="modal-title">Nuevo Juego</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal"
+      aria-label="Close"></button>
+</div>
+<div class="modal-body">
+  <form class="d-flex flex-column" action="" method="post">
+
+      <label for="gameId"></label>
+      <input type="text" name="gameID" id="gameID" disabled/>
+
+
+      <label for="gameName">Nombre</label>
+      <input type="text" name="gameName" id="gameName" />
+      <label for="game-director">Director</label>
+      <input type="text" name="game-director" id="game-director" />
+      <label for="gameCategory">Categoria</label>
+      <input type="text" name="gameCategory" id="gameCategory" />
+      <label for="gameDescription">Descripción</label>
+      <textarea name="gameDescription" id="gameDescription" rows="5" cols="50"></textarea>
+      <div class="form-check form-switch pt-2">
+          <input class="form-check-input" type="checkbox" name="gamePublished" id="gamePublished" />
+          <label class="form-check-label" for="gamePublished">Publicado</label>
+      </div>
+      <div class="form-check form-switch pt-2 pb-2">
+          <input class="form-check-input" type="checkbox" name="gameOutstanding" id="gameOutstanding"/>
+          <label class="form-check-label" for="gameOutstanding">Destacado</label>   
+      </div>
+      <label for="gameImageURL">URL Imagen</label>
+      <input type="url" name="gameImageURL" id="gameImageURL" placeholder="nombreImagen.extension"/>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+      Cerrar
+  </button>
+  <button onclick="agregarJuego()" class="btn btn-primary">
+      Guardar cambios
+  </button>
+</div> -->

@@ -193,6 +193,9 @@ body{
     .container-films-cats button:first-child {
         padding: 0;
     }
+    #table-movies{
+        font-size: 13px !important;
+    }
     /* .container-films-cats{
         transform: translateY(10%) !important;
     }
@@ -229,6 +232,9 @@ body{
     .dropdown-menu{
         width: 330px !important;
     }
+    #table-movies{
+        font-size: 14px;
+    }
 }
 @media screen and (max-width: 484px) {
     .container-categories{
@@ -257,6 +263,9 @@ body{
     }
     .contenedor-body-about .container{
         font-size: 15px !important;
+    }
+    #table-movies{
+        font-size: 12px !important;
     }
 }
 @media screen and (max-width: 367px) {
@@ -323,7 +332,7 @@ body{
     font-weight: 600;
 }
 .perfil-element:hover{
-    color: var(--color-greyBlue);
+    color: var(--color-greyBlue) !important;
 }
 .perfil-element{
     color: white ;
@@ -511,7 +520,7 @@ body{
     border-bottom: 7.5px solid #537aa3;
 }
 
-.error-main, .contenedor-body-about{
+.error-main, .contenedor-body-about, .contenedor-body-admin{
     background: linear-gradient(rgba(38, 46, 78, .5) 0%, rgba(11, 152, 189, .2) 100% ) , url(./../assets/img/login-modal.png);    
 }
 .contenedor-body-about{
@@ -673,3 +682,48 @@ body{
   }
   
   /** Fin efecto modal de registro */
+
+
+#table-movies table th, #table-movies table td{
+    /* min-height: 75px; */
+    /* min-height: 75px; */
+    border: none;
+    align-self: center;
+}
+/* rgb(81, 91, 131) */
+/* rgb(72, 78, 101); */
+/* rgb(44, 48, 67) */
+/* #222c32 */
+.header-table{
+    background-color: #022638;
+    border-top-left-radius: .7rem;
+    border-top-right-radius: .7rem;
+    padding: 10px 0px;
+}
+tr:nth-child(even){
+    background-color: var(--color-azul-claro);
+    /* height: 75px; */
+}
+tr:not(.header-table):hover {
+    background-color:rgb(24, 28, 55);
+}
+/* rgb(39, 46, 84) */
+#table-movies table{
+    background: linear-gradient(rgba(38, 46, 78, .5) 0%, rgba(11, 152, 189, .2) 100% ) , url(./../assets/img/sala.jpg);
+    background-size: cover;
+    background-position: center; 
+    border-radius: .7rem;
+}
+
+#modalAddMovie .form-floating{
+    font-size: 14px;
+}
+
+#modalAddMovie{
+    max-height: 100% !important;
+    /* overflow: scroll; */
+}
+
+.table-year{
+    /* color: rgb(126, 126, 131); */
+}

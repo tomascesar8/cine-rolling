@@ -180,6 +180,7 @@ console.log(filmsTerror);
 
 function listarFilms(array) {
     array.forEach(movie => {
+        if (movie.publicada === true){
         switch (true) {
             case array == filmsFamilia:
                     const movieCardFamilia = document.createElement("div");
@@ -250,6 +251,7 @@ function listarFilms(array) {
 
                 default:
         }
+    }
     familia.scrollLeft = comedia.scrollLeft = drama.scrollLeft = accion.scrollLeft = cienciaFiccion.scrollLeft = terror.scrollLeft = 0;
     });
 }
