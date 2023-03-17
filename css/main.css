@@ -267,6 +267,14 @@ body{
     #table-movies{
         font-size: 12px !important;
     }
+    .row-add-movie label{
+        font-size: 10px !important;
+        padding: 15px 5px;
+    }
+    .row-add-movie input{
+        font-size: 12px !important;
+        padding-left: 8px !important;
+    }
 }
 @media screen and (max-width: 367px) {
     .navbar-brand{
@@ -724,6 +732,11 @@ tr:not(.header-table):hover {
     /* overflow: scroll; */
 }
 
+
 .table-year{
     /* color: rgb(126, 126, 131); */
 }
+
+/* .row-add-movie label{
+    font-size: 10px !important;
+} */

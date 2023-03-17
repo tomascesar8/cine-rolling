@@ -29,7 +29,7 @@ let peliculas = [
     "nombre": "It",
     "descripcion": "Remake del clásico de Stephen King en el que un payaso aterroriza a los niños de un vecindario. En un pequeño pueblo de Maine, siete niños conocidos como el Club de los Perdedores se encuentran cara a cara con problemas de la vida, matones y un monstruo que toma la forma de un payaso llamado Pennywise.",
     "director": "Andy Muschietti",
-    "genero": "Terror, Fantasía",
+    "genero": "Terror , Fantasía",
     "categoria": "+13",
     "puntuacion": "7.24/10",
     "reparto": "Jaeden Martell, Jeremy Ray Taylor, Sophia Lillis, Finn Wolfhard, Chosen Jacobs, Jack Dylan Grazer, etc.",
@@ -47,7 +47,7 @@ let peliculas = [
     "nombre": "Pulp Fiction",
     "descripcion": "Jules y Vincent, dos asesinos a sueldo con no demasiadas luces, trabajan para el gángster Marsellus Wallace. Vincent le confiesa a Jules que Marsellus le ha pedido que cuide de Mia, su atractiva mujer. Jules le recomienda prudencia porque es muy peligroso sobrepasarse con la novia del jefe. Cuando llega la hora de trabajar, ambos deben ponerse manos a la obra . Su misión: recuperar un misterioso maletín.",
     "director": "Tarantino",
-    "genero": "Acción, Crimen, Violencia",
+    "genero": "Acción , Crimen, Violencia",
     "categoria": "+18",
     "puntuacion": "8.49/10",
     "reparto": "John Travolta, Samuel L. Jackson, Uma Thurman, Bruce Willis, Ving Rhames, Harvey Keitel, Eric Stoltz, Tim Roth, etc",
@@ -956,4 +956,6 @@ let peliculas = [
 if(!localStorage.getItem('films')){
   let pelisJSON = JSON.stringify(peliculas)
   localStorage.setItem('films', pelisJSON)
+  localStorage.setItem('films-repuesto', pelisJSON)
+
 };

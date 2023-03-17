@@ -35,21 +35,20 @@
                     <button onclick="" onblur data-bs-toggle="modal" data-bs-target="#modalAddMovie" class="btn btn-info fw-bold">Agregar película</button>
                 </div>
             </div>
-            <div class="table-movies" id="table-movies">                
-                <table class="table text-light">
+            <div class="container-table-movies" id="table-movies">                
+                <!-- <table class="table text-light">
                     <thead>
                         <tr class="header-table d-flex flex-wrap text-center">
                             <th class="col-3 col-sm-2" scope="col">Nombre</th>
                             <th class="col-3 col-sm-2" scope="col">Director</th>
-                            <th class="col-4 col-sm-2" scope="col">Genero</th>
-                            <th class="col-1" scope="col">Categoria</th>
-                            <!-- <th class="col-3 col-sm-1" scope="col">Publicado</th> -->
+                            <th class="col-3 col-sm-2" scope="col">Genero</th>
+                            <th class="col-2 col-sm-1" scope="col">Categoria</th>
                             <th class="col-12 col-sm-5 d-none d-sm-block" scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="body-table"></tbody>
                     </tbody>
-                </table>
+                </table> -->
             </div>
         </section>
       </main>
@@ -74,108 +73,155 @@
 
 
 <!-- Modal Nueva pelicula -->
-
 <div class="modal" id="modalAddMovie" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
   <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-sm-down mt-0">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title text-center" id="exampleModalLabel">Editar película</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-          <form>
-            <div class="form-floating mb-2">
-              <input
-                    type="text"
-                    class="form-control"
-                    id="name-add-movie"
-                    placeholder="Nombre"
-                    required>
-              <label for="name-add-movie">Nombre:</label>
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="exampleModalLabel">Crear película</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-              <div class="form-floating mb-2">
-                <textarea class="form-control" placeholder="Descripción de la pelicula" id="desc-add-movie" style="height: auto" style="min-height: 100px" required></textarea>
-                <label for="desc-add-movie">Descripción:</label>
-              </div>
-              <div class="form-floating mb-2">
-                <select class="form-select" id="genero-add-movie" aria-label="Floating label select example" required>
-                  <option selected>Seleccionar</option>
-                  <option value="1">Acción</option>
-                  <option value="2">Familia</option>
-                  <option value="3">Drama</option>
-                  <option value="4">Comedia</option>
-                  <option value="5">Ciencia Ficción</option>
-                  <option value="6">Terror</option>
-                </select>
-                <label for="genero-add-movie">Genero:</label>
-              </div>
-              
+            <div class="modal-body">
+            <form action="" id="form-add-movie">
               <div class="form-floating mb-2">
                 <input
                       type="text"
                       class="form-control"
-                      id="director-add-movie"
-                      placeholder="Nombre director"
-                      required>
-                <label for="director-add-movie">Director:</label>
+                      id="id-add-movie"
+                      placeholder="Id movie"
+                      required
+                      disabled>
+                <label for="id-add-movie">ID:</label>
               </div>
-            
-              <div class="form-floating mb-3">
+              <div class="form-floating mb-2">
                 <input
                       type="text"
                       class="form-control"
-                      id="categoria-add-movie"
-                      placeholder="Categoría"
+                      id="name-add-movie"
+                      placeholder="Nombre"
                       required>
-                <label for="categoria-add-movie">Categoría:</label>
+                <label for="name-add-movie">Nombre:</label>
               </div>
-            
-              <div class="form-floating mb-3">
-                <input
-                      type="text"
-                      class="form-control"
-                      id="year-add-movie"
-                      placeholder="Año de la pélicula"
-                      required>
-                <label for="year-add-movie">Año:</label>
-              </div>
+                <div class="form-floating mb-2">
+                  <textarea class="form-control" placeholder="Descripción de la pelicula" id="desc-add-movie" style="height: auto" style="min-height: 100px" required></textarea>
+                  <label for="desc-add-movie">Descripción:</label>
+                </div>
+                <div class="form-floating mb-2">
+                  <select class="form-select" id="genero-add-movie" aria-label="Floating label select example" required>
+                    <option class="option-selected" selected>Seleccionar</option>
+                    <option value="Acción">Acción</option>
+                    <option value="Familia">Familia</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Comedia">Comedia</option>
+                    <option value="Ciencia Ficción">Ciencia Ficción</option>
+                    <option value="Terror">Terror</option>
+                  </select>
+                  <label for="genero-add-movie">Genero:</label>
+                </div>
+          
+                <div class="form-floating mb-2">
+                  <input
+                        type="text"
+                        class="form-control"
+                        id="director-add-movie"
+                        placeholder="Nombre director"
+                        required>
+                  <label for="director-add-movie">Director:</label>
+                </div>
+                
+                <div class="form-floating mb-2">
+                  <input
+                        type="text"
+                        class="form-control"
+                        id="reparto-add-movie"
+                        placeholder="Reparto"
+                        required>
+                  <label for="reparto-add-movie">Reparto:</label>
+                </div>
 
-              <div class="form-floating mb-3">
-                <input
-                      type="text"
-                      class="form-control"
-                      id="imagen-add-movie"
-                      placeholder="Imagen de la pélicula"
-                      value=""
-                      required>
-                <label for="imagen-add-movie">Imagen (link):</label>
-              </div>
+                <div class="row-add-movie d-flex mb-2 justify-content-beetwen">
+                  <div class="col-3 form-floating me-2">
+                    <input
+                          type="text"
+                          class="form-control"
+                          id="puntuacion-add-movie"
+                          placeholder="Puntuación"
+                          required>
+                    <label for="puntuacion-add-movie">Puntuación:</label>
+                  </div>
+                  <div class="col-3 form-floating me-2">
+                    <input
+                          type="text"
+                          class="form-control"
+                          id="duracion-add-movie"
+                          placeholder="Duración"
+                          required>
+                    <label for="duracion-add-movie">Duración:</label>
+                  </div>
+                  <div class="col-3 form-floating me-2">
+                    <input
+                          type="text"
+                          class="form-control"
+                          id="categoria-add-movie"
+                          placeholder="Categoría"
+                          required>
+                    <label for="categoria-add-movie">Categoría:</label>
+                  </div>
+                  <div class="col-2 form-floating">
+                    <input
+                          type="text"
+                          class="form-control"
+                          id="year-add-movie"
+                          placeholder="Año de la pélicula"
+                          required>
+                    <label for="year-add-movie">Año:</label>
+                  </div>
+                </div>
 
-              <div class="form-floating mb-3">
-                <input
-                      type="text"
-                      class="form-control"
-                      id="video-add-movie"
-                      placeholder="Video de la pélicula"
-                      value=""
-                      required>
-                <label for="video-add-movie">Video (link):</label>
+                <div class="form-floating mb-3">
+                  <input
+                        type="text"
+                        class="form-control"
+                        id="tapa-add-movie"
+                        placeholder="Tapa de la película"
+                        value=""
+                        required>
+                  <label for="tapa-add-movie">Tapa (link):</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                        type="text"
+                        class="form-control"
+                        id="imagen-add-movie"
+                        placeholder="Imagen de la película"
+                        value=""
+                        required>
+                  <label for="imagen-add-movie">Imagen (link):</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                        type="text"
+                        class="form-control"
+                        id="video-add-movie"
+                        placeholder="Video de la película"
+                        value=""
+                        required>
+                  <label for="video-add-movie">Video (link):</label>
+                </div>
+              <div class="checkboxs d-flex">
+                <div class="form-check form-switch form-group me-3">
+                  <input type="checkbox" class="form-check-input" id="publicada-add-movie">
+                  <label class="form-check-label" for="publicada-add-movie">Publicada</label>
+                </div>
+                <div class="form-check form-switch form-group">
+                  <input type="checkbox" class="form-check-input" id="destacada-add-movie">
+                  <label class="form-check-label" for="destacada-add-movie">Destacada</label>
+                </div>
               </div>
-            <div class="checkboxs d-flex">             
-              <div class="form-check form-switch form-group me-3">
-                <input type="checkbox" class="form-check-input" id="publicada-add-movie">
-                <label class="form-check-label" for="publicada-add-movie">Publicada</label>
+              <div class="modal-footer border border-0 d-flex justify-content-end">
+                <button  type="submit" class="btn btn-success">Agregar película</button>
               </div>
-              <div class="form-check form-switch form-group">
-                <input type="checkbox" class="form-check-input" id="destacada-add-movie">
-                <label class="form-check-label" for="destacada-add-movie">Destacada</label>
-              </div>
+            </form>
             </div>
-          </form>
-          </div>
-          <div class="modal-footer">
-          <button  type="submit" class="btn bg-color2 color3">Editar</button>
-          </div>
       </div>
   </div>
 </div>
