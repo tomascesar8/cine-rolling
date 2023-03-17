@@ -61,7 +61,7 @@ const renderTable = () =>{
                 <p>Editar</p>
             </div> 
             <div class="m-1">
-                <button class="btn-admin-actions border bg-danger rounded-pill border-dark">
+                <button class="btn-admin-actions btn-borrar border bg-danger rounded-pill border-dark">
                     <i class="p-2 fas fa-trash-alt"></i>
                 </button>
                 <p>Borrar</p>
@@ -200,9 +200,20 @@ containerTable.addEventListener('click', (e) => {
                 videoAdd.value = movieEdit.video;
                 publicadaAdd.checked = movieEdit.publicada;
                 destacadaAdd.checked = movieEdit.destacada;
-                
-                // data-bs-toggle="modal" data-bs-target="#modalAddMovie"
-
+            break;    
+            case movieRow.classList.contains('btn-borrar'):
+                let ubicarPelicula = peliculas.find(pelicula=> pelicula.id == idMovie)
+                let posicionABorrar = peliculas.indexOf(peliculas.find(pelicula=>pelicula.id === ubicarPelicula.id))
+                console.log(posicionABorrar);
+                console.log(idMovie);
+                let peliculaBorrada = peliculas.splice(posicionABorrar, 1)
+                // let initialValue = 1;
+                for (let i = 0; i < peliculas.length; i++) {
+                    peliculas[i].id = i + 1 ;
+                }
+                console.log(peliculaBorrada);
+                console.log(peliculas);
+                sendLS('films', peliculas)
             break;    
             default:
             break;

@@ -185,6 +185,7 @@ const listaFavoritos =()=>{
       console.log("DELETE FAV");
       console.log(e);
       if(e.target.classList.contains("delete-fav")){
+        console.log('PRIMER IF');
           e.preventDefault();
           const removedElement = e.target.parentElement.parentElement
           const deleteId= removedElement.id.slice(4);
@@ -197,9 +198,12 @@ const listaFavoritos =()=>{
           deleteFavLS(deleteId);
           console.log(deleteId);
           console.log(e.target.parentElement.parentElement.parent)
-      }else if(!containerFavs.querySelector('.element-fav')){
-          createListaVacia()
+          if(!containerFavs.querySelector('.element-fav')){
+            console.log('PRIMER ELSE IF');
+              createListaVacia()
+            }
       }else{
+        console.log('ULTIMO ELSE');
         const removedElement = e.target.parentElement
         const deleteId= removedElement.id.slice(4);
         console.log(deleteId);
