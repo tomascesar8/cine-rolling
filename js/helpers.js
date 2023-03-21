@@ -114,17 +114,48 @@ export const crearNav =()=>{
             </div>
             `
     document.getElementsByTagName('header')[0].appendChild(navMain)
-
-    // document.querySelector('.yatu').addEventListener('click', ()=>{
-    //     window.location.assign(`${urlMain}#Familia`)
-    // })
-
 }
+
+export const navbarLanding =()=> {
+    let navbar = document.createElement('nav');
+    navbar.classList.add('navbar-landing', 'navbar', 'navbar-dark', 'fixed-top')
+    navbar.innerHTML = `
+    <div class="container ms-lg-0 ps-lg-5 ps-sm-0">
+      <a class="navbar-element navbar-brand fw-bold ms-xl-5" href="#"
+        >CineRolling+</a
+      >
+      <div class="buttons-landing-nav">
+        <button
+          class="navbar-element register-button-navbar fw-bold btn btn-warning border border-0"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+        >
+          Registro
+        </button>
+        <button
+          class="login-nav-button navbar-element btn text-white border border-0"
+          type="button"
+          data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+        >
+          Iniciar sesion
+        </button>
+      </div>
+    </div>
+    `
+    document.querySelector('header').appendChild(navbar);
+}
+if(!localStorage.getItem('user')){
+    navbarLanding()
+}
+
 // const subirScroll =()=>{
 // if(window.location.href.includes('#Familia')){
 //             document.documentElement.scrollTop-= 100;
 // }
 // }
+
+
 export function addUserName() {        
     const user = JSON.parse(localStorage.getItem('user'));
     let titleOffCanvasToggler = document.querySelector('.offcanvas-title-toggler');
@@ -164,7 +195,7 @@ export const addFooter =()=>{
                   </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center my-3 col-md-4 order-0 order-md-0 col-12">
-                  <a class="fw-bold fs-1 ms-xl-5 container-logo text-start" ${document.querySelector('#container-landing') || url.includes('main')? `href="#"` : `href="main.html"`}>
+                  <a class="fw-bold fs-1 ms-xl-5 container-logo text-start" ${document.querySelector('#container-landing') || url.includes('main')? `href="#"` : localStorage.getItem('user')? `href="main.html"` : `href="index.html"`}>
                     CineRolling+
                   </a>
                 </div>
@@ -233,12 +264,14 @@ export const scrollGeneros =()=>{
 //* FAVORITOS
 export const listaFavoritos =()=>{
   const containerFavs = document.getElementById("favorites-list")
-  function createListaVacia() {
+  const createListaVacia =()=> {
+      if(!containerFavs.querySelector('#lista-vacia')){
       let listaVacia = document.createElement('li');
           listaVacia.setAttribute('id', 'lista-vacia')
           listaVacia.classList.add("dropdown-item","pt-0", "d-flex", "align-items-center");
           listaVacia.innerText = `Tu lista está vacía`
           containerFavs.appendChild(listaVacia);
+        }
   }
 
   function getFavsLS() {
@@ -425,7 +458,7 @@ export const buscador =()=>{
               item.removeAttribute('href','reproducirVideo(pelicula)')
               containerResultado.classList.add('p-0')
           }
-      })       
+      })  
   }
   if(e.target.value.length == 0){
           containerSearcher.removeChild(containerResultado)
@@ -440,23 +473,48 @@ export const buscador =()=>{
         })
     }
     redireccionBusqueda()
-            // console.log(e.target);
-            // if(e.target.classList.contains('item-search')){
-            //     let idMovie = e.target.id.slice(e.target.id.indexOf('-')+1)
-            //     if(!window.location.href.includes('movie-detail')){
-            //         window.location.assign(window.location.origin + `/movie-detail.html#${idMovie}`)
-            //     }else{
-            //         window.location.href = (window.location.origin + `/movie-detail.html#${idMovie}`)
-              
-                    // console.log(window.location.href.indexOf('#'));
-                    // console.log((window.location.href.indexOf('#')+1, idMovie));
-                    // window.location.href.splice(window.location.href.indexOf('#')+1, 2, idMovie)
-                    
-                // }
-                // console.log(idMovie.slice(idMovie.indexOf('-')+1));
-                // window.location.assign(window.location.origin + `/movie-detail.html#${idMovie}`)
-            // }
+
+  let inputSearch = document.querySelector('#input-search')
+  document.addEventListener('keyup', (e)=>{
+      if((e.keyCode >= 65 && e.keyCode <= 90)){
+          // inputSearch.value += e.key
+          inputSearch.focus();
+      }
+  })
+  const cerrarContenedorResult =()=>{
+    let inputSearch = document.querySelector('#input-search')
+    let fueraDeContenedor = event.target.closest("#resultados-busqueda") === null && !event.target.closest('.cont2');
+    if (fueraDeContenedor) {
+      containerResultado.classList.add('d-none');
+    }
+    if(document.activeElement === inputSearch){
+      containerResultado.classList.remove('d-none');
+    }
+  }
+  document.addEventListener("click", function(event) {
+    cerrarContenedorResult()
+  });
+  document.addEventListener("keyup", function(event) {
+    cerrarContenedorResult()
+  });
+  
+  let btnSearch = document.querySelector('#btn-lupa');
+  btnSearch.addEventListener('click', (e)=>{
+    if(containerResultado.childNodes){
+      containerResultado.classList.add('bg-secondary');
+      setTimeout(()=>{ containerResultado.classList.remove('bg-secondary')}, 2000)
+    }if(event.target.closest('.cont2')){
+      console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee');
+      let iconLupa = document.querySelector('#btn-lupa i')
+      iconLupa.classList.add('text-info')
+      setTimeout(()=>{ iconLupa.classList.remove('text-info')}, 2000)
+      inputSearch.focus();
+      
+    }
+  })
 }
+
+
 
 //* REPRODUCIR VIDEO
 export const reproducirVideo =(movie)=>{

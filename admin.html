@@ -19,6 +19,9 @@
     <link href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css" />
     <!-- <link rel="stylesheet" href="css/movie-detail.css" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -28,11 +31,13 @@
       </header>
 
       <main>
-        <section class="pt-5 px-md-4 px-lg-0 container-fluid container-lg">
-            <div class="pt-5 pb-3 title-table-movie d-flex justify-content-between text-info align-items-center">
-                <h2 class="text-center">Administracion de contenido</h2>
+        <section class="section-admin pt-4 pt-sm-5 px-md-4 px-lg-0 container-fluid container-lg">
+            <div class="pt-5 pt-sm-5 pb-sm-3 title-table-movie d-flex justify-content-between text-info align-items-center">
+                <div class="container-title-admin">
+                  <h2 class="title-admin text-center">Administracion de contenido</h2>
+                </div>
                 <div class="m-3 d-flex align-items-center">
-                    <button onclick="" onblur data-bs-toggle="modal" data-bs-target="#modalAddMovie" class="btn btn-info fw-bold">Agregar película</button>
+                    <button class="btnNuevo mt-2" onclick="" onblur data-bs-toggle="modal" data-bs-target="#modalAddMovie" class="btn btn-info fw-bold">Agregar película</button>
                 </div>
             </div>
             <div class="container-table-movies" id="table-movies">                
@@ -62,12 +67,17 @@
 <!-- Modal Nueva pelicula -->
 <div class="modal" id="modalAddMovie" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
   <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-sm-down mt-0">
-      <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title text-center" id="exampleModalLabel">Crear película</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-content modal-content-addMovie">
+          <div class="modal-header d-flex justify-content-beetwen p-2 border-bottom-0">
+            <div></div>
+            <div>
+              <h3 class="modal-title-addMovie text-center" id="exampleModalLabel">Crear película</h3>
             </div>
-            <div class="modal-body">
+            <div>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            </div>
+            <div class="modal-body modal-body-addMovie pt-0">
             <form action="" id="form-add-movie">
               <div class="form-floating mb-2">
                 <input
@@ -205,7 +215,7 @@
                 </div>
               </div>
               <div class="modal-footer border border-0 d-flex justify-content-end">
-                <button  type="submit" class="btn btn-success">Agregar película</button>
+                <button  type="submit" class="btn-form-addMovie btn btn-success">Agregar película</button>
               </div>
             </form>
             </div>

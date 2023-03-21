@@ -92,14 +92,21 @@ body{
         font-size: 16px;
         /* margin-top: 15px; */
         max-width: 85% !important;
-        max-height: 172px;
+        max-height: 150px;
     }
-    #btn-play-video{
+    #btn-play-video, #btn-add-list{
         font-size: 1.2em !important;
     }
 
 }
 @media screen and (max-width: 458px){
+    .descripcion-detail{
+        overflow: auto;
+        font-size: 16px;
+        /* margin-top: 15px; */
+        max-width: 85% !important;
+        max-height: 100px;
+    }
     .info-movie{
         margin-top: 80px;
     }
@@ -112,3 +119,5 @@ body{
         font-size: 13px !important;
     }
 }
+
+

@@ -1,5 +1,7 @@
 import { crearNav, colorScrollNav, buscador, addUserName, logOut, scrollGeneros, saveFilms } from "./helpers.js";
-crearNav()
+if(localStorage.getItem('user')){
+  crearNav()
+}
 colorScrollNav()
 buscador()
 addUserName()
@@ -26,7 +28,7 @@ const imgDetail =()=>{
                   <div class="metricas-detail d-flex  flex-row">
                     <div class="puntuacion-detail fw-bold mb-1 me-4"><i class="text-warning fas fa-star"></i> ${movie.puntuacion} IMDb</div>
                     <div class="categoria-detail fst-italic mb-1 me-4">${movie.categoria}</div>                
-                    <div class="duracion-detail mb-1 me-4">${movie.duracion}</div>
+                    <div class="duracion-detail mb-1 me-4"> ${movie.duracion.includes('Min')? movie.duracion : movie.duracion+' Min'}</div>
                   </div>
 
                   <div class="detalles-detail my-lg-1 my-sm-1">
@@ -93,12 +95,15 @@ Mi lista
 const listaFavoritos =()=>{
   const containerFavs = document.getElementById("favorites-list")
   function createListaVacia() {
-      let listaVacia = document.createElement('li');
-          listaVacia.setAttribute('id', 'lista-vacia')
-          listaVacia.classList.add("dropdown-item","pt-0", "d-flex", "align-items-center");
-          listaVacia.innerText = `Tu lista está vacía`
-          containerFavs.appendChild(listaVacia);
-  }
+    if(!containerFavs.querySelector('#lista-vacia')){
+    let listaVacia = document.createElement('li');
+        listaVacia.setAttribute('id', 'lista-vacia')
+        listaVacia.classList.add("dropdown-item","pt-0", "d-flex", "align-items-center");
+        listaVacia.innerText = `Tu lista está vacía`
+        containerFavs.appendChild(listaVacia);
+
+      }
+}
 
   function getFavsLS() {
       console.log(' GET FAVS LS');
@@ -203,12 +208,15 @@ const listaFavoritos =()=>{
               createListaVacia()
             }
       }else{
-        console.log('ULTIMO ELSE');
-        const removedElement = e.target.parentElement
-        const deleteId= removedElement.id.slice(4);
-        console.log(deleteId);
-        window.location.assign(`${window.location.origin}/movie-detail.html#${deleteId}`)
-        window.location.reload()
+          if(!containerFavs.querySelector('#lista-vacia')){     
+              console.log('ULTIMO ELSE');
+              const removedElement = e.target.parentElement
+              const deleteId= removedElement.id.slice(4);
+              console.log(deleteId);
+              window.location.assign(`${window.location.origin}/movie-detail.html#${deleteId}`)
+              alert('papeee')
+              window.location.reload()
+          }
       }
   }
 

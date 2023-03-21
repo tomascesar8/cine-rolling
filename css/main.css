@@ -59,6 +59,13 @@ body{
     max-height: 15vh !important;
     overflow: auto;
 }
+.modal-body-addMovie::-webkit-scrollbar{
+    width: 12px;
+}
+.modal-body-addMovie::-webkit-scrollbar-thumb{
+    background-color: var(--color-celeste-oscuro-mas);
+    border-radius: 70rem;
+}
 
 .description::-webkit-scrollbar, .dropdown-menu::-webkit-scrollbar, #resultados-busqueda::-webkit-scrollbar{
     width: 7px !important;
@@ -67,7 +74,7 @@ body{
     background-color: var(--color-azul-claro);
     border-radius: 70rem;
 }
-.description::-webkit-scrollbar-track{
+.description::-webkit-scrollbar-track, .modal-body-addMovie::-webkit-scrollbar-track{
     background-color: #031223;
     border-radius: 70rem;
 }
@@ -102,6 +109,7 @@ body{
 .carousel-control-prev, .carousel-control-next{
     background-color: transparent !important;
 }
+
 #input-search{
     width: 11rem;
     height: 30px;
@@ -112,12 +120,13 @@ body{
     transition: all .25s ease;
     overflow: visible;
     border-style: solid;
-    border-color:  rgba(61, 79, 145, .5) !important;
+    border-color:  rgba(61, 79, 145, .5);
     border-right: none;
     background-color: rgba(8, 15, 40, .5);
     color: inherit;
     font: inherit;
 }
+
 #input-search:hover{
     width: 13rem;
 }
@@ -160,6 +169,10 @@ body{
     .modal-fullscreen-sm-down{
         margin-top: 40px;
     }
+    #modalAddMovie .modal-fullscreen-sm-down{
+        margin-top: 20px !important;
+        height: 92vh !important;
+    }
     .slider-main .button-info{
         font-size: 1.16em !important;
     }
@@ -196,6 +209,13 @@ body{
     #table-movies{
         font-size: 13px !important;
     }
+    .title-admin{
+        font-size: 10px;
+        padding-right: 30px;
+    }    
+    .btnNuevo{
+        font-size: 15px !;
+    }    
     /* .container-films-cats{
         transform: translateY(10%) !important;
     }
@@ -235,6 +255,12 @@ body{
     #table-movies{
         font-size: 14px;
     }
+    .title-admin{
+        font-size: 1.8rem !important;
+    }    
+    .btnNuevo{
+        font-size: 15px !important;
+    }  
 }
 @media screen and (max-width: 484px) {
     .container-categories{
@@ -275,6 +301,13 @@ body{
         font-size: 12px !important;
         padding-left: 8px !important;
     }
+    .title-admin{
+        font-size: 1.25rem !important;
+        padding-right: 0 !important;
+    }    
+    .btnNuevo{
+        font-size: 12px !important;
+    } 
 }
 @media screen and (max-width: 367px) {
     .navbar-brand{
@@ -300,6 +333,11 @@ body{
         width: 150px !important;
         height: 150px !important;
     }
+    .title-admin{
+        font-size: 1.15rem !important;
+        text-align: start !important;
+        padding-left: 0px;
+    } 
 }
 
 .bg-scroll-nav{
@@ -418,6 +456,10 @@ body{
     height: 20px;
     width: 20px;
     background-color: gainsboro;
+}
+
+#lista-vacia{
+    pointer-events: none !important;
 }
 
 .movie:hover::after{
@@ -563,15 +605,22 @@ body{
     min-height: 100vh !important;
 }
 
-.modal-contact-content{
+.modal-contact-content, .modal-content-addMovie{
     background: linear-gradient(rgba(11, 152, 189, .5) 0%, rgba(38, 46, 78, .5) 100% ) , url(./../assets/img/login-modal.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
+.modal-content-addMovie{
+    background: linear-gradient(rgba(11, 152, 189, .7) 0%, rgba(38, 46, 78, .5) 100% ) , url(./../assets/img/login-modal.png);
 
-.modal-contact-content .modal-header{
+}
+
+.modal-contact-content .modal-header, .modal-content-addMovie{
     color: antiquewhite;    
+}
+.modal-content-addMovie label:not(.form-check-label){
+    color: black;
 }
 .modal-fullscreen-sm-down{
     padding: 10px;
@@ -737,6 +786,37 @@ tr:not(.header-table):hover {
     /* color: rgb(126, 126, 131); */
 }
 
+.title-admin{
+    padding-left: 10px;
+    /* padding-bottom: 30px; */
+    font-size: 35px;
+    font-family: 'Candal', sans-serif;
+    color: var(--color-lightBlue);
+}
+
 /* .row-add-movie label{
     font-size: 10px !important;
 } */
+
+.btnNuevo{
+    color: rgb(215, 241, 236);
+    /* color: gainsboro; */
+    /* background-color: var(--color-azul-claro); */
+    background-color: var(--color-celeste-oscuro-mas);
+    border-style: solid;
+    border-radius: .5rem;
+    border-color: var(--color-blue);
+    font-size: 1.3rem;
+    font-family: 'Candal', sans-serif;
+    padding: 8px 12px;
+}
+.btnNuevo:hover{
+    background: var(--color-footer-mg);
+    /* background: rgba(0, 65, 103, 0); */
+    color: rgb(136, 238, 221);
+    border-color: var(--color-blue);
+    opacity: 100%;
+    position: relative;
+    transition: 200ms;
+    transform:  scale(1.15);
+}

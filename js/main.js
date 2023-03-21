@@ -4,7 +4,7 @@ const user = JSON.parse(localStorage.getItem('user'));
 crearNav()
 addUserName()
 logOut()
-
+console.log(peliculas);
 const slider =()=>{
     let sliderMain = document.querySelector('.slider-main');
     sliderMain. innerHTML = `
@@ -37,13 +37,11 @@ const slider =()=>{
 
     function isOutstanding(peliculas) {
         if (peliculas.destacada === true) {
-            // console.log(peliculas);
             return peliculas;
         }
     }
     let peliculasDestacadas = peliculas.filter(isOutstanding);
     let idPeliculasDestacada = document.querySelector('#id');
-    // let sliderFilms = document.querySelector('.slider-main');
     let titleSliderFilm = document.querySelector('.title');
     let descriptionSliderFilm = document.querySelector('.description');
     let genderSliderFilm = document.querySelector('.genero')
@@ -51,65 +49,54 @@ const slider =()=>{
     let yearSliderFilm = document.querySelector('.año');
 
     let i = 0;
-    idPeliculasDestacada = `destacada-${peliculasDestacadas[0].id}`
-    sliderMain.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[0].imagen})`;
-    titleSliderFilm.innerHTML = `${peliculasDestacadas[0].nombre}`
-    descriptionSliderFilm.innerHTML = `${peliculasDestacadas[0].descripcion}`
-    genderSliderFilm.innerHTML = `${peliculasDestacadas[0].genero}`
-    categorySliderFilm.innerHTML = `${peliculasDestacadas[0].categoria}`
-    yearSliderFilm.innerHTML = `${peliculasDestacadas[0].año}`
-    console.log(idPeliculasDestacada)
-    setInterval(() => {
-        i++
-        if(i>peliculasDestacadas.length-1){
-            i=0
-        }
-        idPeliculasDestacada = `destacada-${peliculasDestacadas[i].id}`
-        sliderMain.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
-        titleSliderFilm.innerHTML = `${peliculasDestacadas[i].nombre}`
-        descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`
-        genderSliderFilm.innerHTML = `${peliculasDestacadas[i].genero}`
-        categorySliderFilm.innerHTML = `${peliculasDestacadas[i].categoria}`
-        yearSliderFilm.innerHTML = `${peliculasDestacadas[i].año}`
-        // console.log(idPeliculasDestacada)
+    function renderSlider(id){   
+        idPeliculasDestacada = `destacada-${peliculasDestacadas[id].id}`
+        sliderMain.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[id].imagen})`;
+        titleSliderFilm.innerHTML = `${peliculasDestacadas[id].nombre}`
+        descriptionSliderFilm.innerHTML = `${peliculasDestacadas[id].descripcion}`
+        genderSliderFilm.innerHTML = `${peliculasDestacadas[id].genero}`
+        categorySliderFilm.innerHTML = `${peliculasDestacadas[id].categoria}`
+        yearSliderFilm.innerHTML = `${peliculasDestacadas[id].año}`
+    }
+    renderSlider(0)
 
-    }, 5000);
+    let sliderInterval;
+    function sliderOn(){
+        sliderInterval = setInterval(() => {
+        i++
+        if(i>peliculasDestacadas.length-1){ i=0 };
+        renderSlider(i);
+    }, 5000 );
+    }
+    sliderOn()
 
     let sliderDerecho = document.querySelector('.carousel-control-next');
     let sliderIzq = document.querySelector('.carousel-control-prev');
 
     function moverDerecha() {
         i++
-        if (i > (peliculasDestacadas.length - 1)) {
-            i = 0;
-        }
-        idPeliculasDestacada = `destacada-${peliculasDestacadas[i].id}`
-        sliderMain.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
-        titleSliderFilm.innerHTML = `${peliculasDestacadas[i].nombre}`
-        descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`
-        genderSliderFilm.innerHTML = `${peliculasDestacadas[i].genero}`
-        categorySliderFilm.innerHTML = `${peliculasDestacadas[i].categoria}`
-        yearSliderFilm.innerHTML = `${peliculasDestacadas[i].año}`
-        // console.log(idPeliculasDestacada)
+        if (i > (peliculasDestacadas.length - 1)) { i = 0 }
+        renderSlider(i)
+        setTimeout(clearInterval(sliderInterval))
+        sliderOn()
     }
-    sliderDerecho.addEventListener('click', moverDerecha)
-
     function moverIzq() {
         i--
-        if (i < 0) {
-            i = peliculasDestacadas.length - 1;
-        }
-        idPeliculasDestacada = `destacada-${peliculasDestacadas[i].id}`
-        sliderMain.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
-        titleSliderFilm.innerHTML = `${peliculasDestacadas[i].nombre}`
-        descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`
-        genderSliderFilm.innerHTML = `${peliculasDestacadas[i].genero}`
-        categorySliderFilm.innerHTML = `${peliculasDestacadas[i].categoria}`
-        yearSliderFilm.innerHTML = `${peliculasDestacadas[i].año}`
-        console.log(idPeliculasDestacada)
-
+        if (i < 0) { i = peliculasDestacadas.length - 1 }
+        renderSlider(i)
+        setTimeout(clearInterval(sliderInterval))
+        sliderOn()
     }
+    sliderDerecho.addEventListener('click', moverDerecha)
     sliderIzq.addEventListener('click', moverIzq)
+    document.addEventListener('keyup', (e)=>{
+        if(e.code === "ArrowRight"){
+            moverDerecha()
+        }
+        if (e.code === "ArrowLeft") {
+            moverIzq()
+        }
+    })
 
     let buttonInfo = document.querySelector('.button-info');
     let btnDestacada = document.querySelector('.button-play-title');
@@ -344,4 +331,7 @@ listaFavoritos()
 
 //* BUSCADOR
 buscador()
+
+
+
 

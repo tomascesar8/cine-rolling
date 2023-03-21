@@ -97,39 +97,9 @@ function register() {
         usersParseados.push(newUser);
         data = JSON.stringify(usersParseados);
         localStorage.setItem('users', data);
+        
   // }
 }
-
-const navbarLanding =()=> {
-  let navbar = document.createElement('nav');
-  navbar.classList.add('navbar-landing', 'navbar', 'navbar-dark', 'fixed-top')
-  navbar.innerHTML = `
-  <div class="container ms-lg-0 ps-lg-5 ps-sm-0">
-    <a class="navbar-element navbar-brand fw-bold ms-xl-5" href="#"
-      >CineRolling+</a
-    >
-    <div class="buttons-landing-nav">
-      <button
-        class="navbar-element register-button-navbar fw-bold btn btn-warning border border-0"
-        type="button"
-        data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"
-      >
-        Registro
-      </button>
-      <button
-        class="login-nav-button navbar-element btn text-white border border-0"
-        type="button"
-        data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
-      >
-        Iniciar sesion
-      </button>
-    </div>
-  </div>
-  `
-  document.querySelector('header').appendChild(navbar);
-}
-navbarLanding()
 
 const addLandingMain =()=>{
   let landingMain = document.createElement('div');

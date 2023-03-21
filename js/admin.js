@@ -1,7 +1,8 @@
-import { crearNav, colorScrollNav, buscador, addUserName, logOut, scrollGeneros, saveFilms } from "./helpers.js";
+import { crearNav, colorScrollNav, buscador, keyUpBuscador, addUserName, logOut, scrollGeneros, saveFilms } from "./helpers.js";
 crearNav()
 colorScrollNav()
 buscador()
+keyUpBuscador()
 addUserName()
 logOut()
 scrollGeneros()
@@ -111,11 +112,12 @@ class Pelicula{
         this.reparto = reparto;
         this.puntuacion = puntuacion;
         this.duracion = duracion;
+        `${duracion.includes('Min')? this.duracion = duracion : this.duracion = duracion+' Min'}`;
         this.categoria = categoria;
         this.año = año;
         this.tapa = tapa;
         this.imagen = imagen;
-        this.video = video;
+        `${video.includes('?autoplay=1')? this.video = video : this.video = video+'?autoplay=1'}`;
         this.publicada = publicada;
         this.destacada = destacada;
     }
@@ -128,7 +130,6 @@ document.querySelector('#form-add-movie').addEventListener('submit', (event)=>{
     // event.preventDefault()
     let newMovie = new Pelicula(`${idAdd.value? idAdd.value : peliculas.length+1}`, nameAdd.value, descAdd.value, generoAdd.value, directorAdd.value, repartoAdd.value, puntuacionAdd.value, duracionAdd.value, categoriaAdd.value, yearAdd.value, tapaAdd.value, imgAdd.value, videoAdd.value, publicadaAdd.checked, destacadaAdd.checked);
     console.log(newMovie);
-    // peliculas.push(newMovie)
     console.log(Number(idAdd.value));
     if(peliculas.find(pelicula => pelicula.id == idAdd.value)){
         peliculas.splice(Number(idAdd.value)-1, idAdd.value.length, newMovie)
@@ -139,11 +140,8 @@ document.querySelector('#form-add-movie').addEventListener('submit', (event)=>{
     sendLS('films', peliculas)
 })
 
-// let btnMoviePublicada = document.querySelector('.container-admin-actions');
 containerTable.addEventListener('click', (e) => {
     if(e.target.parentElement.classList.contains('btn-admin-actions') || (!e.target.querySelector('button') && e.target.querySelector('i'))){
-        console.log('hola');
-        console.log(e.target);
         console.log(e.target.closest('tr').id);
         let movieRow = e.target.closest('.btn-admin-actions')
         let idMovie = movieRow.closest('tr').id;
@@ -163,7 +161,7 @@ containerTable.addEventListener('click', (e) => {
                     movieEdit.publicada = true;
                     sendLS('films', peliculas)
                 }
-            break;
+                break;
             case movieRow.classList.contains('btn-destacar'):
                 if(movieRow.classList.contains('bg-warning')){
                     movieRow.classList.remove('bg-warning')
@@ -178,11 +176,16 @@ containerTable.addEventListener('click', (e) => {
                     movieEdit.destacada = true;
                     sendLS('films', peliculas)
                 }
-            break;
+                break;
             case movieRow.classList.contains('btn-editar'):
                 idAdd.value = idMovie;
                 nameAdd.value = movieEdit.nombre;
                 descAdd.value = movieEdit.descripcion;
+                let modalTitle = document.querySelector('.modal-title-addMovie');
+                modalTitle.classList.add('pt-2')
+                modalTitle.innerText = `Editar película`
+                let btnFormAddMovie = document.querySelector('.btn-form-addMovie');
+                btnFormAddMovie.innerText = `Confirmar edición`
                 let optionSelected = document.querySelector('.option-selected');
                 if(movieEdit.genero.includes(',')){
                     optionSelected.innerHTML = `${movieEdit.genero}`
@@ -200,25 +203,105 @@ containerTable.addEventListener('click', (e) => {
                 videoAdd.value = movieEdit.video;
                 publicadaAdd.checked = movieEdit.publicada;
                 destacadaAdd.checked = movieEdit.destacada;
-            break;    
+                break;    
             case movieRow.classList.contains('btn-borrar'):
                 let ubicarPelicula = peliculas.find(pelicula=> pelicula.id == idMovie)
                 let posicionABorrar = peliculas.indexOf(peliculas.find(pelicula=>pelicula.id === ubicarPelicula.id))
                 console.log(posicionABorrar);
                 console.log(idMovie);
                 let peliculaBorrada = peliculas.splice(posicionABorrar, 1)
-                // let initialValue = 1;
                 for (let i = 0; i < peliculas.length; i++) {
                     peliculas[i].id = i + 1 ;
                 }
                 console.log(peliculaBorrada);
                 console.log(peliculas);
                 sendLS('films', peliculas)
-            break;    
+                break;    
             default:
-            break;
-
+                break;
         }
     }
-
 })
+
+//* FAVORITOS
+const favoritosAdminPage =()=>{
+    const containerFavs = document.getElementById("favorites-list")
+    
+    function createListaVacia() {
+        if(!containerFavs.querySelector('#lista-vacia')){
+        let listaVacia = document.createElement('li');
+            listaVacia.setAttribute('id', 'lista-vacia')
+            listaVacia.classList.add("dropdown-item","pt-0", "d-flex", "align-items-center");
+            listaVacia.innerText = `Tu lista está vacía`
+            containerFavs.appendChild(listaVacia);
+          }
+    }
+    function getFavsLS() {
+        let getFavs;
+        if(localStorage.getItem('favs')){
+          console.log('GET FAVS 1');
+            let dataFavs = JSON.parse(localStorage.getItem('favs'))
+            getFavs = dataFavs;
+        }else{
+          console.log('GET FAVS 2');
+            let favs = [];
+            JSON.stringify(localStorage.setItem('favs', favs))
+            getFavs = favs;
+        }
+        return getFavs;
+    }  
+    function renderFavsLS(){
+        console.log('RENDER FAV LS');
+        setTimeout(() => {
+            let favs = getFavsLS();
+            favs.forEach((fav)=>{
+                const favorite=document.createElement("li")
+                favorite.id=`fav-${fav.id}`
+                favorite.classList.add(`fav-${fav.id}`,"dropdown-item","pt-0", "d-flex", "align-items-center", "element-fav");
+                console.log('entre aca');
+                console.log(favorite);
+                favorite.innerHTML=`
+                <div class="me-2 col-md-1 align-self-center">
+                    <h3 class="mb-1 delete-fav text-danger ml-2 mb-0" role="button">&times</h3>
+                </div>
+                <a class="ps-2 pe-1 pe-3 text-wrap text-decoration-none text-light" href="movie-detail.html#${fav.id}">${fav.nombre}</a>
+                `;
+                containerFavs.appendChild(favorite);
+                console.log(document.getElementById(`${fav.id}`))
+            })
+            if(favs.length == 0){
+                createListaVacia()
+            }
+        },100);
+    }
+    function deleteFav(e){
+        console.log("DELETE FAV");
+        if(e.target.classList.contains("delete-fav")){
+            e.preventDefault();
+            const removedElement = e.target.parentElement.parentElement
+            const deleteId= removedElement.id.slice(4);
+            removedElement.remove();
+            deleteFavLS(deleteId);
+            console.log(deleteId);
+            console.log(e.target.parentElement.parentElement.parent)
+        }
+        if(!containerFavs.querySelector('.element-fav')){
+            createListaVacia()
+        }
+    }
+    function deleteFavLS(deleteId){
+        console.log('DELETE FAV LS');
+        let favs = getFavsLS();
+        favs.forEach((fav,index)=>{
+          console.log(index);
+          console.log(fav.id);
+          if(fav.id == deleteId){
+                favs.splice(index,1);
+            }
+        })
+        localStorage.setItem("favs",JSON.stringify(favs));
+    }
+    document.addEventListener("DOMContentLoaded",renderFavsLS);
+    containerFavs.addEventListener("click",deleteFav);
+}
+favoritosAdminPage()
