@@ -12,8 +12,10 @@
     --color-azul-cuevana: rgb(20, 31, 74);
     --color-blue-main: #141d32;
     --color-footer-mg: #0A1A2A;
-    --color-celeste-oscuro-mas: rgb(67, 125, 159) !important;
-    --color-celeste-oscuro-menos: rgb(89, 132, 157) !important;
+    --color-celeste-oscuro-mas: rgb(67, 125, 159);
+    --color-celeste-oscuro-menos: rgb(89, 132, 157);
+    --color-siena-nose: #7d5f64;
+    --color-verde-nose: #88b4be;
 }
 
 body{

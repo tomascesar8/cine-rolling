@@ -558,3 +558,19 @@ export const reproducirVideo =(movie)=>{
     
     // })
 // }
+
+
+//* Aplicar mayuscula a la primera letra del nombre
+
+function capitalizeWords(str) {
+  // dividir el string en un array de palabras
+  let words = str.split(' ');
+
+  // iterar sobre cada palabra y aplicar mayúscula a la primera letra
+  words = words.map(function(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  });
+
+  // unir las palabras en un string
+  return words.join(' ');
+}
