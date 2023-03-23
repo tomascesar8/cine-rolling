@@ -435,6 +435,9 @@ font-weight: 600;
 }
 
 
-
+.swal2x-mark{
+  width: 10px !important;
+  height: 10px !important;
+}
 
 
