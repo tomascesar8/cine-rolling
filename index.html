@@ -34,6 +34,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/helpers.js" type="module"></script>
+    <script src="js/register.js"></script>
     <script src="js/fake-base-de-datos.js"></script>
     <script src="js/landing-page.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -74,7 +75,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col">
-            <form  onsubmit="register(event)" class="">
+            <form  onsubmit="register(event)" class="" id="register-form">
               <div class="input-group mb-3">
                 <label class="input-group-text" for="name">
                   <span id="basic-addon1">Nombre</span>
@@ -83,6 +84,7 @@
                   type="text"
                   class="form-control register-inputs"
                   id="register-name"
+                  pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ\s]{3,25}$"
                   placeholder="Nombre y apellido"
                   aria-label="register-name"
                   minlength="3"
@@ -90,6 +92,7 @@
                   aria-describedby="basic-addon1"
                   required
                 />
+                <p></p>
               </div>
               <div class="input-group mb-3">
                 <label class="input-group-text" for="email">
@@ -99,11 +102,15 @@
                   type="email"
                   class="form-control register-inputs"
                   id="register-email"
+                  pattern="[^\s@]+@[^\s@]+\.[^\s@]{1,4}$"
                   placeholder="nombre@ejemplo.com"
                   aria-label="register-email"
+                  minlength="8"
+                  maxlength="30"
                   aria-describedby="basic-addon2"
                   required
                 />
+                <p></p>
               </div>
               <div class="input-group mb-3">
                 <label class="input-group-text" for="tel">
@@ -115,13 +122,14 @@
                   id="register-phone"
                   placeholder="(012)345-6789"
                   aria-label="register-phone"
-                  minlength="10"
-                  maxlength="12"
-                  title="Máximo de 12 caracteres (1-9, espaciado y paréntesis)."
-                  pattern="[0-9 ()-]{10,12}"
+                  minlength="8"
+                  maxlength="15"
+                  title="Máximo de 15 caracteres (1-9, espaciado, '-', y '()')."
+                  pattern="(\(\d{4}\)|\d{4})?[-\s]?\d{3}[-\s]?\d{4,}$"
                   aria-describedby="basic-addon3"
                   required
                 />
+                <p></p>
               </div>
               <select
                 id="register-gender"
@@ -142,7 +150,7 @@
                 </label>
                 <input
                   type="password"
-                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}"
                   title="Mínimo 8 caracteres (al menos un número, una mayúscula y minúscula)."
                   placeholder="********"
                   class="form-control register-inputs"
@@ -150,6 +158,7 @@
                   aria-describedby="basic-addon5"
                   required
                 />
+                <p></p>
               </div>
               <div class="input-group mb-3">
                 <label class="input-group-text" for="basic-addon6">
@@ -157,7 +166,7 @@
                 </label>
                 <input
                   type="password"
-                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}"
                   title="Mínimo 8 caracteres (al menos un número, una mayúscula y minúscula)."
                   placeholder="********"
                   class="form-control register-inputs"
@@ -165,6 +174,7 @@
                   aria-describedby="basic-addon6"
                   required
                 />
+                <p></p>
               </div>
               <div id="basic-addon7" class="form-check">
                 <input
@@ -174,6 +184,7 @@
                   id="flexCheckDefault"
                   required
                 />
+                <p></p>
                 <label class="form-check-label" for="flexCheckDefault">
                   Acepto recibir notificaciones por email.
                 </label>
@@ -212,6 +223,7 @@
       <div class="form-floating mb-3">
         <input
               type="email"
+              pattern="[^\s@]+@[^\s@]+.[^\s@]{1,4}$"
               class="form-control"
               id="login-email"
               placeholder="name@example.com"
@@ -243,30 +255,6 @@
 
   <!-- 1er Modal Recuperar contraseña -->
   <div class="modal fade" id="recuperarPass" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <!-- <nav class="navbar navbar-dark fixed-top">
-      <div class="container ms-lg-0 ps-lg-5 ps-sm-0">
-        <a class="navbar-element navbar-brand fw-bold ms-xl-5" href="#"
-          >CineRolling+</a
-        >
-        <div class="buttons-landing-nav">
-          <button
-            class="navbar-element register-button-navbar fw-bold btn btn-warning border border-0"
-            type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-          >
-            Registro
-          </button>
-          <button
-            class="login-nav-button navbar-element btn text-white border border-0"
-            type="button"
-            data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
-          >
-            Iniciar sesion
-          </button>
-        </div>
-      </div>
-    </nav> -->
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content modal-recuperar-pass">
         <div class="modal-header">
@@ -281,6 +269,7 @@
             <div class="form-floating">
               <input
                     type="email"
+                    pattern="[^\s@]+@[^\s@]+.[^\s@]{1,4}$"
                     class="form-control"
                     id="email-recovery"
                     placeholder="name@example.com"
@@ -296,56 +285,7 @@
       </div>
     </div>
   </div>
-  <!-- fin 1er recuperar contraseña -->
-  <!-- ? data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" -->
-  <!-- 2do Modal Recuperar contraseña -->
-  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-    <nav class="navbar navbar-dark fixed-top">
-      <div class="container ms-lg-0 ps-lg-5 ps-sm-0 ">
-        <a class="navbar-element navbar-brand fw-bold ms-xl-5" href="#"
-          >CineRolling+</a
-        >
-        <div class="buttons-landing-nav">
-          <button
-            class="navbar-element register-button-navbar fw-bold btn btn-warning border border-0"
-            type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-          >
-            Registro
-          </button>
-          <button
-            class="login-nav-button navbar-element btn text-white border border-0"
-            type="button"
-            data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
-          >
-            Iniciar sesion
-          </button>
-        </div>
-      </div>
-    </nav>
-    <div class="modal-dialog modal-dialog-centered text-light">
-      <div class="modal-content modal-recuperar-pass">
-        <div class="modal-header">
-          <h5 class="modal-title text-info" id="exampleModalToggleLabel2">¡Te enviamos un correo electrónico para recuperar tu contraseña!</h5>
-          <div class="align-self-start mt-3">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        </div>
-
-        <div class="modal-body">
-          <div class="rev_modal_text">
-            Por favor revisá tu casilla de mensajes. No te olvides de buscar en Spam o Correo no deseado.
-          </div>
-          </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-target="#recuperarPass" data-bs-toggle="modal">Reenviar correo electrónico</button>
-          <button type="button" class="btn btn-secondary ms-1" data-bs-dismiss="modal">Cancelar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- fin 2do recuperar contraseña -->
+  <!-- fin modal recuperar contraseña -->
 
   <!-- Modal Contacto -->
 <div
@@ -357,69 +297,5 @@ tabindex="-1"
 aria-labelledby="contactModalLabel"
 aria-hidden="true"
 >
-<div class="modal-dialog modal-dialog-scrollable">
-<div class="modal-content modal-contact-content">
-  <div class="modal-header d-flex justify-content-beetwen">
-    <div></div>
-    <div>
-      <h2 class="modal-title" id="contactModalLabel">Contacto</h2>
-    </div>
-    <div>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="modal"
-        aria-label="Close"
-      ></button>
-    </div>
-  </div>
-  <div class="modal-body">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="form-container">
-          <form class="row">
-                <div class="form-remitente">
-                  <div class="form-floating mb-2">
-                    <input
-                    type="email"
-                    class="form-control"
-                    placeholder="name@example.com"
-                    minlength="3"
-                    maxlength="25"
-                    required>
-                    <label for="floatingInput">Dirección de email</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Asunto"
-                    minlength="3"
-                    maxlength="50"
-                    required>
-                    <label for="floatingAsunto">Asunto</label>
-                  </div>
-                </div>
-        
-                <div class="form-group form_contact">
-                  <textarea
-                  class="form-control"
-                  id="exampleFormControlTextarea1"
-                  name="exampleFormControlTextarea1"
-                  rows="5"
-                  minlength="3"
-                  maxlength="1000"
-                  placeholder="¿Cuál es tu consulta?"></textarea>
-                  <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-success mt-3 me-2">Enviar mensaje</button>
-                  </div>
-                </div>
-                <br>
-            </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+
 </div>

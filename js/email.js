@@ -40,40 +40,32 @@ function recoveryPass() {
                 <tr>
                   <td align="center" style="padding: 0 0 50px 0;">
                     <h1 style="color:"gainsboro";font-size: large; font-weight:600; margin: 20px 0;">
-                      Bienvenid${userRecovery.gender == "Masculino"? 'o' : userRecovery.gender == "Femenino"? 'a' : 'x'} a <span style="font-weight:700; color:rgb(15, 59, 95)">CineRolling+</span> ! 
+                      Recuperá tu clave <span style="font-weight:700; color:rgb(15, 59, 95)">CineRolling+</span> ! 
                     </h1>
                   </td>
                 </tr>
                 <tr>
-
-                Hola ${userRecovery.name}, 
-                recibimos una solicitud para recuperar tu contraseña; si no lo hiciste desestima este e-mail.
                 <br/> <br>
                 Para proceder con la recuperacion presiona el boton que esta debajo, y sigue las instrucciones.  
                  <br /> <br> Recorda ModoGamer nunca va a solicitarte esta u otra informacion sobre tu cuenta.<br />
                 
                   <td align="center" style="padding:0;">
                     <p style="margin: 0 0 20px 0; line-height: 1.2em;">
-                      Hola <span style="font-weight:700">${capitalizeWords(newUser.name)}</span>, recibimos una solicitud para recuperar tu contraseña; si no lo hiciste desestima este e-mail.
-                      <br>
-                      Tu clave de usuario es la siguiente:
+                      Hola <span style="font-weight:700">${capitalizeWords(userRecovery.name)}</span>, 
+                      recibimos una solicitud para recuperar tu contraseña; si no lo hiciste desestima este e-mail.
                     </p>
                   </td>
                     <tr><td style="background-color:#364852; padding: 1px; "></td></tr>
                 </tr>
                 <tr>
-                  <td align="center" style="padding:40px 0 0 0;">
-                    <a href="#" type="button" style="background-color:#96cae7;text-decoration:none; color:#ffffff; padding: 10px; border-radius:20px">
-                      <button type="button" style="background-color:#96cae7;text-decoration:none; border: none; color:#ffffff; padding: 10px; border-radius:20px">
-                        ${userRecovery.pass}
-                      </button>
-                    </a>
+                  <td align="center" style="padding:40px 0 0 0;">                  
+                    <p>Tu clave registrada es: <span style="background-color:#96cae7; color:#ffffff; padding: 10px; border-radius:20px">${userRecovery.pass}</span></p>
                   </td>
                 </tr>
                 <tr>
                   <td align="center" style="padding: 40px 0 0 0;">
                     <p style="font-size: small; text-align:center;margin: 0 0 20px 0; "> 
-                      Si el botón no funciona, hace click en el siguiente enlace: <a href="#">Reintentar validación</a> 
+                      Si deseas modificar tu clave, hace click en el siguiente enlace: <a href="#">Cambiar contraseña</a> 
                     </p>
                   </td>
                 </tr>
@@ -123,3 +115,5 @@ function recoveryPass() {
 </html>
 `
 {/* <a href="https://imgbb.com/"><img src="https://i.ibb.co/whQXZxY/logo-cinerolling.jpg" alt="logo-cinerolling" border="0"></a> */}
+
+

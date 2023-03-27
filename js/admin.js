@@ -1,8 +1,7 @@
-import { crearNav, colorScrollNav, buscador, keyUpBuscador, addUserName, logOut, scrollGeneros, saveFilms } from "./helpers.js";
+import { crearNav, colorScrollNav, buscador, addUserName, logOut, scrollGeneros, saveFilms } from "./helpers.js";
 crearNav()
 colorScrollNav()
 buscador()
-keyUpBuscador()
 addUserName()
 logOut()
 scrollGeneros()
