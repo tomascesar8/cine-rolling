@@ -39,7 +39,7 @@ const imgDetail =()=>{
 
                   <div class="descripcion-detail text-wrap mt-3">${movie.descripcion}</div>
                   
-                  <div class="align-self-start mt-3 mt-md-4 mb-5">
+                  <div class="buttons-details align-self-start mt-3 mt-md-4 mb-5">
                     <button id="btn-play-video" role="button" class="button-play-detail">
                       <i class="fas fa-play me-4"></i>
                       Reproducir

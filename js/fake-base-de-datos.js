@@ -44,20 +44,22 @@ let peliculas = [
   },
   {
     "id": 2,
-    "nombre": "Pulp Fiction",
-    "descripcion": "Jules y Vincent, dos asesinos a sueldo con no demasiadas luces, trabajan para el gángster Marsellus Wallace. Vincent le confiesa a Jules que Marsellus le ha pedido que cuide de Mia, su atractiva mujer. Jules le recomienda prudencia porque es muy peligroso sobrepasarse con la novia del jefe. Cuando llega la hora de trabajar, ambos deben ponerse manos a la obra . Su misión: recuperar un misterioso maletín.",
-    "director": "Tarantino",
-    "genero": "Acción , Crimen, Violencia",
-    "categoria": "+18",
-    "puntuacion": "8.49/10",
-    "reparto": "John Travolta, Samuel L. Jackson, Uma Thurman, Bruce Willis, Ving Rhames, Harvey Keitel, Eric Stoltz, Tim Roth, etc",
-    "duracion": "154",
-    "publicada": true,
+    "nombre": "El rey león",
+    "descripcion": "Simba es el hijo del rey de los leones, Mufasa, y heredero de todo el reino. Pero cuando su padre es brutalmente asesinado por su tío Scar, decidirá huir, dejando vía libre para que su tío tome el puesto de su padre como líder de la manada. En su camino, Simba se encuentra con el suricato Timón y el jabalí Pumba, que le enseñarán a vivir la vida sin preocupaciones. Pero el joven león se verá obligado a decidir entre su vida libre de problemas o su destino como rey.",
+    "director": "Jon Favreau",
+    "genero": "Familia, Animación", 
+    "categoria": "ATP",
+    "puntuacion": "7.13/10",
+    "reparto": "Chiwetel Ejiofor, John Oliver, James Earl Jones, John Kani, Alfre Woodard, JD McCrary, etc.",
+    "duracion": "118",
+    "codigo": "pls",
     "destacada": true,
-    "año": "1994",
-    "tapa": "https://www.themoviedb.org/t/p/w1280/fIE3lAGcZDV1G6XM5KmuWnNsPp1.jpg",
-    "imagen": "https://www.themoviedb.org/t/p/original/tamCUHl16mptimLh1ZwJ1XH6QOr.jpg",
-    "video": "https://www.youtube.com/embed/tGpTpVyI_OQ?autoplay=1"
+    "publicada": true,
+    "año": 2019,
+    "tapa": "https://www.themoviedb.org/t/p/w1280/dzBtMocZuJbjLOXvrl4zGYigDzh.jpg",
+    "imagen": "https://www.themoviedb.org/t/p/original/nRXO2SnOA75OsWhNhXstHB8ZmI3.jpg",
+    "video": "https://www.youtube.com/embed/TDIqwTgdT5U?autoplay=1",
+    "mobile": "center",
   },
   {
     "id": 3,
@@ -95,23 +97,21 @@ let peliculas = [
   },
   {
     "id": 5,
-    "nombre": "El rey león",
-    "descripcion": "Simba es el hijo del rey de los leones, Mufasa, y heredero de todo el reino. Pero cuando su padre es brutalmente asesinado por su tío Scar, decidirá huir, dejando vía libre para que su tío tome el puesto de su padre como líder de la manada. En su camino, Simba se encuentra con el suricato Timón y el jabalí Pumba, que le enseñarán a vivir la vida sin preocupaciones. Pero el joven león se verá obligado a decidir entre su vida libre de problemas o su destino como rey.",
-    "director": "Jon Favreau",
-    "genero": "Familia, Animación",
-    "categoria": "ATP",
-    "puntuacion": "7.13/10",
-    "reparto": "Chiwetel Ejiofor, John Oliver, James Earl Jones, John Kani, Alfre Woodard, JD McCrary, etc.",
-    "duracion": "118",
-    "codigo": "pls",
-    "destacada": true,
+    "nombre": "Pulp Fiction",
+    "descripcion": "Jules y Vincent, dos asesinos a sueldo con no demasiadas luces, trabajan para el gángster Marsellus Wallace. Vincent le confiesa a Jules que Marsellus le ha pedido que cuide de Mia, su atractiva mujer. Jules le recomienda prudencia porque es muy peligroso sobrepasarse con la novia del jefe. Cuando llega la hora de trabajar, ambos deben ponerse manos a la obra . Su misión: recuperar un misterioso maletín.",
+    "director": "Tarantino",
+    "genero": "Acción , Crimen, Violencia",
+    "categoria": "+18",
+    "puntuacion": "8.49/10",
+    "reparto": "John Travolta, Samuel L. Jackson, Uma Thurman, Bruce Willis, Ving Rhames, Harvey Keitel, Eric Stoltz, Tim Roth, etc",
+    "duracion": "154",
     "publicada": true,
-    "año": 2019,
-    "tapa": "https://www.themoviedb.org/t/p/w1280/dzBtMocZuJbjLOXvrl4zGYigDzh.jpg",
-    "imagen": "https://www.themoviedb.org/t/p/original/nRXO2SnOA75OsWhNhXstHB8ZmI3.jpg",
-    "video": "https://www.youtube.com/embed/TDIqwTgdT5U?autoplay=1"
+    "destacada": true,
+    "año": "1994",
+    "tapa": "https://www.themoviedb.org/t/p/w1280/fIE3lAGcZDV1G6XM5KmuWnNsPp1.jpg",
+    "imagen": "https://www.themoviedb.org/t/p/original/tamCUHl16mptimLh1ZwJ1XH6QOr.jpg",
+    "video": "https://www.youtube.com/embed/tGpTpVyI_OQ?autoplay=1"
   },
-
   {
     "nombre": "Avatar: El sentido del agua",
     "descripcion": "Ambientada más de una década después de los acontecimientos de la primera película, 'Avatar: The Way of Water' empieza contando la historia de la familia Sully (Jake, Neytiri y sus hijos), los problemas que los persiguen, lo que tienen que hacer para mantenerse a salvo, las batallas que libran para seguir con vida y las tragedias que sufren.",
@@ -145,7 +145,8 @@ let peliculas = [
     "año": "2003",
     "tapa": "https://www.themoviedb.org/t/p/w1280/280BefgqWyLX0Z4jcbibB6l7xyx.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/zw2E53sYPSlBraYbrNnYRzcOaYr.jpg",
-    "video": "https://www.youtube.com/embed/D0kiS4ROWkQ?autoplay=1"
+    "video": "https://www.youtube.com/embed/D0kiS4ROWkQ?autoplay=1",
+    "mobile":"left"
   },
   {
     "nombre": "Bastardos sin gloria",
@@ -163,7 +164,8 @@ let peliculas = [
     "tapa": "https://www.themoviedb.org/t/p/w1280/2dUYqrrxA9Ar6LXGqaTftX286Jx.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/1Jpkm9qZcsT0mSyVXgs4VlGjPNI.jpg",
     "video": "https://www.youtube.com/embed/ejV1OHg3hC8?autoplay=1",
-    "id": 8
+    "id": 8,
+    "mobile":"right"
   },
   {
     "nombre": "Up",
@@ -199,6 +201,7 @@ let peliculas = [
     "tapa": "https://www.themoviedb.org/t/p/w1280/w6wTh6B6QYVozkFPqynEenMbPlk.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/rOmd5Beem8FNcEA2DrmlBMjf6v5.jpg",
     "video": "https://www.youtube.com/embed/cUuz3-QCg58?autoplay=1"
+
 },
   {
     "id": 11,
@@ -216,7 +219,8 @@ let peliculas = [
     "año": 2016,
     "tapa": "https://www.themoviedb.org/t/p/w1280/pQGB08Kxyt3TLN4L01E175BRcvu.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/wcM0r4JcXK4Wz2LeP7qLU92ZOG9.jpg",
-    "video": "https://www.youtube.com/embed/C4qgAaxB_pc?autoplay=1"
+    "video": "https://www.youtube.com/embed/C4qgAaxB_pc?autoplay=1",
+    "mobile":"right"
   },
   {
     "id": 12,
@@ -233,7 +237,8 @@ let peliculas = [
     "año": "2021",
     "tapa": "https://www.themoviedb.org/t/p/w1280/67ZrxjUEXPObtc2D5BDAjsXrnnR.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/79AoH5WVm4cWDZ20NGPhahLxNDX.jpg",
-    "video": "https://www.youtube.com/embed/R3AECE35Anw?autoplay=1"
+    "video": "https://www.youtube.com/embed/R3AECE35Anw?autoplay=1",
+    "mobile":"center"
   },
   {
     "id": 13,
@@ -341,7 +346,8 @@ let peliculas = [
     "año": 2020,
     "tapa": "https://www.themoviedb.org/t/p/w1280/xJ7MCAy4oCLerPo3JjnB8lKOhl4.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/qF8eaVidzEsXGMU9qp8owby4bzV.jpg",
-    "video": "https://www.youtube.com/embed/8o_XbDKyBDg?autoplay=1"
+    "video": "https://www.youtube.com/embed/8o_XbDKyBDg?autoplay=1",
+    "mobile":"right"
   },
   {
     "id": 19,
@@ -771,7 +777,8 @@ let peliculas = [
     "año": 1998,
     "tapa": "https://www.themoviedb.org/t/p/w1280/5wDwQcab7AcsM2zciw7gJmxUKEf.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/9I4LHCJRJ7j2M690r4Q3sK0VKyh.jpg",
-    "video": "https://www.youtube.com/embed/4XPc6bw6l9c?autoplay=1"
+    "video": "https://www.youtube.com/embed/4XPc6bw6l9c?autoplay=1",
+    "mobile": "left"
   },
   {
     "id": 43,
@@ -807,7 +814,8 @@ let peliculas = [
     "tapa": "https://www.themoviedb.org/t/p/w1280/wc9INXYUM38pzpyZIgcCDhjv1a2.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/m9JmRJjqqh4SnHAEf7LQI8B07Kt.jpg",
     "video": "https://www.youtube.com/embed/r-96m8c_o-E?autoplay=1",
-    "id": 44
+    "id": 44,
+    "mobile":"center"
   },
   {
     "id": 45,
@@ -861,7 +869,8 @@ let peliculas = [
     "año": 2002,
     "tapa": "https://www.themoviedb.org/t/p/w1280/w3NF110cyjqxkQD2azmUMyaFzhG.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/keyOZ8KcjHMTVH8p0owTXvw18Wf.jpg",
-    "video": "https://www.youtube.com/embed/FYZl0lpB9iM?autoplay=1"
+    "video": "https://www.youtube.com/embed/FYZl0lpB9iM?autoplay=1",
+    "mobile":"left"
   },
   {
     "id": 48,

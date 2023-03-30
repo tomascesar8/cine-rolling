@@ -4,7 +4,6 @@ const user = JSON.parse(localStorage.getItem('user'));
 crearNav()
 addUserName()
 logOut()
-console.log(peliculas);
 const slider =()=>{
     let sliderMain = document.querySelector('.slider-main');
     sliderMain. innerHTML = `
@@ -14,7 +13,7 @@ const slider =()=>{
                 <div class="details d-flex align-items-center"> 
                     <h4 class="genero me-4 fs-6 fs-sm-4 "></h4>
                     <h5 class="año me-4 fs-6 fs-sm-4"></h5>
-                    <h5 class="categoria fs-6 fs-sm-4"></h5>
+                    <h5 class="categoria fs-6 fs-sm-4 me-5"></h5>
                 </div>
                 <p class="description mb-0">
                 </p>
@@ -23,7 +22,7 @@ const slider =()=>{
                         <i class="fas fa-play me-4"></i>
                         Reproducir
                     </button>
-                    <button role="button" class="button-info">
+                    <button role="button" class="button-info d-flex align-items-center">
                         <i class="fas fa-info-circle me-2 me-sm-4 fs-4"></i>
                         Más información
                     </button>
@@ -48,8 +47,50 @@ const slider =()=>{
     let categorySliderFilm = document.querySelector('.categoria');
     let yearSliderFilm = document.querySelector('.año');
 
+    function acomodarImg(){    
+        
+    }
+
     let i = 0;
-    function renderSlider(id){   
+    function renderSlider(id){
+        switch (true) {
+            case sliderMain.classList.contains('img-mobile-center'):
+            // console.log('center chau');
+                sliderMain.classList.remove('img-mobile-center')
+            break;
+            case sliderMain.classList.contains('img-mobile-left'):
+            // console.log('left chau');
+                sliderMain.classList.remove('img-mobile-left')
+            break;
+            case sliderMain.classList.contains('img-mobile-right'):
+                // console.log('right chau');
+                
+            sliderMain.classList.remove('img-mobile-right')
+            break;
+            default:
+                break;
+        }
+        if (peliculasDestacadas[i].mobile) {
+            // console.log('hola');
+            if(peliculasDestacadas[i].mobile == "center"){
+                // console.log('center');
+                sliderMain.classList.add('img-mobile-center')
+            }else if(peliculasDestacadas[i].mobile == "left"){
+                // console.log('left');
+                sliderMain.classList.add('img-mobile-left')
+            }else{
+                // console.log('right');
+                sliderMain.classList.add('img-mobile-right')
+            }
+        }else{
+            console.log('chau');
+            
+        }
+        console.log(sliderMain);
+        // console.log((sliderMain.classList.contains('img-mobile-center' || 'img-mobile-left' || 'img-mobile-right')))
+          // if(!peliculasDestacadas[i].mobile? true : false && sliderMain.classList.contains('img-mobile-center' || 'img-mobile-left' || 'img-mobile-right')){
+            //     sliderMain.classList.remove('img-mobile-center' || 'img-mobile-left' || 'img-mobile-right')
+            // }
         idPeliculasDestacada = `destacada-${peliculasDestacadas[id].id}`
         sliderMain.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[id].imagen})`;
         titleSliderFilm.innerHTML = `${peliculasDestacadas[id].nombre}`
@@ -57,18 +98,21 @@ const slider =()=>{
         genderSliderFilm.innerHTML = `${peliculasDestacadas[id].genero}`
         categorySliderFilm.innerHTML = `${peliculasDestacadas[id].categoria}`
         yearSliderFilm.innerHTML = `${peliculasDestacadas[id].año}`
+        console.log(peliculasDestacadas[i]);
+        
     }
     renderSlider(0)
 
-    let sliderInterval;
-    function sliderOn(){
-        sliderInterval = setInterval(() => {
-        i++
-        if(i>peliculasDestacadas.length-1){ i=0 };
-        renderSlider(i);
-    }, 5000 );
-    }
-    sliderOn()
+    // let sliderInterval;
+    // function sliderOn(){
+    //     sliderInterval = setInterval(() => {
+    //     i++
+    //     if(i>peliculasDestacadas.length-1){ i=0 };
+    //     renderSlider(i);
+    //     acomodarImg()
+    // }, 5000 );
+    // }
+    // sliderOn()
 
     let sliderDerecho = document.querySelector('.carousel-control-next');
     let sliderIzq = document.querySelector('.carousel-control-prev');
@@ -77,15 +121,15 @@ const slider =()=>{
         i++
         if (i > (peliculasDestacadas.length - 1)) { i = 0 }
         renderSlider(i)
-        setTimeout(clearInterval(sliderInterval))
-        sliderOn()
+        // setTimeout(clearInterval(sliderInterval))
+        // sliderOn()
     }
     function moverIzq() {
         i--
         if (i < 0) { i = peliculasDestacadas.length - 1 }
         renderSlider(i)
-        setTimeout(clearInterval(sliderInterval))
-        sliderOn()
+        // setTimeout(clearInterval(sliderInterval))
+        // sliderOn()
     }
     sliderDerecho.addEventListener('click', moverDerecha)
     sliderIzq.addEventListener('click', moverIzq)
@@ -161,8 +205,8 @@ let filmsAccion = peliculas.filter(movie=>movie.genero.includes('Acción'));
 let filmsCienciaF = peliculas.filter(movie=>movie.genero.includes('Ficción'));
 let filmsTerror = peliculas.filter(movie=>movie.genero.includes('Terror'));
 
-console.log(filmsCienciaF);
-console.log(filmsTerror);
+// console.log(filmsCienciaF);
+// console.log(filmsTerror);
 
 
 function listarFilms(array) {

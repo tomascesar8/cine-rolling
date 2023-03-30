@@ -174,6 +174,7 @@ function register(event) {
       async function confirm(message) {
           let response = await message;
           if(response === "OK"){ 
+            document.querySelector('#btn-close-register').click()
             const Toast = Swal.mixin({
               toast: true,
               position: 'center',

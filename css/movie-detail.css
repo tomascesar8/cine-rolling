@@ -120,4 +120,34 @@ body{
     }
 }
 
+@media screen and (max-width: 780px) and (orientation: landscape){
+    /** MOVIE DETAIL */
+    .img-movie-main .container-details{
+        margin: 0 !important;
+    }
+    .img-movie-main h2{
+        font-size: 20px;
+        margin-bottom: 3px !important;
+    }
+    .detalles-detail > div, .metricas-detail > div{
+        font-size: 12px !important;
+        margin-bottom: 0 !important;
+    }
+    .descripcion-detail{
+        margin-top: 7px !important;
+        font-size: 12px !important;
+        max-height: 55px;
+    }
+    #btn-play-video, #btn-add-list, #btn-add-list i{
+        margin-right: 10px;
+        font-size: 14px !important;
+    }
+    .buttons-details{
+        margin: 10px 0 !important;
+    }
+}
+@media screen and (max-width: 680px) and (orientation: landscape){
+
+}
+
 

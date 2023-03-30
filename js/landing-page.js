@@ -66,6 +66,8 @@ function capitalizeWords(string) {
   return words.join(' ');
 }
 
+
+
 const addLandingMain =()=>{
   let landingMain = document.createElement('div');
   landingMain.classList.add('container-fluid', 'text-light');
@@ -74,9 +76,9 @@ const addLandingMain =()=>{
     <div class="row">
       <div class="col col-md-6 mb-3" id="titulo-landing">
         <div class="container-landing-title animate__animated animate__fadeInDown">
-        <h1 class="slide-left m-0 p-0 h1-1"> HISTORIAS ÚNICAS. </h1> <br />
-        <h1 class="slide-left m-0 p-0 h1-1"> ESTRELLAS ICÓNICAS. </h1> <br />
-        <h1 class="slide-left m-0 p-0 h1-1">
+          <h1 class="slide-left m-0 p-0 h1-1"> HISTORIAS ÚNICAS. </h1> <br/>
+          <h1 class="slide-left m-0 p-0 h1-1"> ESTRELLAS ICÓNICAS. </h1> <br/>
+          <h1 class="slide-left m-0 p-0 h1-1">
           UNA MONTAÑA DE <br /> <span class="text-warning"> ENTRETENIMIENTO.</span>
         </h1>
         </div>
@@ -96,7 +98,7 @@ const addLandingMain =()=>{
             <h6>SUSCRÍBETE A CINEROLLING+</h6>
           </button>
           <button
-            class="landing-ingreso-btn btn btn-secondary text-light mb-2"
+            class="landing-ingreso-btn btn btn-secondary mb-2"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasDarkNavbar"
             aria-controls="offcanvasDarkNavbar"
@@ -189,7 +191,7 @@ function recoveryPass(event) {
       title: `<h3 style="margin:0" class="text-warning">Dirección de email no registrada</h3>
               <p style="font-size:18px">El email ingresado no corresponde con ningún usuario. Revisá haberlo escrito correctamente.</p>`,
       showConfirmButton: false,
-      timer: 6000,
+      // timer: 6000,
       showCloseButton: true,
       background: '#0A1A2A',
       color: 'white',
@@ -315,7 +317,7 @@ function recoveryPass(event) {
                     <h4>Por favor revisá tu casilla de mensajes. No te olvides de buscar en Spam o Correo no deseado.</h4>
                     `,
             showConfirmButton: false,
-            timer: 6000,
+            // timer: 6000,
             showCloseButton: true,
             background: '#0A1A2A',
             color: 'white',

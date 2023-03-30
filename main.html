@@ -18,10 +18,10 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css" />
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
   </head>
   <body>
     <header>
-      
     </header>
     <main>
 <!-- SLIDER MAIN -->
@@ -47,6 +47,7 @@
     <!-- <script src="/js/landing-page.js" type="module"></script> -->
     <script src="/js/helpers.js" type="module"></script>
     <script src="/js/main.js" type="module"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>
 
@@ -57,8 +58,8 @@
   id="offcanvasUser" 
   aria-labelledby="offcanvasUserLabel"
 >
-  <div class="offcanvas-header d-flex justify-content-beetwen w-100 ms-5">
-    <div class="d-flex flex-column justify-content-start mt-3">
+  <div class="offcanvas-header offcanvas-header-perfil d-flex justify-content-beetwen w-100 ms-5">
+    <div id="offcanvas-perfil-contain" class="d-flex flex-column justify-content-start mt-0 mt-3">
       <h5 class="offcanvas-title-perfil text-light text-start" id="offcanvasUserLabel"></h5>
       <h5 class="offcanvas-email-perfil text-start fs-5 mt-2 fst-italic fw-semibold text-info" id="offcanvasUserLabelEmail"></h5>
     </div>

@@ -6,7 +6,7 @@
   --color-font-footer-mg: #8FEAFF;
   --color-lightBlue: rgb(94, 187, 240);
   --color-azul-claro: #21608d;
-  --color-blue: rgb(43, 117, 160); 
+  --color-blue: rgb(43, 117, 160);
   --color-navbar-scroll: #0f3b5f;
   --color-azul-cuevana: rgb(20, 31, 74);
   --color-blue-main: #141d32;
@@ -142,18 +142,25 @@ font-weight: 600;
     padding-bottom: 6% !important;
   }
 }
-
+@media screen and (max-width: 400px) {
+  .navbar-element, #container-landing, .input-group-text, .register-inputs{
+    font-size: 12.5px;
+  }
+  .login-nav-button{
+    margin-left: 0 !important;
+  }
+}
 @media screen and (max-width: 367px) {
   .button-landing-suscript, .landing-ingreso-btn{
      font-size: 20px !important;
   }
   .navbar-element, #container-landing, .input-group-text, .register-inputs{
-    font-size: 13.5px;
+    font-size: 12.5px;
   }
   .navbar-brand{
     margin-right: 0;
   }
-  ..container-landing-title{
+  .container-landing-title h1{
     font-weight: 25px !important;
   }
   .accordion-button {
@@ -180,6 +187,151 @@ font-weight: 600;
     margin-bottom: 15px;
   }
 }
+
+@media screen and (max-width: 750px) and (orientation: landscape){
+  .button-landing-suscript h6, .landing-ingreso-btn h6{
+    font-size: 12px;
+ }
+ .navbar-element, #container-landing, .input-group-text, .register-inputs{
+   font-size: 14.5px;
+ }
+.navbar-landing .container{
+  /* margin: 0; */
+  padding: 0 !important;
+  margin-left: 50px;
+ }
+ .container-landing-title h1{
+   font-weight: 25px !important;
+   font-size: 25px;
+ }
+ .accordion-button {
+   font-size: 17px !important;
+ }
+ .ask-forget-pass{
+   padding-left: 0;
+   padding-top: 10px;
+ }
+ #container-landing{
+   padding-left: 70px;
+   /* padding-top: 12px !important; */
+   height: auto;
+ }
+ #main-subtitle{
+   margin: 3px 0px !important;
+   line-height: 1em;
+   font-size: 22px !important;
+ }
+ .text-landing{
+   font-size: 15px !important;
+ }
+ .buttons-landing-main{
+  padding-bottom: 30px;
+ }
+   /** OFFCANVAS LOGIN*/
+   .offcanvas-header{
+    margin: 0;
+    padding: 0;
+   }
+ /** ALERT RECUPERAR PASS */
+ #recuperarPass .modal-dialog-centered{
+  margin-top: 10px;
+  margin-bottom: 10px;
+ }
+ .swal2-container, .swal2-title, .swal2-popup{
+  padding: 0 !important;
+ }
+ .swal2-title h3, .swal2-title h4{
+  font-size: 19px;
+  padding: 0 !important;
+  margin: 0 !important;
+ }
+ /** MODAL REGISTRO */
+ .modal-register-content .modal-header, #contactModal .modal-header{
+  padding: 5px 16px;
+ }
+ .modal-register-content .modal-body, #contactModal .modal-body{
+  padding: 0px 16px 10px 16px;
+ }
+ .input-group, #register-gender{
+  margin-bottom: 10px !important;
+ }
+ #contactModal .modal-body{
+  font-size: 12px;
+}
+#contactModal .modal-header h2{
+  font-size: 25px;
+}
+#textarea-email-contact{
+  height: 75px !important;
+}
+#contactModal, #staticBackdrop{
+  --bs-modal-margin: 1.5rem !important;
+ }
+}
+
+@media screen and (max-width: 680px) and (orientation: landscape){
+  .button-landing-suscript h6, .landing-ingreso-btn h6{
+    font-size: 10px;
+ }
+ .navbar-element, #container-landing, .input-group-text, .register-inputs{
+   font-size: 13.5px;
+ }
+.navbar-landing .container{
+  padding: 0 !important;
+  margin-left: 50px;
+ }
+ .container-landing-title h1{
+   font-weight: 25px !important;
+   font-size: 22px;
+ }
+ .accordion-button {
+   font-size: 17px !important;
+ }
+ .ask-forget-pass{
+   padding-left: 0;
+   padding-top: 10px;
+ }
+ #container-landing{
+  padding-top: 0 !important;
+   padding-left: 70px;
+   height: auto;
+ }
+ #main-subtitle{
+   margin: 3px 0px !important;
+   line-height: 1em;
+   font-size: 20px !important;
+ }
+ .text-landing{
+   font-size: 14px !important;
+   margin-bottom: 8px;
+ }
+ .buttons-landing-main{
+  padding-bottom: 15px;
+ }
+ #textarea-email-contact{
+  height: 70px !important;
+}
+ #contactModal, #staticBackdrop{
+  --bs-modal-margin: .5rem !important;
+ }
+ .form-floating>.form-control, .form-floating>.form-control-plaintext, .form-floating>.form-select {
+  height: calc(3rem + calc(var(--bs-border-width) * 2));
+}
+#btnForm{
+  margin-top: 8px !important;
+  margin-right: 8px;
+}
+.container-asunto-contact{
+  margin-bottom: 8px !important;
+}
+}
+
+.landing-ingreso-btn h6{
+  /* color: var(--color-azul-verde) !important; */
+  font-weight: 700 !important;
+}
+
+
 
 /** Efecto modal de registro */
 .bounce-in-top {
@@ -302,7 +454,7 @@ font-weight: 600;
   background-repeat: no-repeat;
 }
 .modal-contact-content .modal-header{
-  color: antiquewhite;    
+  color: antiquewhite;
 }
 
 
@@ -441,3 +593,6 @@ font-weight: 600;
 }
 
 
+.modal-header{
+  border-bottom: 0px;
+}

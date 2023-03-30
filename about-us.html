@@ -19,6 +19,7 @@
       <link href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css" rel="stylesheet">
       <link rel="stylesheet" href="css/main.css" />
       <link rel="stylesheet" href="css/movie-detail.css" />
+      <script src="https://smtpjs.com/v3/smtp.js"></script>
     </head>
     <body id="body-about">
       <div class="contenedor-body-about">    
@@ -29,12 +30,16 @@
             <div class="container pb-xl-5">
                 <div class="row mx-2 pt-lg-4 pt-xl-5 pt-xxl-0 pt-5">
                   <div class="mt-5">
-                    <div class="description-proyect pt-xxl-5 d-flex flex-column align-items-md-start order-1 order-lg-0">
-                          <p class="parraf-about-us text-light text_about_us"> Este es un proyecto realizado por Tomás César, alumno de la academia Rolling Code, comisión 21i. <br>
-                            En el mismo se desarrolla una App de video, utilizando las herramientas aprendidas hasta el segundo módulo del programa de estudios; HTML, CSS, Boostrap y Javascript. En cuanto al CRUD y manejo de información se utilizó Local Storage.</p>
-                            <a class="my-2 my-xxl-1 fw-bold text-decoration-none fs-6 btn btn-primary" target="_blank" href="https://github.com/tomascesar8/cine-rolling">Ingresar a repositorio de GitHub</a>
-                          </div>
+                    <div class="description-proyect pt-xxl-5 d-flex flex-column align-items-md-start order-1 order-lg-0 text-light">
+                      <p class="parraf-about-us text-light text_about_us"> 
+                        Este es un proyecto realizado por Tomás César, alumno de la academia Rolling Code, comisión 21i. </p>
+                      <p>En el mismo se desarrolla una App de video, utilizando las herramientas aprendidas hasta el segundo módulo del programa de estudios; HTML, CSS, Boostrap y Javascript. En cuanto al CRUD y manejo de información se utilizó Local Storage.
+                      </p>
+                      <a class="my-2 my-xxl-1 fw-bold text-decoration-none fs-6 btn btn-primary" target="_blank" href="https://github.com/tomascesar8/cine-rolling">
+                        Ingresar a repositorio de GitHub
+                      </a>
                     </div>
+                  </div>
                     <div class="description-avatar d-flex align-items-center pt-4 pt-sm-0 pb-3 pb-xxl-0">
                         <div class="text-light text_about_avatar col-7 col-md-7">
                           <p class="parraf-about-us mb-2 mb-xxl-0"> Hola soy Tomás, tengo 29 años y vivo en Córdoba, Argentina. </p>
@@ -67,7 +72,7 @@
       AOS.init();
     </script>
     <script src="/js/movie-detail.js" type="module"></script>
-    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
   </html>
 
