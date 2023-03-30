@@ -165,7 +165,7 @@ function register(event) {
         Host : "smtp.elasticemail.com",
         Username : "tomascesar1993@gmail.com",
         Password : "D19478D06661B455EB35D0C3E6D2BCEC7099",
-        To : 'tomcesar@hotmail.com',
+        To : `${newUser.email}`,
         From : "tomascesar1993@gmail.com",
         Subject : `Email de verificación de cuenta CineRolling+`,
         Body : suscribe,

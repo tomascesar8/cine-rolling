@@ -202,7 +202,7 @@ let peliculas = [
     "tapa": "https://www.themoviedb.org/t/p/w1280/w6wTh6B6QYVozkFPqynEenMbPlk.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/rOmd5Beem8FNcEA2DrmlBMjf6v5.jpg",
     "video": "https://www.youtube.com/embed/cUuz3-QCg58?autoplay=1",
-    "mobile":"left"
+    "mobile":"center"
 },
   {
     "id": 11,

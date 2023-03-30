@@ -103,16 +103,16 @@ const slider =()=>{
     }
     renderSlider(0)
 
-    // let sliderInterval;
-    // function sliderOn(){
-    //     sliderInterval = setInterval(() => {
-    //     i++
-    //     if(i>peliculasDestacadas.length-1){ i=0 };
-    //     renderSlider(i);
-    //     acomodarImg()
-    // }, 5000 );
-    // }
-    // sliderOn()
+    let sliderInterval;
+    function sliderOn(){
+        sliderInterval = setInterval(() => {
+        i++
+        if(i>peliculasDestacadas.length-1){ i=0 };
+        renderSlider(i);
+        acomodarImg()
+    }, 5000 );
+    }
+    sliderOn()
 
     let sliderDerecho = document.querySelector('.carousel-control-next');
     let sliderIzq = document.querySelector('.carousel-control-prev');
@@ -121,15 +121,15 @@ const slider =()=>{
         i++
         if (i > (peliculasDestacadas.length - 1)) { i = 0 }
         renderSlider(i)
-        // setTimeout(clearInterval(sliderInterval))
-        // sliderOn()
+        setTimeout(clearInterval(sliderInterval))
+        sliderOn()
     }
     function moverIzq() {
         i--
         if (i < 0) { i = peliculasDestacadas.length - 1 }
         renderSlider(i)
-        // setTimeout(clearInterval(sliderInterval))
-        // sliderOn()
+        setTimeout(clearInterval(sliderInterval))
+        sliderOn()
     }
     sliderDerecho.addEventListener('click', moverDerecha)
     sliderIzq.addEventListener('click', moverIzq)

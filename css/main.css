@@ -273,6 +273,17 @@ body{
     }  
 }
 @media screen and (max-width: 484px) {
+    .carrousel-cats{
+        padding-left: 0 !important;
+    }
+    .container-films-cats{
+        scroll-margin-top: 100px;
+        padding: 0px !important;
+    }
+    .angle-right, .angle-left{
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+    }
     .slider-main .container{
         padding-bottom: 80px;
     }
@@ -284,12 +295,12 @@ body{
         padding:  0px !important;
     }
     .movie{
-        height: 140px !important;
-        width: 90px !important;
+        height: 150px !important;
+        width: 100px !important;
     }
     .movie:hover::after{
-        height: 140px !important;
-        width: 90px !important;
+        height: 150px !important;
+        width: 100px !important;
     }
     .movie-card{
         margin-right: 8px !important;
@@ -392,7 +403,7 @@ body{
     } 
 }
 
-@media screen and (max-width: 780px) and (orientation: landscape){
+@media screen and (max-width: 850px) and (orientation: landscape){
     .main-about .row{
         padding-top: 40px !important;
         margin-left: 0 !important;
