@@ -34,7 +34,7 @@ body{
     /* margin-bottom: 3.12em; */
 }
 .img-mobile-center{
-    background-position: 50% 35% !important;
+    background-position: 43% 35% !important;
 }
 .img-mobile-right{
     background-position: 80% 35% !important;
@@ -273,6 +273,9 @@ body{
     }  
 }
 @media screen and (max-width: 484px) {
+    .slider-main .container{
+        padding-bottom: 80px;
+    }
     .container-categories{
         padding-top: 0 !important;
     }

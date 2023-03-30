@@ -120,7 +120,7 @@ body{
     }
 }
 
-@media screen and (max-width: 780px) and (orientation: landscape){
+@media screen and (max-width: 850px) and (orientation: landscape){
     /** MOVIE DETAIL */
     .img-movie-main .container-details{
         margin: 0 !important;

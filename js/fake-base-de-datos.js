@@ -110,7 +110,8 @@ let peliculas = [
     "año": "1994",
     "tapa": "https://www.themoviedb.org/t/p/w1280/fIE3lAGcZDV1G6XM5KmuWnNsPp1.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/tamCUHl16mptimLh1ZwJ1XH6QOr.jpg",
-    "video": "https://www.youtube.com/embed/tGpTpVyI_OQ?autoplay=1"
+    "video": "https://www.youtube.com/embed/tGpTpVyI_OQ?autoplay=1",
+    "mobile": "right",
   },
   {
     "nombre": "Avatar: El sentido del agua",
@@ -128,7 +129,8 @@ let peliculas = [
     "tapa": "https://www.themoviedb.org/t/p/w1280/hP12za13SKPffvIVf8S59KzqSpZ.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/zENT3sNfL2HONYS99sFEYlE6R28.jpg",
     "video": "https://www.youtube.com/embed/inT3MvpxRqE?autoplay=1",
-    "id": 6
+    "id": 6,
+    "mobile": "right",
   }, 
   {
     "id": 7,
@@ -164,8 +166,7 @@ let peliculas = [
     "tapa": "https://www.themoviedb.org/t/p/w1280/2dUYqrrxA9Ar6LXGqaTftX286Jx.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/1Jpkm9qZcsT0mSyVXgs4VlGjPNI.jpg",
     "video": "https://www.youtube.com/embed/ejV1OHg3hC8?autoplay=1",
-    "id": 8,
-    "mobile":"right"
+    "id": 8
   },
   {
     "nombre": "Up",
@@ -200,8 +201,8 @@ let peliculas = [
     "año": "2003",
     "tapa": "https://www.themoviedb.org/t/p/w1280/w6wTh6B6QYVozkFPqynEenMbPlk.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/rOmd5Beem8FNcEA2DrmlBMjf6v5.jpg",
-    "video": "https://www.youtube.com/embed/cUuz3-QCg58?autoplay=1"
-
+    "video": "https://www.youtube.com/embed/cUuz3-QCg58?autoplay=1",
+    "mobile":"left"
 },
   {
     "id": 11,
@@ -725,6 +726,7 @@ let peliculas = [
     "tapa": "https://www.themoviedb.org/t/p/w1280/mTk8LNB3vEOojJlSrBKN2dDwF4g.jpg",
     "imagen": "https://www.themoviedb.org/t/p/original/nS4picOwj15APKzJeBCk6EBcMG5.jpg",
     "video": "https://www.youtube.com/embed/nuTU5XcZTLA?autoplay=1",
+    "mobile":"right"
   },
   {
     "id": 40,
