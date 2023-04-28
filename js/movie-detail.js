@@ -214,7 +214,7 @@ const listaFavoritos =()=>{
               const deleteId= removedElement.id.slice(4);
               console.log(deleteId);
               window.location.assign(`${window.location.origin}/movie-detail.html#${deleteId}`)
-              alert('papeee')
+              // alert('papeee')
               window.location.reload()
           }
       }

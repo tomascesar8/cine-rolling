@@ -140,7 +140,7 @@ export const navbarLanding =()=> {
           type="button"
           data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
         >
-          Iniciar sesion
+          Iniciar sesión
         </button>
       </div>
     </div>
@@ -175,7 +175,7 @@ if(!localStorage.getItem('user') && window.location.href.includes('about')){
           type="button"
           data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
         >
-          Iniciar sesion
+          Iniciar sesión
         </button>
       </a>
     </div>
@@ -258,8 +258,10 @@ colorScrollNav()
 
 export function logOut() {
     document.querySelector('.log-out').addEventListener('click', ()=>{
-    // localStorage.removeItem('user');
-    localStorage.clear()
+    localStorage.removeItem('user');
+    localStorage.removeItem('films');
+
+    // localStorage.clear()
     document.location.assign(window.location.origin)
     })
 }
@@ -421,8 +423,11 @@ export const buscador =()=>{
               let itemBusqueda = document.createElement('div')
               itemBusqueda.classList.add('list-item-busqueda', 'd-none')
               itemBusqueda.innerHTML = `
-              <a href="movie-detail.html#${pelicula.id}" id="search-${pelicula.id}" class="item-search dropdown-item text-wrap p-1">${pelicula.nombre}</href=>
+              <a id="search-${pelicula.id}" class="item-search dropdown-item text-wrap p-1">${pelicula.nombre}</href=>
               `
+              itemBusqueda.addEventListener('click', ()=>{
+                window.location.assign(`${window.location.origin}/movie-detail.html#${pelicula.id}`);
+              })
               containerResultado.appendChild(itemBusqueda)
               containerSearcher.appendChild(containerResultado)
           })
@@ -461,7 +466,7 @@ export const buscador =()=>{
   const cerrarContenedorResult =()=>{
     let inputSearch = document.querySelector('#input-search')
     let fueraDeContenedor = event.target.closest("#resultados-busqueda") === null && !event.target.closest('.cont2');
-    if (fueraDeContenedor) {
+    if(fueraDeContenedor){
       containerResultado.classList.add('d-none');
     }
     if(document.activeElement === inputSearch){
@@ -601,9 +606,7 @@ const modalContact =()=>{
   document.querySelector('#btnForm').addEventListener('click', emailContact)
   
   function emailContact(event){
-    alert('HIJODEPUTA')
     event.preventDefault()
-    alert('EMAIL CONTACT')
     let inputEmailContact = document.querySelector('#input-email-contact');
     let inputAsuntoContact = document.querySelector('#input-asunto-contact')
     let textareaConsultaContact = document.querySelector('#textarea-email-contact')

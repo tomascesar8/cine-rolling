@@ -12,7 +12,7 @@ const containerTable = document.querySelector(".container-table-movies");
 
 const crearTabla = () =>{
     const tableMovies = document.createElement("table");
-    let idSelected;
+    // let idSelected;
     tableMovies.classList.add('table', 'text-light')
     tableMovies.innerHTML = `
         <thead>
@@ -206,15 +206,33 @@ containerTable.addEventListener('click', (e) => {
             case movieRow.classList.contains('btn-borrar'):
                 let ubicarPelicula = peliculas.find(pelicula=> pelicula.id == idMovie)
                 let posicionABorrar = peliculas.indexOf(peliculas.find(pelicula=>pelicula.id === ubicarPelicula.id))
-                console.log(posicionABorrar);
-                console.log(idMovie);
-                let peliculaBorrada = peliculas.splice(posicionABorrar, 1)
-                for (let i = 0; i < peliculas.length; i++) {
-                    peliculas[i].id = i + 1 ;
-                }
-                console.log(peliculaBorrada);
-                console.log(peliculas);
-                sendLS('films', peliculas)
+                let user = JSON.parse(localStorage.getItem('user'))
+                Swal.fire({
+                    title: `Estás segur${user.gender == "Masculino"? 'o' : user.gender == "Femenino"? 'a' : 'x'} de eliminar esta película?`,
+                    text: "Luego no podrás revertir esta acción!",
+                    icon: 'warning',
+                    background: '#0A1A2A',
+                    color: 'white',
+                    width: '600px',
+                    heightAuto: false,  
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonText: 'Si, eliminar!'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      let peliculaBorrada = peliculas.splice(posicionABorrar, 1)
+                      for (let i = 0; i < peliculas.length; i++) {
+                          peliculas[i].id = i + 1 ;
+                      }
+                      console.log(peliculaBorrada);
+                      console.log(peliculas);
+                      sendLS('films', peliculas)
+      
+                      window.location.reload()
+                    }
+                  })
                 break;    
             default:
                 break;
