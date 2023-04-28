@@ -1,116 +1,173 @@
+import { colorScrollNav, crearNav, listaFavoritos, buscador, addUserName, logOut, reproducirVideo, scrollGeneros } from "./helpers.js";
 const peliculas = JSON.parse(localStorage.getItem('films'));
 const user = JSON.parse(localStorage.getItem('user'));
+crearNav()
+addUserName()
+logOut()
+const slider =()=>{
+    let sliderMain = document.querySelector('.slider-main');
+    sliderMain. innerHTML = `
+            <div id="" class="container mx-3 mb-5">
+                <h3 class="title mb-2">
+                </h3>
+                <div class="details d-flex align-items-center"> 
+                    <h4 class="genero me-4 fs-6 fs-sm-4 "></h4>
+                    <h5 class="año me-4 fs-6 fs-sm-4"></h5>
+                    <h5 class="categoria fs-6 fs-sm-4 me-5"></h5>
+                </div>
+                <p class="description mb-0">
+                </p>
+                <div class="d-flex flex-wrap mt-3">
+                    <button role="button" class="button-play-title">
+                        <i class="fas fa-play me-4"></i>
+                        Reproducir
+                    </button>
+                    <button role="button" class="button-info d-flex align-items-center">
+                        <i class="fas fa-info-circle me-2 me-sm-4 fs-4"></i>
+                        Más información
+                    </button>
+                </div>
+            </div>
+            <button class="carousel-control-prev w-50 m-0" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            </button>
+            <button class="carousel-control-next w-50 m-0" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            </button>
+            `
 
-
-function isOutstanding(peliculas) {
-    if (peliculas.destacada === true) {
-        console.log(peliculas);
-        return peliculas;
+    function isOutstanding(peliculas) {
+        if (peliculas.destacada === true) {
+            return peliculas;
+        }
     }
-}
+    let peliculasDestacadas = peliculas.filter(isOutstanding);
+    let idPeliculasDestacada = document.querySelector('#id');
+    let titleSliderFilm = document.querySelector('.title');
+    let descriptionSliderFilm = document.querySelector('.description');
+    let genderSliderFilm = document.querySelector('.genero')
+    let categorySliderFilm = document.querySelector('.categoria');
+    let yearSliderFilm = document.querySelector('.año');
 
-let filmsLS = localStorage.getItem('films')
-let dataFilms = JSON.parse(filmsLS);
-
-let peliculasDestacadas = dataFilms.filter(isOutstanding);
-let sliderFilms = document.querySelector('.slider-main');
-let titleSliderFilm = document.querySelector('.title');
-let descriptionSliderFilm = document.querySelector('.description');
-let genderSliderFilm = document.querySelector('.genero')
-let categorySliderFilm = document.querySelector('.categoria');
-let yearSliderFilm = document.querySelector('.año');
-
-let i = 0;
-sliderFilms.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[0].imagen})`;
-titleSliderFilm.innerHTML = `${peliculasDestacadas[0].nombre}`
-descriptionSliderFilm.innerHTML = `${peliculasDestacadas[0].descripcion}`
-genderSliderFilm.innerHTML = `${peliculasDestacadas[0].genero}`
-categorySliderFilm.innerHTML = `${peliculasDestacadas[0].categoria}`
-yearSliderFilm.innerHTML = `${peliculasDestacadas[0].año}`
-
-
-// setInterval(() => {
-//     i++
-//     if(i>peliculasDestacadas.length-1){
-//         i=0
-//     }
-//     sliderFilms.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
-//     titleSliderFilm.innerHTML = `${peliculasDestacadas[i].nombre}`
-//     descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`
-    // genderSliderFilm.innerHTML = `${peliculasDestacadas[i].genero}`
-    // categorySliderFilm.innerHTML = `${peliculasDestacadas[i].categoria}`
-    // yearSliderFilm.innerHTML = `${peliculasDestacadas[i].año}`
-
-// }, 5000);
-
-let sliderDerecho = document.querySelector('.carousel-control-next');
-let sliderIzq = document.querySelector('.carousel-control-prev');
-
-function moverDerecha() {
-    i++
-    if (i>peliculasDestacadas.length -1 ) {
-        i = 0;
+    function acomodarImg(){    
+        
     }
-    sliderFilms.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
-    titleSliderFilm.innerHTML = `${peliculasDestacadas[i].nombre}`
-    descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`    
-    genderSliderFilm.innerHTML = `${peliculasDestacadas[i].genero}`
-    categorySliderFilm.innerHTML = `${peliculasDestacadas[i].categoria}`
-    yearSliderFilm.innerHTML = `${peliculasDestacadas[i].año}`
-}
-sliderDerecho.addEventListener('click', moverDerecha)
 
-function moverIzq() {
-    i--
-    if (i<0 ) {
-        i = peliculasDestacadas.length -1;
+    let i = 0;
+    function renderSlider(id){
+        switch (true) {
+            case sliderMain.classList.contains('img-mobile-center'):
+            // console.log('center chau');
+                sliderMain.classList.remove('img-mobile-center')
+            break;
+            case sliderMain.classList.contains('img-mobile-left'):
+            // console.log('left chau');
+                sliderMain.classList.remove('img-mobile-left')
+            break;
+            case sliderMain.classList.contains('img-mobile-right'):
+                // console.log('right chau');
+                
+            sliderMain.classList.remove('img-mobile-right')
+            break;
+            default:
+                break;
+        }
+        if (peliculasDestacadas[i].mobile) {
+            // console.log('hola');
+            if(peliculasDestacadas[i].mobile == "center"){
+                // console.log('center');
+                sliderMain.classList.add('img-mobile-center')
+            }else if(peliculasDestacadas[i].mobile == "left"){
+                // console.log('left');
+                sliderMain.classList.add('img-mobile-left')
+            }else{
+                // console.log('right');
+                sliderMain.classList.add('img-mobile-right')
+            }
+        }else{
+            console.log('chau');
+            
+        }
+        console.log(sliderMain);
+        // console.log((sliderMain.classList.contains('img-mobile-center' || 'img-mobile-left' || 'img-mobile-right')))
+          // if(!peliculasDestacadas[i].mobile? true : false && sliderMain.classList.contains('img-mobile-center' || 'img-mobile-left' || 'img-mobile-right')){
+            //     sliderMain.classList.remove('img-mobile-center' || 'img-mobile-left' || 'img-mobile-right')
+            // }
+        idPeliculasDestacada = `destacada-${peliculasDestacadas[id].id}`
+        sliderMain.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[id].imagen})`;
+        titleSliderFilm.innerHTML = `${peliculasDestacadas[id].nombre}`
+        descriptionSliderFilm.innerHTML = `${peliculasDestacadas[id].descripcion}`
+        genderSliderFilm.innerHTML = `${peliculasDestacadas[id].genero}`
+        categorySliderFilm.innerHTML = `${peliculasDestacadas[id].categoria}`
+        yearSliderFilm.innerHTML = `${peliculasDestacadas[id].año}`
+        console.log(peliculasDestacadas[i]);
+        
     }
-    sliderFilms.style.background = `linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(20, 29, 50) 100% ), url(${peliculasDestacadas[i].imagen})`;
-    titleSliderFilm.innerHTML = `${peliculasDestacadas[i].nombre}`
-    descriptionSliderFilm.innerHTML = `${peliculasDestacadas[i].descripcion}`
-    genderSliderFilm.innerHTML = `${peliculasDestacadas[i].genero}`
-    categorySliderFilm.innerHTML = `${peliculasDestacadas[i].categoria}`
-    yearSliderFilm.innerHTML = `${peliculasDestacadas[i].año}`
+    renderSlider(0)
+
+    let sliderInterval;
+    function sliderOn(){
+        sliderInterval = setInterval(() => {
+        i++
+        if(i>peliculasDestacadas.length-1){ i=0 };
+        renderSlider(i);
+        acomodarImg()
+    }, 5000 );
+    }
+    sliderOn()
+
+    let sliderDerecho = document.querySelector('.carousel-control-next');
+    let sliderIzq = document.querySelector('.carousel-control-prev');
+
+    function moverDerecha() {
+        i++
+        if (i > (peliculasDestacadas.length - 1)) { i = 0 }
+        renderSlider(i)
+        setTimeout(clearInterval(sliderInterval))
+        sliderOn()
+    }
+    function moverIzq() {
+        i--
+        if (i < 0) { i = peliculasDestacadas.length - 1 }
+        renderSlider(i)
+        setTimeout(clearInterval(sliderInterval))
+        sliderOn()
+    }
+    sliderDerecho.addEventListener('click', moverDerecha)
+    sliderIzq.addEventListener('click', moverIzq)
+    document.addEventListener('keyup', (e)=>{
+        if(e.code === "ArrowRight"){
+            moverDerecha()
+        }
+        if (e.code === "ArrowLeft") {
+            moverIzq()
+        }
+    })
+
+    let buttonInfo = document.querySelector('.button-info');
+    let btnDestacada = document.querySelector('.button-play-title');
+
+    function redirigir(element){
+        element.addEventListener('click', (event)=>{
+            // console.log(idPeliculasDestacada.slice(idPeliculasDestacada.indexOf('-')+1));
+            window.location.assign(window.location.origin + `/movie-detail.html#${idPeliculasDestacada.slice(idPeliculasDestacada.indexOf('-')+1)}`)
+        })
+    }
+    redirigir(buttonInfo)
+    // redirigir(btnDestacada)
+    btnDestacada.addEventListener('click', (event)=>{
+        let peliDestacada = peliculasDestacadas.find(movie=>movie.id == idPeliculasDestacada.slice(idPeliculasDestacada.indexOf('-')+1))
+        console.log(peliDestacada);
+        reproducirVideo(peliDestacada)
+        // btnDestacada.addEventListener('click', )
+    })
 }
-sliderIzq.addEventListener('click', moverIzq)
+slider()
+colorScrollNav()
 
-let titleOffCanvasToggler = document.querySelector('.offcanvas-title-toggler');
-let titleOffCanvasPerfil = document.querySelector('.offcanvas-title-perfil');
-let emailOffCanvasPerfil = document.querySelector('.offcanvas-email-perfil');
-let userBtn = document.querySelector('.nav-btn-user');
+const createCategories =()=>{
+    let containerCategories = document.querySelector('.container-categories');
 
-function nameUser(element) {
-    element.innerHTML = `<i class="me-2 fas fa-user-circle"></i> ${user.name}`
-    element.classList.add('d-flex', 'align-items-center');
-}
-nameUser(titleOffCanvasToggler)
-nameUser(titleOffCanvasPerfil);
-nameUser(userBtn)
-userBtn.classList.add('d-none');
-emailOffCanvasPerfil.innerHTML = `${user.email}`
-
-
-let nav = document.querySelector('.navbar-main');
-window.addEventListener('scroll', function () {
-  if(window.pageYOffset>20){
-    nav.classList.add('bg-scroll-nav', 'shadow');
-  }else{
-    nav.classList.remove('bg-scroll-nav', 'shadow')
-  }
-});
-
-
-document.querySelector('.log-out').addEventListener('click', logOut)
-function logOut() {
-    // localStorage.removeItem('user');
-    localStorage.clear()
-    document.location.assign(window.location.origin)
-}
-
-let containerCategories = document.querySelector('.container-categories');
-
-let cats = ['Acción', 'Drama', 'Comedia', 'Familia', 'Ficción', 'Terror'];
-cats.forEach(categoria=>{
+    let cats = ['Acción', 'Drama', 'Comedia', 'Familia', 'Ficción', 'Terror'];
+    cats.forEach(categoria=>{
     const cat = document.createElement('h3');
     cat.classList.add('title-categories', `title-${categoria}`, 'd-block');
     cat.setAttribute('data-aos', 'fade-right')
@@ -121,10 +178,10 @@ cats.forEach(categoria=>{
     cat.style.marginLeft = "2em"
     carrousel.id = categoria;
     carrousel.innerHTML = `
-    <button class="angle-left h-50 btn"><i class="fas fa-angle-left fa-2x angle-left color6"></i></button>
+    <button class="angle-left h-50 btn"><i class="fas fa-angle-left fa-2x angle-left"></i></button>
     <div class="d-flex carrousel-cats p-2 carrousel-${categoria}">
     </div>
-    <button class="angle-right h-50 btn"><i class="fas fa-angle-right fa-2x angle-right color6"></i></button>
+    <button class="angle-right h-50 btn"><i class="fas fa-angle-right fa-2x angle-right"></i></button>
     `
     carrousel.classList.add("d-flex", "align-items-center", "carrousel", "mt-0");
     cat.classList.add("text-light", "commontexts", "mb-0");
@@ -132,7 +189,7 @@ cats.forEach(categoria=>{
     containerCategories.appendChild(carrousel);
 })
 
-const familia = document.querySelector('.carrousel-Familia'); 
+const familia = document.querySelector('.carrousel-Familia');
 const comedia = document.querySelector('.carrousel-Comedia');
 const drama = document.querySelector('.carrousel-Drama');
 const accion = document.querySelector('.carrousel-Acción');
@@ -148,12 +205,13 @@ let filmsAccion = peliculas.filter(movie=>movie.genero.includes('Acción'));
 let filmsCienciaF = peliculas.filter(movie=>movie.genero.includes('Ficción'));
 let filmsTerror = peliculas.filter(movie=>movie.genero.includes('Terror'));
 
-console.log(filmsCienciaF);
-console.log(filmsTerror);
+// console.log(filmsCienciaF);
+// console.log(filmsTerror);
 
 
-function listarFilms(array) {    
+function listarFilms(array) {
     array.forEach(movie => {
+        if (movie.publicada === true){
         switch (true) {
             case array == filmsFamilia:
                     const movieCardFamilia = document.createElement("div");
@@ -161,18 +219,18 @@ function listarFilms(array) {
                     movieCardFamilia.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
                         <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
-                        <a href="#" class="link-icon fav-btn me-2"><i class="fas fa-plus-square fs-3 fav-btn"></i></i></a>
+                        <a href="#" class="link-icon-${movie.id} fav-btn me-2"><i class="fas fa-plus-square fs-3 fav-btn"></i></i></a>
                     </div>
                     `
                     familia.appendChild(movieCardFamilia);
-                break;           
+                break;
                 case array == filmsComedia:
                     const movieCardComedia = document.createElement("div");
                     movieCardComedia.classList.add("movie-card")
                     movieCardComedia.innerHTML = `
-                    <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
+                    <div id="${movie.id}" class=" movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
                         <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
-                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
+                        <a href="#" class="link-icon-${movie.id} fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     comedia.appendChild(movieCardComedia);
@@ -183,7 +241,7 @@ function listarFilms(array) {
                     movieCardDrama.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
                         <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
-                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
+                        <a href="#" class="link-icon-${movie.id} fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     drama.appendChild(movieCardDrama);
@@ -194,7 +252,7 @@ function listarFilms(array) {
                     movieCardAccion.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
                         <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
-                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
+                        <a href="#" class="link-icon-${movie.id} fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     accion.appendChild(movieCardAccion);
@@ -205,7 +263,7 @@ function listarFilms(array) {
                     movieCardCienciaF.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
                         <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
-                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
+                        <a href="#" class="link-icon-${movie.id} fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     cienciaFiccion.appendChild(movieCardCienciaF);
@@ -216,14 +274,15 @@ function listarFilms(array) {
                     movieCardTerror.innerHTML = `
                     <div id="${movie.id}" class="movie d-flex justify-content-end align-items-end" style="background-image:url('${movie.tapa}');">
                         <h5 class="movie-title m-2 pt-1 text-center border-bottom titlesandbtns d-none">${movie.nombre}</h5>
-                        <a href="#" class="link-icon fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
+                        <a href="#" class="link-icon-${movie.id} fav-btn me-1"><i class="fas fa-plus-square fs-3 fav-btn"></i></a>
                     </div>
                     `;
                     terror.appendChild(movieCardTerror);
                 break;
-                
+
                 default:
         }
+    }
     familia.scrollLeft = comedia.scrollLeft = drama.scrollLeft = accion.scrollLeft = cienciaFiccion.scrollLeft = terror.scrollLeft = 0;
     });
 }
@@ -236,7 +295,7 @@ listarFilms(filmsCienciaF)
 
 
 containerCategories.addEventListener("click",(event)=>{
-    if(event.target.classList.contains("angle-right")){ 
+    if(event.target.classList.contains("angle-right")){
         switch (true) {
             case event.target.parentElement.id === 'Comedia' || event.target.parentElement.parentElement.id === 'Comedia':
                 comedia.scrollLeft+=193.9;
@@ -257,7 +316,7 @@ containerCategories.addEventListener("click",(event)=>{
                 familia.scrollLeft+=193.9;
             break;
             default:
-        }  
+        }
     }else if(event.target.classList.contains("angle-left")){
         switch (true) {
             case event.target.parentElement.id === 'Comedia' || event.target.parentElement.parentElement.id === 'Comedia':
@@ -283,253 +342,40 @@ containerCategories.addEventListener("click",(event)=>{
         }
 })
 
-
-let generosAccion = document.querySelector('.lista-generos-accion');
-let generosAnimacion = document.querySelector('lista-generos-animacion')
-let generosAventura = document.querySelector('lista-generos-aventura')
-let generosGuerra = document.querySelector('lista-generos-guerra')
-let generosFiccion = document.querySelector('lista-generos-ficcion')
-let generosComedia= document.querySelector('lista-generos-comedia')
-let generosCrimen = document.querySelector('lista-generos-crimen')
-let generosDrama = document.querySelector('lista-generos-drama')
-let generosFamilia = document.querySelector('lista-generos-familia')
-let generosFantasia = document.querySelector('lista-generos-fantasia')
-let generosRomance = document.querySelector('lista-generos-romance')
-let generosTerror = document.querySelector('lista-generos-terror')
-
-let navGeneros = document.querySelector('.lista-generos');
-console.log(navGeneros);
-navGeneros.addEventListener("click",(event)=>{
-    setTimeout(() => {
-    document.documentElement.scrollTop-= 100;
-    },750)
-    if(document.documentElement.scrollWidth < 992){
-        setTimeout(() => {
-            document.getElementById('btn-close-modal').click()
-        },750)
-    }
-})
-
-//* FAVORITOS
-
-const containerFavs = document.getElementById("favorites-list")
-// const favsTitle = document.createElement("div");
-// favsTitle.classList.add("titlesandbtns","dropdown-header","mt-0","mb-1", 'ms-5');
-// favsTitle.style.fontSize="large"
-// favsTitle.innerHTML="Lista de favoritos"
-// containerFavs.appendChild(favsTitle);
-
-
-// function actualizarLS() {
-//     JSON.parse(localStorage.getItem('films'));
-// }
-
-// function getMovie(id) {
-//     const idPelicula = `${peliculas}.${id}`
-//     return idPelicula;
-// }
-
-// async function editMovie(id, newData) {
-//     const idPelicula = `${peliculas}.${id}`
-//     const peliLS = 
-//     return data;
-// }
-
-function getFavsLS() {
-    console.log(' GET FAVS LS');
-    let getFavs;
-    if(localStorage.getItem('favs')){
-        let dataFavs = JSON.parse(localStorage.getItem('favs'))
-        getFavs = dataFavs;
-    }else{
-        let favs = [];
-        JSON.stringify(localStorage.setItem('favs', favs))
-        getFavs = favs;
-    }
-    return getFavs;
-}
-
-function saveFavLS(favInfo){
-    console.log('SAVE FAV LS');
-    let favs = getFavsLS();
-    favs.push(favInfo);
-    localStorage.setItem('favs', JSON.stringify(favs));
-}
-
-function addFav(favInfo){
-    console.log('ADD FAV');
-    const favorite=document.createElement("li")
-    favorite.id=`fav-${favInfo.id}`
-    favorite.classList.add(`fav-${favInfo.id}`,"dropdown-item","pt-0", "d-flex", "align-items-center");
-    console.log('entre aca');
-    console.log(favorite);
-    favorite.innerHTML=`
-    <div class="me-2 col-md-1 align-self-center">
-        <h3 class="mb-1  delete-fav text-danger ml-2 mb-0" role="button">&times</h3>
-    </div>
-    <a class="ps-2 pe-1 text-wrap text-decoration-none text-light" href="detail.html#${favInfo.id}">${favInfo.nombre}</a>
-    `;
-    containerFavs.appendChild(favorite);
-    console.log(favorite);
-}
-
-
-
-function renderFavsLS(){
-    console.log('RENDER FAV LS');
-    setTimeout(() => {
-        let favs = getFavsLS();
-        favs.forEach((fav)=>{
-            const favorite=document.createElement("li")
-            favorite.id=`fav-${fav.id}`
-            favorite.classList.add(`fav-${fav.id}`,"dropdown-item","pt-0", "d-flex", "align-items-center");
-            console.log('entre aca');
-            console.log(favorite);
-            favorite.innerHTML=`
-            <div class="me-2 col-md-1 align-self-center">
-                <h3 class="mb-1 delete-fav text-danger ml-2 mb-0" role="button">&times</h3>
-            </div>
-            <a class="ps-2 pe-1 pe-3 text-wrap text-decoration-none text-light" href="detail.html#${fav.id}">${fav.nombre}</a> 
-            `;
-            containerFavs.appendChild(favorite);
-            // .innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>` //? CÓMO HACER PARA QUE AL ACTUALIZAR LA PAGINA NO ME PERMITA AGREGARLO
-        })
-    },2000);
-}
-
-function deleteFav(e){
-    console.log("DELETE FAV");
-    if(e.target.classList.contains("delete-fav")){
-        e.preventDefault();
-        const removedElement = e.target.parentElement.parentElement
-        const deleteId= removedElement.id.slice(4);
-        removedElement.remove();
-        deleteFavLS(deleteId);
-        console.log(deleteId);
-        document.getElementById(`${deleteId}`).querySelector('.text-success').parentElement.innerHTML = `<i class="fas fa-plus-square fs-3 fav-btn">`
-    }
-}
-
-function deleteFavLS(deleteId){
-    console.log('DELETE FAV LS');
-    let favs = getFavsLS();
-    favs.forEach((fav,index)=>{
-        if(fav.id === deleteId){
-            favs.splice(index,1);
+let categorias = document.querySelectorAll('.carrousel-cats')
+categorias.forEach(cat=> cat.addEventListener('click', (e)=>{    
+        if(e.target.classList.contains('movie')){
+            let idMovie = e.target.id;
+            console.log(idMovie)
+            window.location.assign(window.location.origin + `/movie-detail.html#${idMovie.slice(idMovie.indexOf('-')+1)}`)
         }
     })
-    localStorage.setItem("favs",JSON.stringify(favs));
+)
+
+// let btnDestacada = document.querySelector('.button-play-title');
+// btnDestacada.addEventListener('click', (e)=>{
+//     console.log(e.target);
+//         // window.location.assign(window.location.origin + `/movie-detail.html#${idMovie.slice(idMovie.indexOf('-')+1)}`)
+// })
+
+// function redirigir(event){
+//     let buttonInfo = document.querySelector('.container-categories');
+//     buttonInfo.addEventListener('click', (event)=>{
+//         console.log(idPeliculasDestacada.slice(idPeliculasDestacada.indexOf('-')+1));
+//         window.location.assign(window.location.origin + `/movie-detail.html#${idPeliculasDestacada.slice(idPeliculasDestacada.indexOf('-')+1)}`)
+//     })
+// }
+// redirigir(event)
 }
-document.addEventListener("DOMContentLoaded",renderFavsLS);
+createCategories()
+scrollGeneros()
 
-containerCategories.addEventListener("click",(e)=>{
-    console.log('entro al escuchador de eventos del carrusel');
-    console.log(e.target);
-    if(e.target.classList.contains("fav-btn")){
-        console.log('entro al fav-btn');
-        console.log(e.target);
-        e.preventDefault();
-        let favInfo=e.target.parentElement.parentElement;
-        console.log(favInfo);
-        if(favInfo.classList.contains("movie")){
-            console.log('entro a movie');
-            if (e.target.classList.contains("text-success")){
-                console.log('entro a color');
-                e.target.classList.remove("text-success")
-                containerFavs.querySelector(`.fav-${favInfo.id}`).remove()
-                deleteFavLS(favInfo.id)
-                console.log('no cambia el i');
-                e.target.parentElement.innerHTML = `<i class="fas fa-plus-square fs-3 fav-btn">`
-            }else{
-                console.log('CHECKEA');
-                e.target.parentElement.innerHTML = `<i class="fas fa-check-square text-success fav-btn"></i>`
-                console.log(favInfo.parentElement.previusSibling)
-                favInfo=
-                {
-                    nombre: favInfo.parentElement.querySelector('.movie-title').innerHTML,
-                    id: favInfo.id
-                }
-                addFav(favInfo)
-                saveFavLS(favInfo)
-            }
-        }
-        else{
-            console.log('el ultimo');
-            favInfo=favInfo.querySelector(".movie");
-            if(e.target.children.classList.contains("color2")){
-                e.target.classList.remove("color2")
-                containerFavs.querySelector(`.fav-${favInfo.id}`).remove()
-                deleteFavLS(favInfo.id)
-            }else{
-                e.target.children.classList.add("color2")
-                favInfo=
-                {
-                    imagen: favInfo.style.backgroundImage.slice(5,-2),
-                    nombre: favInfo.querySelector(".movie-title").textContent,
-                    id: favInfo.id
-                }
-                favInfo.querySelector(".movie-title").textContent,
-                addFav(favInfo)
-                saveFavLS(favInfo)
-            }
-        }
-    }
-})
-containerFavs.addEventListener("click",deleteFav);
+//* FAVORITOS
+listaFavoritos()
 
-// // let favsBtn = document.querySelectorAll('.fav-btn')
-// // favsBtn.addEventListener('click', addFav)
-// // console.log(favsBtn)
-// setTimeout(() => {
-//     console.log('CONCHAETUMADRE');
-// }, 2000);
+//* BUSCADOR
+buscador()
 
 
 
 
-
-
-
-
-
-
-
-
-
-//? Seleccion de titulos
-// let titleAccion = document.querySelector('.title-Acción');
-// let titleAnimacion = document.querySelector('.title-Familia');
-// let titleAventura = document.querySelector('.title-Acción');
-// let titleGuerra = document.querySelector('.title-Acción');
-// let titleFiccion = document.querySelector('.title-Ficción');
-// let titleComedia = document.querySelector('.title-Comedia');
-// let titleCrimen = document.querySelector('.title-Drama');
-// let titleDrama = document.querySelector('.title-Drama');
-// let titleFamilia = document.querySelector('.title-Familia');
-// let titleFantasia = document.querySelector('.title-Familia');
-// let titleRomance = document.querySelector('.title-Familia');
-// let titleTerror = document.querySelector('.title-Terror');
-
-// function moverTitle(element, titleElement) {
-//     element.addEventListener("click",(event)=>{
-//             setTimeout(() => {
-//                 titleElement.classList.add('animate__animated' , 'animate__pulse')      
-//                 console.log('chau');        
-//             }, 2000);
-//             titleElement.classList.remove('animate__animated' , 'animate__pulse')
-// //             if(document.documentElement.scrollWidth < 992){
-//     }
-// )}
-// moverTitle(generosAccion, titleAccion)
-// moverTitle(generosAnimacion, titleAnimacion)
-// moverTitle(generosAventura, titleAventura)
-// moverTitle(generosGuerra, titleGuerra)
-// moverTitle(generosFiccion, titleFiccion)
-// moverTitle(generosComedia, titleComedia)
-// moverTitle(generosCrimen, titleCrimen)
-// moverTitle(generosDrama, titleDrama)
-// moverTitle(generosFamilia, titleFamilia)
-// moverTitle(generosFantasia, titleFantasia) 
-// moverTitle(generosRomance, titleRomance)
-// moverTitle(generosTerror, titleTerror)
-//?

@@ -6,7 +6,7 @@
   --color-font-footer-mg: #8FEAFF;
   --color-lightBlue: rgb(94, 187, 240);
   --color-azul-claro: #21608d;
-  --color-blue: rgb(43, 117, 160); 
+  --color-blue: rgb(43, 117, 160);
   --color-navbar-scroll: #0f3b5f;
   --color-azul-cuevana: rgb(20, 31, 74);
   --color-blue-main: #141d32;
@@ -58,9 +58,6 @@ main{
   background-size: cover;
   background-position: right;
 }
-.footer{
-  height: 10%;
-}
 #titulo-landing {
   margin-top: 15vh;
   margin-left: 5vw;
@@ -102,8 +99,8 @@ font-weight: 600;
   font-size: 10px !important;
 } */
 @media screen and (min-width: 576px) {
-  .icons-footer{
-    transform: translateX(-7%);
+  .modal-fullscreen-sm-down{
+    margin-top: 40px;
   }
 }
 @media screen and (min-width: 678px) {
@@ -119,9 +116,9 @@ font-weight: 600;
     margin-left: 20vw;
     width: 50vw !important;
   }
-  .footer-links{
+  /* .footer-links{
     margin-left: 25% !important;
-  }
+  } */
 }
 @media screen and (min-width: 850px) {
   #titulo-landing {
@@ -145,18 +142,25 @@ font-weight: 600;
     padding-bottom: 6% !important;
   }
 }
-
+@media screen and (max-width: 400px) {
+  .navbar-element, #container-landing, .input-group-text, .register-inputs{
+    font-size: 12.5px;
+  }
+  .login-nav-button{
+    margin-left: 0 !important;
+  }
+}
 @media screen and (max-width: 367px) {
   .button-landing-suscript, .landing-ingreso-btn{
      font-size: 20px !important;
   }
   .navbar-element, #container-landing, .input-group-text, .register-inputs{
-    font-size: 13.5px;
+    font-size: 12.5px;
   }
   .navbar-brand{
     margin-right: 0;
   }
-  ..container-landing-title{
+  .container-landing-title h1{
     font-weight: 25px !important;
   }
   .accordion-button {
@@ -172,9 +176,9 @@ font-weight: 600;
   #titulo-landing {
     margin-top: 11vh !important;
   }
-  .container-footer-links{
+  /* .container-footer-links{
     transform: translateX(-5%) !important;
-  }
+  } */
   #main-subtitle{
     margin: 3px 0px !important;
     line-height: 1em;
@@ -183,6 +187,151 @@ font-weight: 600;
     margin-bottom: 15px;
   }
 }
+
+@media screen and (max-width: 850px) and (orientation: landscape){
+  .button-landing-suscript h6, .landing-ingreso-btn h6{
+    font-size: 12px;
+ }
+ .navbar-element, #container-landing, .input-group-text, .register-inputs{
+   font-size: 14.5px;
+ }
+.navbar-landing .container{
+  /* margin: 0; */
+  padding: 0 !important;
+  margin-left: 50px;
+ }
+ .container-landing-title h1{
+   font-weight: 25px !important;
+   font-size: 25px;
+ }
+ .accordion-button {
+   font-size: 17px !important;
+ }
+ .ask-forget-pass{
+   padding-left: 0;
+   padding-top: 10px;
+ }
+ #container-landing{
+   padding-left: 70px;
+   /* padding-top: 12px !important; */
+   height: auto;
+ }
+ #main-subtitle{
+   margin: 3px 0px !important;
+   line-height: 1em;
+   font-size: 22px !important;
+ }
+ .text-landing{
+   font-size: 15px !important;
+ }
+ .buttons-landing-main{
+  padding-bottom: 30px;
+ }
+   /** OFFCANVAS LOGIN*/
+   .offcanvas-header{
+    margin: 0;
+    padding: 0;
+   }
+ /** ALERT RECUPERAR PASS */
+ #recuperarPass .modal-dialog-centered{
+  margin-top: 10px;
+  margin-bottom: 10px;
+ }
+ .swal2-container, .swal2-title, .swal2-popup{
+  padding: 0 !important;
+ }
+ .swal2-title h3, .swal2-title h4{
+  font-size: 19px;
+  padding: 0 !important;
+  margin: 0 !important;
+ }
+ /** MODAL REGISTRO */
+ .modal-register-content .modal-header, #contactModal .modal-header{
+  padding: 5px 16px;
+ }
+ .modal-register-content .modal-body, #contactModal .modal-body{
+  padding: 0px 16px 10px 16px;
+ }
+ .input-group, #register-gender{
+  margin-bottom: 10px !important;
+ }
+ #contactModal .modal-body{
+  font-size: 12px;
+}
+#contactModal .modal-header h2{
+  font-size: 25px;
+}
+#textarea-email-contact{
+  height: 75px !important;
+}
+#contactModal, #staticBackdrop{
+  --bs-modal-margin: 1.5rem !important;
+ }
+}
+
+@media screen and (max-width: 680px) and (orientation: landscape){
+  .button-landing-suscript h6, .landing-ingreso-btn h6{
+    font-size: 10px;
+ }
+ .navbar-element, #container-landing, .input-group-text, .register-inputs{
+   font-size: 13.5px;
+ }
+.navbar-landing .container{
+  padding: 0 !important;
+  margin-left: 50px;
+ }
+ .container-landing-title h1{
+   font-weight: 25px !important;
+   font-size: 22px;
+ }
+ .accordion-button {
+   font-size: 17px !important;
+ }
+ .ask-forget-pass{
+   padding-left: 0;
+   padding-top: 10px;
+ }
+ #container-landing{
+  padding-top: 0 !important;
+   padding-left: 70px;
+   height: auto;
+ }
+ #main-subtitle{
+   margin: 3px 0px !important;
+   line-height: 1em;
+   font-size: 20px !important;
+ }
+ .text-landing{
+   font-size: 14px !important;
+   margin-bottom: 8px;
+ }
+ .buttons-landing-main{
+  padding-bottom: 15px;
+ }
+ #textarea-email-contact{
+  height: 70px !important;
+}
+ #contactModal, #staticBackdrop{
+  --bs-modal-margin: .5rem !important;
+ }
+ .form-floating>.form-control, .form-floating>.form-control-plaintext, .form-floating>.form-select {
+  height: calc(3rem + calc(var(--bs-border-width) * 2));
+}
+#btnForm{
+  margin-top: 8px !important;
+  margin-right: 8px;
+}
+.container-asunto-contact{
+  margin-bottom: 8px !important;
+}
+}
+
+.landing-ingreso-btn h6{
+  /* color: var(--color-azul-verde) !important; */
+  font-weight: 700 !important;
+}
+
+
 
 /** Efecto modal de registro */
 .bounce-in-top {
@@ -297,6 +446,18 @@ font-weight: 600;
 
 /** Fin efecto modal de registro */
 
+.modal-contact-content{
+  /* background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(20, 29, 50) 100% ), url(./../assets/img/login-modal.png); */
+  background: linear-gradient(rgba(11, 152, 189, .5) 0%, rgba(38, 46, 78, .5) 100% ) , url(./../assets/img/login-modal.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.modal-contact-content .modal-header{
+  color: antiquewhite;
+}
+
+
 
 .background-modal {
   margin: 0;
@@ -371,8 +532,8 @@ font-weight: 600;
   font-weight: 600;
   text-align: start;
 }
-/** Footer */
-.icons-redes{
+/* * Footer */
+/* .icons-redes{
   height: 80px;
   width: 80px;
   font-size: 60px !important;
@@ -382,7 +543,6 @@ font-weight: 600;
   color: var(--color-verde-aguila) !important;
 }
 .footer-links a{
-  /* color: var(--color-blue) !important; */
   color: rgb(67, 125, 159) !important;
 
   font-weight: 750;
@@ -396,31 +556,18 @@ font-weight: 600;
   font-size: 35px !important;
   transform: translateX(-5%);
   text-decoration: none;
-  /* color: var(--color-blue) !important; */
   color: var(--color-verde-aguila) !important;
 }
 .container-footer-bottom{
-  /* color: var(--color-verde-aguila) !important; */
   color: rgb(125, 138, 145) !important;
   font-weight: 700;
 }
 .footer-landing{
-  /* background-color: #10161c; */
   background: linear-gradient(rgba(20, 29, 50) 0%, rgba(20, 29, 50, .8) 100% ) !important;
-}
+} */
 
 /** Final footer  */
-/* --color-cadete: #212738;
---color-verde-a: #0F5257;
---color-lavanda: #6D6875;
---color-gris-topo: #7A7682;
---color-gris-claro: #C8D0CD;
---color-gainsboro: #DCE2E5;
---color-siena-oscuro: #2c0f14;
---color-rojo-toscano: gold;
---color-malva-topo: #926269;
---color-siena-oscuro2: #21090d;
---color-footer: #1B1B1E; */
+
 .preguntas-frecuentes{
   color: var(--color-gris-claro) !important;
   font-style: italic;
@@ -439,14 +586,13 @@ font-weight: 600;
   background: linear-gradient(rgba(20, 29, 50, .5) 0%, rgba(38, 110, 160, 0) 100% );
 }
 
-.footer-landing a:hover{
-  color: var(--color-font-footer-mg) !important;
-  
-}
-.footer-links{
-  margin-left: -20% !important;
+
+.swal2x-mark{
+  width: 10px !important;
+  height: 10px !important;
 }
 
 
-
-
+.modal-header{
+  border-bottom: 0px;
+}
