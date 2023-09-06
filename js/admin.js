@@ -140,105 +140,124 @@ document.querySelector('#form-add-movie').addEventListener('submit', (event)=>{
 })
 
 containerTable.addEventListener('click', (e) => {
-    if(e.target.parentElement.classList.contains('btn-admin-actions') || (!e.target.querySelector('button') && e.target.querySelector('i'))){
-        console.log(e.target.closest('tr').id);
-        let movieRow = e.target.closest('.btn-admin-actions')
-        let idMovie = movieRow.closest('tr').id;
-        let movieEdit = peliculas.find(movie=> movie.id == idMovie)
-        switch (true) {
-            case movieRow.classList.contains('btn-publicar'):
-                if(movieRow.classList.contains('bg-success')){
-                    movieRow.classList.remove('bg-success')
-                    movieRow.classList.add('bg-secondary')
-                    movieEdit.publicada = false;
-                    sendLS('films', peliculas)
-                    console.log('LCDSM');
-                    console.log(movieEdit);
-                }else{
-                    movieRow.classList.remove('bg-secondary')
-                    movieRow.classList.add('bg-success')
-                    movieEdit.publicada = true;
-                    sendLS('films', peliculas)
-                }
-                break;
-            case movieRow.classList.contains('btn-destacar'):
-                if(movieRow.classList.contains('bg-warning')){
-                    movieRow.classList.remove('bg-warning')
-                    movieRow.classList.add('bg-secondary')
-                    movieEdit.destacada = false;
-                    sendLS('films', peliculas)
-                    console.log('LCDSM');
-                    console.log(movieEdit);
-                }else{
-                    movieRow.classList.remove('bg-secondary')
-                    movieRow.classList.add('bg-warning')
-                    movieEdit.destacada = true;
-                    sendLS('films', peliculas)
-                }
-                break;
-            case movieRow.classList.contains('btn-editar'):
-                idAdd.value = idMovie;
-                nameAdd.value = movieEdit.nombre;
-                descAdd.value = movieEdit.descripcion;
-                let modalTitle = document.querySelector('.modal-title-addMovie');
-                modalTitle.classList.add('pt-2')
-                modalTitle.innerText = `Editar película`
-                let btnFormAddMovie = document.querySelector('.btn-form-addMovie');
-                btnFormAddMovie.innerText = `Confirmar edición`
-                let optionSelected = document.querySelector('.option-selected');
-                if(movieEdit.genero.includes(',')){
-                    optionSelected.innerHTML = `${movieEdit.genero}`
-                }else{
-                    generoAdd.value = movieEdit.genero;
-                }
-                directorAdd.value = movieEdit.director;
-                repartoAdd.value = movieEdit.reparto;
-                puntuacionAdd.value = movieEdit.puntuacion;
-                duracionAdd.value = movieEdit.duracion;
-                categoriaAdd.value = movieEdit.categoria;
-                yearAdd.value = movieEdit.año;
-                tapaAdd.value = movieEdit.tapa;
-                imgAdd.value = movieEdit.imagen;
-                videoAdd.value = movieEdit.video;
-                publicadaAdd.checked = movieEdit.publicada;
-                destacadaAdd.checked = movieEdit.destacada;
-                break;    
-            case movieRow.classList.contains('btn-borrar'):
-                let ubicarPelicula = peliculas.find(pelicula=> pelicula.id == idMovie)
-                let posicionABorrar = peliculas.indexOf(peliculas.find(pelicula=>pelicula.id === ubicarPelicula.id))
-                let user = JSON.parse(localStorage.getItem('user'))
-                Swal.fire({
-                    title: `Estás segur${user.gender == "Masculino"? 'o' : user.gender == "Femenino"? 'a' : 'x'} de eliminar esta película?`,
-                    text: "Luego no podrás revertir esta acción!",
-                    icon: 'warning',
-                    background: '#0A1A2A',
-                    color: 'white',
-                    width: '600px',
-                    heightAuto: false,  
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    cancelButtonText: 'Cancelar',
-                    confirmButtonText: 'Si, eliminar!'
-                  }).then((result) => {
-                    if (result.isConfirmed) {
-                      let peliculaBorrada = peliculas.splice(posicionABorrar, 1)
-                      for (let i = 0; i < peliculas.length; i++) {
-                          peliculas[i].id = i + 1 ;
-                      }
-                      console.log(peliculaBorrada);
-                      console.log(peliculas);
-                      sendLS('films', peliculas)
-      
-                      window.location.reload()
-                    }
-                  })
-                break;    
-            default:
-                break;
+  if (
+    e.target.parentElement.classList.contains('btn-admin-actions') ||
+    (!e.target.querySelector('button') && e.target.querySelector('i'))
+  ) {
+    console.log(e.target.closest('tr').id);
+    let movieRow = e.target.closest('.btn-admin-actions');
+    let idMovie = movieRow.closest('tr').id;
+    let movieEdit = peliculas.find((movie) => movie.id == idMovie);
+    switch (true) {
+      case movieRow.classList.contains('btn-publicar'):
+        if (movieRow.classList.contains('bg-success')) {
+          movieRow.classList.remove('bg-success');
+          movieRow.classList.add('bg-secondary');
+          movieEdit.publicada = false;
+          sendLS('films', peliculas);
+          console.log('LCDSM');
+          console.log(movieEdit);
+        } else {
+          movieRow.classList.remove('bg-secondary');
+          movieRow.classList.add('bg-success');
+          movieEdit.publicada = true;
+          sendLS('films', peliculas);
         }
+        break;
+      case movieRow.classList.contains('btn-destacar'):
+        if (movieRow.classList.contains('bg-warning')) {
+          movieRow.classList.remove('bg-warning');
+          movieRow.classList.add('bg-secondary');
+          movieEdit.destacada = false;
+          sendLS('films', peliculas);
+          console.log('LCDSM');
+          console.log(movieEdit);
+        } else {
+          movieRow.classList.remove('bg-secondary');
+          movieRow.classList.add('bg-warning');
+          movieEdit.destacada = true;
+          sendLS('films', peliculas);
+        }
+        break;
+      case movieRow.classList.contains('btn-editar'):
+        idAdd.value = idMovie;
+        nameAdd.value = movieEdit.nombre;
+        descAdd.value = movieEdit.descripcion;
+        let modalTitle = document.querySelector('.modal-title-addMovie');
+        modalTitle.classList.add('pt-2');
+        modalTitle.innerText = 'Editar película';
+        let btnFormAddMovie = document.querySelector('.btn-form-addMovie');
+        btnFormAddMovie.innerText = 'Confirmar edición';
+        let optionSelected = document.querySelector('.option-selected');
+        if (movieEdit.genero.includes(',')) {
+          optionSelected.innerHTML = `${movieEdit.genero}`;
+        } else {
+          generoAdd.value = movieEdit.genero;
+        }
+        directorAdd.value = movieEdit.director;
+        repartoAdd.value = movieEdit.reparto;
+        puntuacionAdd.value = movieEdit.puntuacion;
+        duracionAdd.value = movieEdit.duracion;
+        categoriaAdd.value = movieEdit.categoria;
+        yearAdd.value = movieEdit.año;
+        tapaAdd.value = movieEdit.tapa;
+        imgAdd.value = movieEdit.imagen;
+        videoAdd.value = movieEdit.video;
+        publicadaAdd.checked = movieEdit.publicada;
+        destacadaAdd.checked = movieEdit.destacada;
+        break;
+      case movieRow.classList.contains('btn-borrar'):
+        let ubicarPelicula = peliculas.find((pelicula) => pelicula.id == idMovie);
+        let posicionABorrar = peliculas.indexOf(
+          peliculas.find((pelicula) => pelicula.id === ubicarPelicula.id)
+        );
+        let user = JSON.parse(localStorage.getItem('user'));
+        Swal.fire({
+          title: `Estás segur${
+            user.gender == 'Masculino'
+              ? 'o'
+              : user.gender == 'Femenino'
+              ? 'a'
+              : 'x'
+          } de eliminar esta película?`,
+          text: 'Luego no podrás revertir esta acción!',
+          icon: 'warning',
+          background: '#0A1A2A',
+          color: 'white',
+          width: '600px',
+          heightAuto: false,
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText: 'Cancelar',
+          confirmButtonText: 'Si, eliminar!',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            let peliculaBorrada = peliculas.splice(posicionABorrar, 1);
+            for (let i = 0; i < peliculas.length; i++) {
+              peliculas[i].id = i + 1;
+            }
+            console.log(peliculaBorrada);
+            console.log(peliculas);
+            sendLS('films', peliculas);
+
+            window.location.reload();
+          }
+        });
+        break;
+      default:
+        break;
     }
-})
+  }
+});
+
+const modalAddMovie = document.getElementById('modalAddMovie');
+modalAddMovie.addEventListener('hidden.bs.modal', function () {
+  let modalTitle = document.querySelector('.modal-title-addMovie');
+  modalTitle.classList.remove('pt-2');
+  modalTitle.innerText = 'Crear película';
+});
+
 
 //* FAVORITOS
 const favoritosAdminPage =()=>{

@@ -408,92 +408,109 @@ export const saveFilms =()=>{
     return peliculas
 }
 //* BUSCADOR
-export const buscador =()=>{
-  let peliculas = saveFilms()  
+window.redirectToMovieDetail = function (movieId) {
+  window.location.href = `/movie-detail.html#${movieId}`;
+};
+
+export const buscador = () => {
+  let peliculas = saveFilms();
   let searchDataList = document.querySelector('#input-search');
-  let containerSearcher = document.querySelector('.centrar')
-  let containerResultado = document.createElement('div')
+  let containerSearcher = document.querySelector('.centrar');
+  let containerResultado = document.createElement('div');
   containerResultado.setAttribute('id', 'resultados-busqueda');
-  containerResultado.classList.add('position-absolute')
+  containerResultado.classList.add('position-absolute');
 
-  searchDataList.addEventListener('keyup', e=>{
-  if(e.target.matches('#input-search')){
-      if (containerResultado.childNodes.length===0) {
-      peliculas.forEach(pelicula=>{
-              let itemBusqueda = document.createElement('div')
-              itemBusqueda.classList.add('list-item-busqueda', 'd-none')
-              itemBusqueda.innerHTML = `
-              <a id="search-${pelicula.id}" class="item-search dropdown-item text-wrap p-1">${pelicula.nombre}</href=>
-              `
-              itemBusqueda.addEventListener('click', ()=>{
-                window.location.assign(`${window.location.origin}/movie-detail.html#${pelicula.id}`);
-              })
-              containerResultado.appendChild(itemBusqueda)
-              containerSearcher.appendChild(containerResultado)
-          })
-      }
-      document.querySelectorAll('.list-item-busqueda').forEach(item=>{
-          if(item.textContent.toLowerCase().includes(e.target.value.toLowerCase())){
-              item.classList.remove('d-none')
-          }else if(!item.textContent.toLowerCase().includes(e.target.value.toLowerCase())){
-              item.classList.add('d-none')
-              item.removeAttribute('href','reproducirVideo(pelicula)')
-              containerResultado.classList.add('p-0')
+  searchDataList.addEventListener('keyup', (e) => {
+    if (e.target.matches('#input-search')) {
+      if (containerResultado.childNodes.length === 0) {
+        peliculas.forEach((pelicula) => {
+          let itemBusqueda = document.createElement('div');
+          itemBusqueda.classList.add('list-item-busqueda', 'd-none');
+        
+          if (window.location.href.includes("movie-detail.html")) {
+            itemBusqueda.innerHTML = `
+              <a id="search-${pelicula.id}" class="item-search dropdown-item text-wrap p-1"
+              style="cursor:pointer">${pelicula.nombre}</a>
+            `;
+            const linkElement = itemBusqueda.querySelector(`#search-${pelicula.id}`);
+            linkElement.addEventListener('click', () => {
+              window.location.href = `${window.location.origin}/movie-detail.html#${pelicula.id}`;
+              window.location.reload()
+            });
+          } else {
+            itemBusqueda.innerHTML = `
+              <button onclick="redirectToMovieDetail(${pelicula.id})" id="search-${pelicula.id}" class="item-search dropdown-item text-wrap p-1">${pelicula.nombre}</button>
+            `;
           }
-      })  
-  }
-  if(e.target.value.length == 0){
-          containerSearcher.removeChild(containerResultado)
-          containerResultado.innerHTML = ""
+        
+          containerResultado.appendChild(itemBusqueda);
+          containerSearcher.appendChild(containerResultado);
+        });
       }
-  })
-    const redireccionBusqueda = () =>{
-        containerResultado.addEventListener('click', (e)=>{   
-            setTimeout(() => {
-                window.location.reload()
-            }, 50);
-        })
+      document.querySelectorAll('.list-item-busqueda').forEach((item) => {
+        if (item.textContent.toLowerCase().includes(e.target.value.toLowerCase())) {
+          item.classList.remove('d-none');
+        } else if (!item.textContent.toLowerCase().includes(e.target.value.toLowerCase())) {
+          item.classList.add('d-none');
+          item.removeAttribute('href', 'reproducirVideo(pelicula)');
+          containerResultado.classList.add('p-0');
+        }
+      });
     }
-    redireccionBusqueda()
+    if (e.target.value.length == 0) {
+      containerSearcher.removeChild(containerResultado);
+      containerResultado.innerHTML = '';
+    }
+  });
 
-  let inputSearch = document.querySelector('#input-search')
-  document.addEventListener('keyup', (e)=>{
-      if((e.keyCode >= 65 && e.keyCode <= 90)){
-          inputSearch.focus();
+  function isAnyModalOpen() {
+    const modals = document.querySelectorAll('.modal.show');
+    return modals.length > 0;
+  }
+  let inputSearch = document.querySelector('#input-search');
+  document.addEventListener('keyup', (e) => {
+    if (e.keyCode >= 65 && e.keyCode <= 90) {
+      if (!isAnyModalOpen()) {
+        inputSearch.focus();
       }
-  })
+    }
+  });
 
-  const cerrarContenedorResult =()=>{
-    let inputSearch = document.querySelector('#input-search')
+  const cerrarContenedorResult = () => {
+    let inputSearch = document.querySelector('#input-search');
     let fueraDeContenedor = event.target.closest("#resultados-busqueda") === null && !event.target.closest('.cont2');
-    if(fueraDeContenedor){
+    if (fueraDeContenedor) {
       containerResultado.classList.add('d-none');
     }
-    if(document.activeElement === inputSearch){
+    if (document.activeElement === inputSearch) {
       containerResultado.classList.remove('d-none');
     }
   }
-  document.addEventListener("click", function(event) {
+  document.addEventListener("click", function (event) {
     cerrarContenedorResult()
   });
-  document.addEventListener("keyup", function(event) {
+  document.addEventListener("keyup", function (event) {
     cerrarContenedorResult()
   });
-  
+
   let btnSearch = document.querySelector('#btn-lupa');
-  btnSearch.addEventListener('click', (e)=>{
-    if(containerResultado.childNodes){
+  btnSearch.addEventListener('click', (e) => {
+    if (containerResultado.childNodes) {
       containerResultado.classList.add('bg-secondary');
-      setTimeout(()=>{ containerResultado.classList.remove('bg-secondary')}, 2000)
-    }if(event.target.closest('.cont2')){
+      setTimeout(() => {
+        containerResultado.classList.remove('bg-secondary')
+      }, 2000)
+    }
+    if (event.target.closest('.cont2')) {
       let iconLupa = document.querySelector('#btn-lupa i')
       iconLupa.classList.add('text-info')
-      setTimeout(()=>{ iconLupa.classList.remove('text-info')}, 2000)
+      setTimeout(() => {
+        iconLupa.classList.remove('text-info')
+      }, 2000)
       inputSearch.focus();
     }
   })
-}
-
+};
 
 
 //* REPRODUCIR VIDEO
