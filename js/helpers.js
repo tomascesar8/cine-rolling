@@ -713,7 +713,7 @@ const modalContact =()=>{
         Username : "tomascesar1993@gmail.com",
         Password : "D19478D06661B455EB35D0C3E6D2BCEC7099",
         To : 'tomascesar1993@gmail.com',
-        From : 'tomascesar1993@gmail. com',
+        From : 'tomascesar1993@gmail.com',
         Subject : inputAsuntoContact.value,
         Body : messageContact,
       }).then(message => confirmContact(message));
