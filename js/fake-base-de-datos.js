@@ -1,28 +1,3 @@
-//SIMULAMOS BASE DE DATOS:
-// class User{
-//   constructor(name, email, phoneNumber, gender, pass, admin, favs){
-//     this.name = name;
-//     this.email = email;
-//     this.phoneNumber = phoneNumber;
-//     this.gender = gender;
-//     this.pass = pass;
-//     this.admin = admin;
-//     this.favs = favs;
-//   }
-// };
-// let users = [
-//   new User('Tomás César', 'tomas@hotmail.com', '351-1234567', 'Masculino', '123456', true, []),
-//   new User('Nicolás César', 'nicolas@hotmail.com', '351-2345678',  'Masculino', '123456', false, []),
-//   new User('Celeste César', 'celeste@hotmail.com', '351-3456789',  'Femenino', '123456', false, []),
-//   new User('Gonzalo César', 'gonzalo@hotmail.com', '351-4567890',  'Masculino', '123456', false, []),
-//   new User('Viviana Bacha', 'viviana@hotmail.com', '351-5678901',  'Femenino', '123456', true, []),
-// ];
-
-// if(!localStorage.getItem('users')){
-//   let usersJSON = JSON.stringify(users);
-//   localStorage.setItem('users', usersJSON);
-// };
-
 let peliculas = [
   {
     "id": 1,
@@ -967,6 +942,4 @@ let peliculas = [
 if(!localStorage.getItem('films')){
   let pelisJSON = JSON.stringify(peliculas)
   localStorage.setItem('films', pelisJSON)
-  localStorage.setItem('films-repuesto', pelisJSON)
-
 };

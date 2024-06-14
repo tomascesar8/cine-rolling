@@ -218,7 +218,7 @@ export const addFooter =()=>{
                   <div>
                     <div class="footer-links fs-5 my-2 py-2 my-0"><a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#contactModal" type="button">Contacto</a></div>
                     <div class="footer-links fs-5 my-2 py-2 my-0"><a class="text-decoration-none" href="/about-us.html">Sobre Nosotros</a></div>
-                    <div class="footer-links fs-5 my-2 py-2 my-0"><a class="text-decoration-none" href="/error404.html">Suport</a></div>
+                    <div class="footer-links fs-5 my-2 py-2 my-0"><a class="text-decoration-none" href="/error404.html">Soporte</a></div>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center my-3 col-md-4 order-0 order-md-0 col-12">
@@ -627,9 +627,6 @@ const modalContact =()=>{
     let inputEmailContact = document.querySelector('#input-email-contact');
     let inputAsuntoContact = document.querySelector('#input-asunto-contact')
     let textareaConsultaContact = document.querySelector('#textarea-email-contact')
-    console.log(inputEmailContact.value);
-    console.log(inputAsuntoContact.value);
-    console.log(textareaConsultaContact.value);
   
     let messageContact = `
       <html>
@@ -716,7 +713,7 @@ const modalContact =()=>{
         Username : "tomascesar1993@gmail.com",
         Password : "D19478D06661B455EB35D0C3E6D2BCEC7099",
         To : 'tomascesar1993@gmail.com',
-        From : 'tomascesar1993@gmail.com',
+        From : 'tomascesar1993@gmail. com',
         Subject : inputAsuntoContact.value,
         Body : messageContact,
       }).then(message => confirmContact(message));

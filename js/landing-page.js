@@ -52,7 +52,7 @@ function register(event) {
     Swal.fire({
       position: 'center',
       icon: 'error',
-      title: `<h3 style="margin:0" class="text-warning">La dirección de email ya está registrada</h3>
+      title: `<h3 style="margin:0" class="text-warning">Dirección ya registrada</h3>
               <p style="font-size:18px">El email ingresado ya corresponde con otro usuario.</p>`,
       showConfirmButton: false,
       timer: 6000,
@@ -267,7 +267,6 @@ function loginCheck(event){
   let email = document.querySelector('#login-email').value;
   let pass = document.querySelector('#login-pass').value;
   const userLoged = dataUsersLS.find(user=>user.email === email);
-  console.log(userLoged);
   if(userLoged){
     const passUserLoged = userLoged.pass === pass;
     if (passUserLoged){
@@ -349,11 +348,11 @@ addLandingMain()
 
 const addPreguntasFrecuentes =()=>{
   let preguntasFrecuentes = document.createElement('div');
-  preguntasFrecuentes.classList.add('container-preguntas','container', 'col', 'col-md-7', 'd-flex', 'flex-column', 'text-center', 'justify-content-center', 'pb-5')
+  preguntasFrecuentes.classList.add('container-preguntas','container', 'col', 'col-md-7', 'd-flex', 'flex-column', 'text-center', 'justify-content-center', 'py-5')
   preguntasFrecuentes.setAttribute('data-aos' , 'fade-up')
   preguntasFrecuentes.setAttribute('data-aos-duration' , '3000')
   preguntasFrecuentes.innerHTML = `
-    <div class="preguntas-frecuentes text-white text-center text-sm-start fw-bold fs-1 mt-4 mb-4  mb-lg-4">
+    <div class="preguntas-frecuentes pt-5 text-white text-center text-sm-start fw-bold fs-1 mt-4 mb-4  mb-lg-4">
       Preguntas frecuentes
     </div>
     <div class="w-100 d-flex flex-column accordion" id="accordionExample">

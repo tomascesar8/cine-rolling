@@ -53,7 +53,7 @@ main{
 }
 
 #container-landing, #recuperarPass, #exampleModalToggle2 {
-  background-image: url(./../assets/img/fondo-login.jpg);
+  background-image: url(./../assets/img/fondo-login1.jpg);
   height: 100vh;
   background-size: cover;
   background-position: right;
@@ -448,7 +448,7 @@ font-weight: 600;
 
 .modal-contact-content{
   /* background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(20, 29, 50) 100% ), url(./../assets/img/login-modal.png); */
-  background: linear-gradient(rgba(11, 152, 189, .5) 0%, rgba(38, 46, 78, .5) 100% ) , url(./../assets/img/login-modal.png);
+  background: linear-gradient(rgba(11, 152, 189, .5) 0%, rgba(38, 46, 78, .5) 100% ) , url(./../assets/img/login-modal1.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -462,7 +462,7 @@ font-weight: 600;
 .background-modal {
   margin: 0;
   padding: 0;
-  background-image: url(./../assets/img/fondo-registro.jpg);
+  background-image: url(./../assets/img/fondo-registro1.jpg);
   height: 100vh;
   background-size: cover;
   background-position: center;

@@ -11,9 +11,7 @@ scrollGeneros()
 
 let peliculas = saveFilms()
 let idPelicula = window.location.hash.slice(1);
-console.log(idPelicula);
 let movie = peliculas.find(pelicula=> pelicula.id == idPelicula);
-console.log(movie);
 
 
 const imgDetail =()=>{
@@ -106,14 +104,11 @@ const listaFavoritos =()=>{
 }
 
   function getFavsLS() {
-      console.log(' GET FAVS LS');
       let getFavs;
       if(localStorage.getItem('favs')){
-          console.log('GET FAVS 1');
           let dataFavs = JSON.parse(localStorage.getItem('favs'))
           getFavs = dataFavs;
       }else{
-          console.log('GET FAVS 2');
           let favs = [];
           JSON.stringify(localStorage.setItem('favs', favs))
           getFavs = favs;
@@ -121,18 +116,15 @@ const listaFavoritos =()=>{
       return getFavs;
   }
   function saveFavLS(favInfo){
-      console.log('SAVE FAV LS');
       let favs = getFavsLS();
       favs.push(favInfo);
       localStorage.setItem('favs', JSON.stringify(favs));
   }
 
   function addFav(favInfo){
-      console.log('ADD FAV');
       const favorite=document.createElement("li")
       favorite.id=`fav-${favInfo.id}`
       favorite.classList.add(`fav-${favInfo.id}`,"dropdown-item","pt-0", "d-flex", "align-items-center", "element-fav");
-      console.log('entre aca');
       favorite.innerHTML=`
       <div class="me-2 col-md-1 align-self-center">
           <h3 class="mb-1  delete-fav text-danger ml-2 mb-0" role="button">&times</h3>
@@ -140,9 +132,7 @@ const listaFavoritos =()=>{
       <a class="ps-2 pe-1 text-wrap text-decoration-none text-light item-fav-list" type="button" href="movie-detail.html#${favInfo.Id}">${favInfo.nombre}</a>
       `;
       containerFavs.appendChild(favorite);
-      console.log(favorite);
         // document.querySelector('.item-fav-list').addEventListener('click', ()=>{
-        //   console.log('CULIADASO1');
         //   document.querySelector('.item-fav-list').setAttribute('href',`movie-detail.html#${favInfo.id}`)
         //   window.location.reload()
         //   })
@@ -150,15 +140,12 @@ const listaFavoritos =()=>{
   }
 
   function renderFavsLS(){
-      console.log('RENDER FAV LS');
       setTimeout(() => {
           let favs = getFavsLS();
           favs.forEach((fav)=>{
               const favorite=document.createElement("li")
               favorite.id=`fav-${fav.id}`
               favorite.classList.add(`fav-${fav.id}`,"dropdown-item","pt-0", "d-flex", "align-items-center", "element-fav");
-              console.log('entre aca');
-              console.log(favorite);
               favorite.innerHTML=`
               <div class="me-2 col-md-1 align-self-center">
                   <h3 class="mb-1 delete-fav text-danger ml-2 mb-0" role="button">&times</h3>
@@ -167,13 +154,10 @@ const listaFavoritos =()=>{
               `;
               containerFavs.appendChild(favorite);
               // document.querySelector('.item-fav-list').addEventListener('click', ()=>{
-              // console.log('CULIADASO2');
 
               //   document.querySelector('.item-fav-list').setAttribute('href',`movie-detail.html#${fav.id}`)
               //   window.location.reload()
               //   })
-              console.log(document.getElementById(`${fav.id}`))
-              console.log(document.querySelector('.fav-detail-i'));
               let containerBtnFav = document.querySelector('.fav-detail')
               if(fav.id == idPelicula){
               document.querySelector('.fav-detail').innerHTML = `<i class="fas fa-check-circle me-2 me-sm-3 fs-4 fav-detail-i"></i> Mi lista`
@@ -187,10 +171,7 @@ const listaFavoritos =()=>{
   }
 
   function deleteFav(e){
-      console.log("DELETE FAV");
-      console.log(e);
       if(e.target.classList.contains("delete-fav")){
-        console.log('PRIMER IF');
           e.preventDefault();
           const removedElement = e.target.parentElement.parentElement
           const deleteId= removedElement.id.slice(4);
@@ -201,18 +182,13 @@ const listaFavoritos =()=>{
              detailIcon.remove()
           }
           deleteFavLS(deleteId);
-          console.log(deleteId);
-          console.log(e.target.parentElement.parentElement.parent)
           if(!containerFavs.querySelector('.element-fav')){
-            console.log('PRIMER ELSE IF');
               createListaVacia()
             }
       }else{
           if(!containerFavs.querySelector('#lista-vacia')){     
-              console.log('ULTIMO ELSE');
               const removedElement = e.target.parentElement
               const deleteId= removedElement.id.slice(4);
-              console.log(deleteId);
               window.location.assign(`${window.location.origin}/movie-detail.html#${deleteId}`)
               // alert('papeee')
               window.location.reload()
@@ -221,13 +197,9 @@ const listaFavoritos =()=>{
   }
 
   function deleteFavLS(deleteId){
-      console.log('DELETE FAV LS');
-      console.log(deleteId);
       let favs = getFavsLS();
       favs.forEach((fav,index)=>{
-        console.log(index);   //? DE DÓNDE SALE INDEX?
           if(fav.id == deleteId){
-            console.log('HOLAAAAAAAAAAAA');
               favs.splice(index,1);
           }
       })
@@ -238,8 +210,6 @@ const listaFavoritos =()=>{
       let btnAddFav = document.querySelector('.button-add-detail');
       btnAddFav.addEventListener("click",(e)=>{
         if(e.target.classList.contains("fav-detail")){
-            console.log('entro al fav-btn');
-            console.log(e.target);
             let idMovie= window.location.hash.slice(1);
             let favInfo = e.target.querySelector('i')
             if(favInfo.classList.contains("fa-check-circle")){
@@ -251,7 +221,6 @@ const listaFavoritos =()=>{
                     createListaVacia()
                 }
             }else{
-                console.log('CHECKEA');
                     favInfo.parentElement.innerHTML = `<i class="fas fa-check-circle me-2 me-sm-3 fs-4 fav-detail-i"></i> Mi lista`
                 favInfo= movie;
                 addFav(favInfo)
